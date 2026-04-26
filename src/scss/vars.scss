@@ -1,0 +1,55 @@
+@use 'sass:map';
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1439px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+$main-font: 'Inter', 'Helvetica', sans-serif;
+
+$text-primary: #1f1f1f;
+
+$background-primary: #ffffff;
+
+$text-presets: (
+    default: (
+        font-size: 16px,
+        line-height: 24px,
+    ),
+);
+
+$font-weights: (
+    300: 300,
+    400: 400,
+    500: 500,
+    600: 600,
+    700: 700,
+);
+
+@mixin text($preset, $weight) {
+    $style: map.get($text-presets, $preset);
+    $font-weight: map.get($font-weights, $weight);
+
+    @if $style == null {
+        @error "Unknown text preset: #{$preset}";
+    }
+
+    @if $font-weight == null {
+        @error "Unknown font weight: #{$weight}";
+    }
+
+    font-size: map.get($style, font-size);
+    line-height: map.get($style, line-height);
+    font-weight: $font-weight;
+
+    @if map.has-key($style, letter-spacing) {
+        letter-spacing: map.get($style, letter-spacing);
+    }
+}

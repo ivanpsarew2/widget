@@ -1,0 +1,39 @@
+@use 'reset';
+@use 'fonts';
+@use 'vars';
+
+// @use './components/button';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+}
+
+body {
+    @include vars.text(default, 400);
+
+    overflow-x: hidden;
+    font-family: vars.$main-font;
+    color: vars.$text-primary;
+    background-color: vars.$background-primary;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.transparent {
+    opacity: 0 !important;
+}
+
+.body-lock {
+    overflow: hidden;
+}

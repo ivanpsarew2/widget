@@ -1,0 +1,45 @@
+include ../components/button
+
+mixin widgetScreen(options)
+    - options = options || {}
+    - const title = options.title
+    - const subtitle = options.subtitle
+    - const avatar = options.avatar
+    - const header = options.header !== false
+    - const back = Boolean(options.back)
+    - const dropdown = Boolean(options.dropdown)
+    - const footer = options.footer || null
+    - const extraClass = options.className || ''
+    - const screenClasses = ['widget-screen']
+    - if (extraClass) screenClasses.push(extraClass)
+
+    .widget-screen(class=screenClasses)&attributes(attributes)
+        if header
+            header.widget-screen__header
+                if back
+                    button.widget-screen__header-button.widget-screen__header-button--back(type="button")
+                        span.widget-screen__header-icon
+
+                if avatar
+                    img.widget-screen__avatar(src=avatar alt="")
+
+                if title || subtitle
+                    .widget-screen__title-group
+                        if title
+                            .widget-screen__title= title
+                        if subtitle
+                            .widget-screen__subtitle= subtitle
+
+                if dropdown
+                    button.widget-screen__header-button.widget-screen__header-button--dropdown(type="button")
+                        span.widget-screen__header-icon
+
+        main.widget-screen__content
+            block
+
+        if footer
+            footer.widget-screen__footer
+                if footer.text
+                    .widget-screen__footer-text= footer.text
+                if footer.button
+                    +button(footer.button)

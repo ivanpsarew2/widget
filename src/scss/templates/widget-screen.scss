@@ -1,0 +1,105 @@
+@use '../vars';
+
+.widget-screen {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 100%;
+    max-width: 428px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    overflow: hidden;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
+}
+
+.widget-screen__header {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    min-height: 64px;
+    padding: 12px 16px;
+}
+
+.widget-screen__header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: vars.color(text-primary);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.widget-screen__header-button--back {
+    margin-left: -8px;
+}
+
+.widget-screen__header-button--back .widget-screen__header-icon,
+.widget-screen__header-button--dropdown .widget-screen__header-icon {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+.widget-screen__header-button--back .widget-screen__header-icon {
+    transform: rotate(135deg);
+}
+
+.widget-screen__header-button--dropdown .widget-screen__header-icon {
+    transform: rotate(45deg);
+}
+
+.widget-screen__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.widget-screen__title-group {
+    min-width: 0;
+}
+
+.widget-screen__title {
+    @include vars.text(default, 700);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.widget-screen__subtitle {
+    @include vars.text(default, 400);
+
+    overflow: hidden;
+    color: vars.color(text-secondary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.widget-screen__content {
+    min-height: 0;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.widget-screen__footer {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    background-color: vars.color(bg-primary);
+    box-shadow: 0 -8px 24px rgba(#000000, 0.08);
+}
+
+.widget-screen__footer-text {
+    @include vars.text(default, 500);
+
+    color: vars.color(text-primary);
+}

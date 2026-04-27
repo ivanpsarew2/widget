@@ -1,0 +1,44 @@
+include ../components/button
+
+mixin bottomSheet(options)
+    - options = options || {}
+    - const title = options.title
+    - const close = options.close !== false
+    - const footer = options.footer || null
+    - const overlay = options.overlay !== false
+    - const extraClass = options.className || ''
+    - const sheetClasses = ['bottom-sheet']
+    - if (extraClass) sheetClasses.push(extraClass)
+
+    if overlay
+        .widget-overlay
+            .widget-overlay__backdrop
+            .bottom-sheet(class=sheetClasses)&attributes(attributes)
+                if close
+                    button.bottom-sheet__close(type="button")
+                        span.bottom-sheet__close-icon
+                if title
+                    .bottom-sheet__title= title
+                .bottom-sheet__content
+                    block
+                if footer
+                    .bottom-sheet__footer
+                        if footer.primary
+                            +button(footer.primary)
+                        if footer.secondary
+                            +button(footer.secondary)
+    else
+        .bottom-sheet(class=sheetClasses)&attributes(attributes)
+            if close
+                button.bottom-sheet__close(type="button")
+                    span.bottom-sheet__close-icon
+            if title
+                .bottom-sheet__title= title
+            .bottom-sheet__content
+                block
+            if footer
+                .bottom-sheet__footer
+                    if footer.primary
+                        +button(footer.primary)
+                    if footer.secondary
+                        +button(footer.secondary)

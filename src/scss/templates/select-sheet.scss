@@ -1,0 +1,72 @@
+@use '../vars';
+
+.select-sheet__search {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid vars.color(border-light-3);
+    border-radius: 8px;
+}
+
+.select-sheet__search-icon {
+    width: 16px;
+    height: 16px;
+    border: 2px solid vars.color(text-third);
+    border-radius: 50%;
+
+    &::after {
+        display: block;
+        width: 8px;
+        height: 2px;
+        margin: 11px 0 0 11px;
+        background-color: vars.color(text-third);
+        content: '';
+        transform: rotate(45deg);
+    }
+}
+
+.select-sheet__search-input {
+    @include vars.text(default, 400);
+
+    min-width: 0;
+    border: 0;
+    color: vars.color(text-primary);
+    outline: 0;
+}
+
+.select-sheet__list {
+    display: grid;
+    gap: 4px;
+}
+
+.select-sheet__option {
+    @include vars.text(default, 400);
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 8px;
+    border: 0;
+    color: vars.color(text-primary);
+    text-align: left;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.select-sheet__option.is-selected {
+    background-color: vars.color(success-bg);
+}
+
+.select-sheet__check {
+    display: block;
+    width: 16px;
+    height: 10px;
+    border-bottom: 2px solid vars.color(accent-default);
+    border-left: 2px solid vars.color(accent-default);
+    transform: rotate(-45deg);
+}

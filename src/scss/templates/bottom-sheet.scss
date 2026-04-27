@@ -1,0 +1,86 @@
+@use '../vars';
+
+.widget-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    align-items: end;
+}
+
+.widget-overlay__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: vars.color(bg-sheet);
+}
+
+.bottom-sheet {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 428px;
+    max-height: calc(100dvh - 48px);
+    margin: 0 auto;
+    padding: 32px 20px 24px;
+    overflow-y: auto;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
+    border-radius: 16px 16px 0 0;
+}
+
+.bottom-sheet__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-light-1);
+    cursor: pointer;
+}
+
+.bottom-sheet__close-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: currentColor;
+        content: '';
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.bottom-sheet__title {
+    @include vars.text(default, 700);
+
+    margin: 0 40px 24px 0;
+}
+
+.bottom-sheet__content {
+    display: grid;
+    gap: 16px;
+}
+
+.bottom-sheet__footer {
+    display: grid;
+    gap: 8px;
+    margin-top: 24px;
+}

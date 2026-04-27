@@ -1,0 +1,27 @@
+include ./bottom-sheet
+
+mixin selectSheet(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const withSearch = Boolean(options.search)
+    - const searchPlaceholder = options.searchPlaceholder || 'Найти'
+
+    +bottomSheet({
+        title: options.title || 'Выберите значение из списка',
+        close: options.close,
+        overlay: options.overlay,
+        className: options.className
+    })&attributes(attributes)
+        if withSearch
+            label.select-sheet__search
+                span.select-sheet__search-icon
+                input.select-sheet__search-input(type="search" placeholder=searchPlaceholder)
+
+        .select-sheet__list
+            each item in items
+                - const itemLabel = typeof item === 'string' ? item : item.label
+                - const selected = typeof item === 'object' && item.selected
+                button.select-sheet__option(type="button" class=selected ? 'is-selected' : '')
+                    span= itemLabel
+                    if selected
+                        span.select-sheet__check

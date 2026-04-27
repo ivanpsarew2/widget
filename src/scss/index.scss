@@ -2,7 +2,11 @@
 @use 'fonts';
 @use 'vars';
 
-// @use './components/button';
+@use './components/button';
+@use './templates/widget-screen';
+@use './templates/bottom-sheet';
+@use './templates/select-sheet';
+@use './pages/example';
 
 * {
     box-sizing: border-box;
@@ -18,8 +22,8 @@ body {
 
     overflow-x: hidden;
     font-family: vars.$main-font;
-    color: vars.$text-primary;
-    background-color: vars.$background-primary;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
 }
 
 a {

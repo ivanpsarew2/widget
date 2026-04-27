@@ -1,0 +1,30 @@
+include ../icons/icon-plus
+
+mixin button(options)
+    - options = options || {}
+    - const label = options.label || 'Button'
+    - const variant = options.variant || 'primary'
+    - const operation = Boolean(options.operation)
+    - const disabled = Boolean(options.disabled)
+    - const active = Boolean(options.active)
+    - const extraClass = options.className || ''
+    - const type = options.type || 'button'
+    - const href = options.href
+    - const buttonClasses = ['button', `button_${variant}`]
+    - if (operation) buttonClasses.push('button_operation')
+    - if (active) buttonClasses.push('button_active')
+    - if (disabled) buttonClasses.push('button_disabled')
+    - if (extraClass) buttonClasses.push(extraClass)
+
+    if operation
+        if href && !disabled
+            a(class=buttonClasses href=href)&attributes(attributes)
+                +icon-plus('button__icon button__icon_plus')
+        else
+            button(class=buttonClasses type=type disabled=disabled)&attributes(attributes)
+                +icon-plus('button__icon button__icon_plus')
+    else
+        if href && !disabled
+            a(class=buttonClasses href=href)&attributes(attributes)= label
+        else
+            button(class=buttonClasses type=type disabled=disabled)&attributes(attributes)= label

@@ -1,0 +1,74 @@
+@use '../vars';
+
+.button {
+    @include vars.text(default, 500);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0 12px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    color: vars.color(text-button);
+    text-align: center;
+    text-decoration: none;
+    background-color: vars.color(accent-default);
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+
+    &:hover,
+    &_active {
+        background-color: vars.color(accent-hover);
+    }
+
+    &:disabled,
+    &_disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &_secondary {
+        color: vars.color(text-primary);
+        border-color: vars.color(text-primary);
+        background-color: transparent;
+
+        &:hover,
+        &.button_active {
+            color: vars.color(text-button);
+            border-color: vars.color(accent-hover);
+            background-color: vars.color(accent-hover);
+        }
+    }
+
+    &_third {
+        color: vars.color(text-primary);
+        border-color: vars.color(border-light-2);
+        background-color: vars.color(bg-primary);
+
+        &:hover,
+        &.button_active {
+            border-color: transparent;
+            background-color: vars.color(bg-light-3);
+        }
+    }
+
+    &_operation {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border-radius: 50%;
+    }
+}
+
+.button__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: currentColor;
+}

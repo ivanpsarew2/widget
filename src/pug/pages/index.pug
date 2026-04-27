@@ -1,5 +1,9 @@
+extends ../layout
+include ../components/button
+
 block variables
     - var page = 'index'
 
 block content
     .main
+        +button({ label: 'Button', variant: 'primary' })

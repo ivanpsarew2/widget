@@ -14,13 +14,107 @@
 
 $main-font: 'Inter', 'Helvetica', sans-serif;
 
-$text-primary: #1f1f1f;
+$palette-text: #1f1f1f;
+$palette-white: #ffffff;
+$palette-black: #000000;
+$palette-grey-light: #f7f7f7;
+$palette-danger: #ff3b38;
+$palette-success: #148f2b;
+$palette-warning: #f5b800;
+$palette-accent-invert: #72bc80;
+$palette-accent-hover: #0c561a;
+$palette-accent-selected: #041d09;
+$palette-link: #1a6be6;
 
-$background-primary: #ffffff;
+$color-text-primary: $palette-text;
+$color-text-secondary: rgba($palette-text, 0.8);
+$color-text-third: rgba($palette-text, 0.48);
+$color-text-invert-primary: $palette-white;
+$color-text-invert-secondary: rgba($palette-white, 0.8);
+$color-text-button: $palette-white;
+$color-bg-primary: $palette-white;
+$color-bg-panel: rgba($palette-white, 0.8);
+$color-bg-secondary: $palette-grey-light;
+$color-bg-sheet: rgba($palette-black, 0.4);
+$color-bg-light-1: rgba($palette-black, 0.08);
+$color-bg-light-2: rgba($palette-black, 0.16);
+$color-bg-light-3: rgba($palette-black, 0.24);
+$color-border-light-1: rgba($palette-black, 0.08);
+$color-border-light-2: rgba($palette-black, 0.16);
+$color-border-light-3: rgba($palette-black, 0.24);
+$color-danger: $palette-danger;
+$color-danger-bg: rgba($palette-danger, 0.16);
+$color-success: $palette-success;
+$color-success-bg: rgba($palette-success, 0.16);
+$color-warning: $palette-warning;
+$color-accent-invert: $palette-accent-invert;
+$color-accent-default: $palette-success;
+$color-accent-hover: $palette-accent-hover;
+$color-accent-selected: $palette-accent-selected;
+$color-accent-bg: rgba($palette-success, 0.16);
+$color-link: $palette-link;
+
+@function color-token($light, $dark: null) {
+    @return (light: $light, dark: $dark);
+}
+
+$colors: (
+    text-primary: color-token($color-text-primary),
+    text-secondary: color-token($color-text-secondary),
+    text-third: color-token($color-text-third),
+    text-invert-primary: color-token($color-text-invert-primary),
+    text-invert-secondary: color-token($color-text-invert-secondary),
+    text-button: color-token($color-text-button),
+    bg-primary: color-token($color-bg-primary),
+    bg-panel: color-token($color-bg-panel),
+    bg-secondary: color-token($color-bg-secondary),
+    bg-sheet: color-token($color-bg-sheet),
+    bg-light-1: color-token($color-bg-light-1),
+    bg-light-2: color-token($color-bg-light-2),
+    bg-light-3: color-token($color-bg-light-3),
+    border-light-1: color-token($color-border-light-1),
+    border-light-2: color-token($color-border-light-2),
+    border-light-3: color-token($color-border-light-3),
+    danger: color-token($color-danger),
+    danger-bg: color-token($color-danger-bg),
+    success: color-token($color-success),
+    success-bg: color-token($color-success-bg),
+    warning: color-token($color-warning),
+    accent-invert: color-token($color-accent-invert),
+    accent-default: color-token($color-accent-default),
+    accent-hover: color-token($color-accent-hover),
+    accent-selected: color-token($color-accent-selected),
+    accent-bg: color-token($color-accent-bg),
+    link: color-token($color-link),
+);
+
+@function color($style, $theme: light) {
+    $token: map.get($colors, $style);
+
+    @if $token == null {
+        @error "Unknown color style: #{$style}";
+    }
+
+    $theme-color: map.get($token, $theme);
+
+    @if $theme-color == null {
+        @return map.get($token, light);
+    }
+
+    @return $theme-color;
+}
 
 $text-presets: (
     default: (
         font-size: 16px,
+        line-height: 24px,
+    ),
+    button: (
+        font-size: 24px,
+        line-height: 32px,
+    ),
+    button-caption: (
+        font-size: 18px,
         line-height: 24px,
     ),
 );

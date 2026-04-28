@@ -111,6 +111,13 @@
     width: min(100%, 560px);
 }
 
+.example-section__statuses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
 .example-section__inputs {
     display: grid;
     width: min(100%, 640px);

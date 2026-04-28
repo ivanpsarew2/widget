@@ -1,6 +1,7 @@
 extends ../layout
 include ../templates/widget-screen
 include ../templates/select-sheet
+include ../components/appointment-status
 include ../components/button
 include ../components/chips
 include ../components/checkbox
@@ -274,6 +275,13 @@ block content
                     phone: '+7 (000) 000-00-00',
                     email: 'mymail@mail.ru'
                 })
+
+        section.example-section
+            h2.example-section__title Item Status Appointment
+
+            .example-section__statuses
+                +appointmentStatus({ label: 'Завершена' })
+                +appointmentStatus({ variant: 'danger', label: 'Отменена' })
 
         section.example-section
             h2.example-section__title Input Search

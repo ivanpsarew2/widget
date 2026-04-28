@@ -1,0 +1,13 @@
+include ../icons/icon-dropdown-check
+
+mixin appointmentStatus(options)
+    - options = options || {}
+    - const variant = options.variant || 'success'
+    - const label = options.label || (variant === 'danger' ? 'Отменена' : 'Завершена')
+    - const extraClass = options.className || ''
+    - const statusClasses = ['appointment-status', `appointment-status_${variant}`]
+    - if (extraClass) statusClasses.push(extraClass)
+
+    .appointment-status(class=statusClasses)&attributes(attributes)
+        +icon-dropdown-check('appointment-status__icon')
+        span.appointment-status__label= label

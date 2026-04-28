@@ -9,6 +9,7 @@ include ../components/calendar-day
 include ../components/calendar
 include ../components/dropdown-list-item
 include ../components/item-appointment
+include ../components/item-balance-card
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
@@ -320,6 +321,25 @@ block content
                         variant: 'secondary',
                         icon: 'reload'
                     }
+                })
+
+        section.example-section
+            h2.example-section__title Item Balance Card
+
+            .example-section__balance-cards
+                +itemBalanceCard({
+                    title: 'Абонемент на 10 дневных макияжей',
+                    subtitle: 'Абонемент №725',
+                    balance: 'Остаток 8 услуг'
+                })
+                +itemBalanceCard({
+                    title: 'Сертификат 10 000 ₽ на все услуги',
+                    subtitle: 'Сертификат №734',
+                    balance: 'Остаток 6 300 ₽'
+                })
+                +itemBalanceCard({
+                    title: 'Депозит',
+                    balance: 'Остаток 7 200 ₽'
                 })
 
         section.example-section

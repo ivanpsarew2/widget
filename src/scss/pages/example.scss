@@ -117,6 +117,12 @@
     gap: 16px;
 }
 
+.example-section__balance-cards {
+    display: grid;
+    width: min(100%, 480px);
+    gap: 16px;
+}
+
 .example-section__statuses {
     display: flex;
     flex-wrap: wrap;

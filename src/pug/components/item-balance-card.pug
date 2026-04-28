@@ -1,0 +1,15 @@
+mixin itemBalanceCard(options)
+    - options = options || {}
+    - const title = options.title || 'Абонемент на 10 дневных макияжей'
+    - const subtitle = options.subtitle
+    - const balance = options.balance || 'Остаток 8 услуг'
+    - const extraClass = options.className || ''
+    - const cardClasses = ['item-balance-card']
+    - if (extraClass) cardClasses.push(extraClass)
+
+    .item-balance-card(class=cardClasses)&attributes(attributes)
+        .item-balance-card__title= title
+            if subtitle
+                .item-balance-card__subtitle= subtitle
+        if balance
+            .item-balance-card__balance= balance

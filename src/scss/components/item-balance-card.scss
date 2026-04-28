@@ -1,0 +1,32 @@
+@use '../vars';
+
+.item-balance-card {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid vars.color(border-light-2);
+    border-radius: 12px;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
+
+    &__title {
+        @include vars.text(default, 500);
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__subtitle {
+        @include vars.text(user-contact, 400);
+
+        color: vars.color(text-secondary);
+    }
+
+    &__balance {
+        @include vars.text(balance, 400);
+
+        color: vars.color(text-primary);
+    }
+}

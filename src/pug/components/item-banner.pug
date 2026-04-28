@@ -1,0 +1,37 @@
+include ../icons/icon-caret-right
+
+mixin itemBanner(options)
+    - options = options || {}
+    - const label = options.label || 'Text banner'
+    - const href = options.href
+    - const type = options.type || 'button'
+    - const extraClass = options.className || ''
+    - const bannerClasses = ['item-banner']
+    - if (extraClass) bannerClasses.push(extraClass)
+
+    if href
+        a(class=bannerClasses href=href)&attributes(attributes)
+            if block
+                span.item-banner__icon
+                    block
+            span.item-banner__label= label
+            +icon-caret-right('item-banner__arrow')
+    else
+        button(class=bannerClasses type=type)&attributes(attributes)
+            if block
+                span.item-banner__icon
+                    block
+            span.item-banner__label= label
+            +icon-caret-right('item-banner__arrow')
+
+mixin itemBanners(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const bannersClasses = ['item-banners']
+    - if (extraClass) bannersClasses.push(extraClass)
+
+    .item-banners(class=bannersClasses)&attributes(attributes)
+        each item in items
+            +itemBanner(item)
+                block

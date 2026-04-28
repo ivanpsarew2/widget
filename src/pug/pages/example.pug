@@ -6,6 +6,8 @@ include ../components/chips
 include ../components/checkbox
 include ../components/item-tab
 include ../components/item-review
+include ../components/item-banner
+include ../icons/icon-smiley
 
 block variables
     - var page = 'example'
@@ -139,6 +141,22 @@ block content
                     date: '00 месяц 0000',
                     text: 'Review text'
                 })
+
+        section.example-section
+            h2.example-section__title Item Banner
+
+            .example-section__banner
+                +itemBanner({ label: 'Text banner' })
+                    +icon-smiley('item-banner__slot-icon')
+
+            .example-section__banners
+                .item-banners
+                    +itemBanner({ label: 'Text banner' })
+                        +icon-smiley('item-banner__slot-icon')
+                    +itemBanner({ label: 'Text banner' })
+                        +icon-smiley('item-banner__slot-icon')
+                    +itemBanner({ label: 'Text banner' })
+                        +icon-smiley('item-banner__slot-icon')
 
         section.example-section
             h2.example-section__title Templates

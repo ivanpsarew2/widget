@@ -1,0 +1,31 @@
+include ./calendar-day
+include ../icons/icon-caret-left
+include ../icons/icon-caret-right
+
+mixin calendar(options)
+    - options = options || {}
+    - const title = options.title || 'Март 2026'
+    - const weekDays = options.weekDays || ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+    - const days = options.days || []
+    - const extraClass = options.className || ''
+    - const calendarClasses = ['calendar']
+    - if (extraClass) calendarClasses.push(extraClass)
+
+    .calendar(class=calendarClasses)&attributes(attributes)
+        .calendar__header
+            .calendar__title= title
+            .calendar__nav
+                button.calendar__nav-button(type="button")
+                    +icon-caret-left('calendar__nav-icon')
+                button.calendar__nav-button(type="button")
+                    +icon-caret-right('calendar__nav-icon')
+
+        .calendar__week
+            each weekDay, index in weekDays
+                - const weekDayClasses = []
+                - if (index > 4) weekDayClasses.push('calendar__week-day_weekend')
+                .calendar__week-day(class=weekDayClasses)= weekDay
+
+        .calendar__days
+            each day in days
+                +calendarDay(day)

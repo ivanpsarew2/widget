@@ -5,6 +5,7 @@ include ../components/button
 include ../components/chips
 include ../components/checkbox
 include ../components/calendar-day
+include ../components/calendar
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
@@ -156,6 +157,58 @@ block content
                 +calendarDay({ dayType: 'weekend', state: 'selected' })
                 +calendarDay({ dayType: 'workday', state: 'selected', disabled: true })
                 +calendarDay({ dayType: 'weekend', state: 'selected', disabled: true })
+
+        section.example-section
+            h2.example-section__title Calendar
+
+            .example-section__calendar
+                +calendar({
+                    title: 'Март 2026',
+                    days: [
+                        { label: '23', dayType: 'workday', disabled: true },
+                        { label: '24', dayType: 'workday', disabled: true },
+                        { label: '25', dayType: 'workday' },
+                        { label: '26', dayType: 'workday' },
+                        { label: '27', dayType: 'workday', disabled: true },
+                        { label: '28', dayType: 'weekend', disabled: true },
+                        { label: '1', dayType: 'weekend' },
+                        { label: '2', dayType: 'workday' },
+                        { label: '3', dayType: 'workday', today: true },
+                        { label: '4', dayType: 'workday', disabled: true },
+                        { label: '5', dayType: 'workday' },
+                        { label: '6', dayType: 'workday' },
+                        { label: '7', dayType: 'weekend', disabled: true },
+                        { label: '8', dayType: 'weekend', disabled: true },
+                        { label: '9', dayType: 'workday' },
+                        { label: '10', dayType: 'workday' },
+                        { label: '11', dayType: 'workday', disabled: true },
+                        { label: '12', dayType: 'workday', disabled: true },
+                        { label: '13', dayType: 'workday' },
+                        { label: '14', dayType: 'weekend' },
+                        { label: '15', dayType: 'weekend', disabled: true },
+                        { label: '16', dayType: 'workday', disabled: true },
+                        { label: '17', dayType: 'workday' },
+                        { label: '18', dayType: 'workday' },
+                        { label: '19', dayType: 'workday', disabled: true },
+                        { label: '20', dayType: 'workday', disabled: true },
+                        { label: '21', dayType: 'weekend' },
+                        { label: '22', dayType: 'weekend' },
+                        { label: '23', dayType: 'workday', disabled: true },
+                        { label: '24', dayType: 'workday', disabled: true },
+                        { label: '25', dayType: 'workday' },
+                        { label: '26', dayType: 'workday' },
+                        { label: '27', dayType: 'workday', disabled: true },
+                        { label: '28', dayType: 'weekend', disabled: true },
+                        { label: '29', dayType: 'weekend' },
+                        { label: '30', dayType: 'workday' },
+                        { label: '31', dayType: 'workday', disabled: true },
+                        { label: '1', dayType: 'workday', disabled: true },
+                        { label: '2', dayType: 'workday' },
+                        { label: '3', dayType: 'workday' },
+                        { label: '4', dayType: 'weekend', disabled: true },
+                        { label: '5', dayType: 'weekend', disabled: true }
+                    ]
+                })
 
         section.example-section
             h2.example-section__title Item Review

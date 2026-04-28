@@ -1,0 +1,64 @@
+@use '../vars';
+
+.calendar {
+    display: grid;
+    width: 100%;
+    color: vars.color(text-primary);
+
+    &__header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__nav-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-secondary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__nav-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__week,
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        justify-content: space-between;
+    }
+
+    &__week {
+        padding: 4px 0;
+    }
+
+    &__week-day {
+        @include vars.text(calendar-weekday, 400);
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 0;
+        color: vars.color(text-primary);
+
+        &_weekend {
+            color: vars.color(danger);
+        }
+    }
+}

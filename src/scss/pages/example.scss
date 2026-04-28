@@ -79,3 +79,9 @@
     width: min(100%, 428px);
     margin-top: 40px;
 }
+
+.example-section__service {
+    display: grid;
+    width: min(100%, 720px);
+    gap: 56px;
+}

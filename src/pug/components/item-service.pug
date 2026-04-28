@@ -1,0 +1,41 @@
+include ./checkbox
+include ../icons/icon-close
+
+mixin itemService(options)
+    - options = options || {}
+    - const title = options.title || 'Service name'
+    - const duration = options.duration || 'Clock'
+    - const description = options.description || 'Description'
+    - const price = options.price || '0 ₽'
+    - const checked = Boolean(options.checked)
+    - const meta = description ? `${duration} • ${description}` : duration
+    - const extraClass = options.className || ''
+    - const serviceClasses = ['item-service']
+    - if (checked) serviceClasses.push('item-service_checked')
+    - if (extraClass) serviceClasses.push(extraClass)
+
+    .item-service(class=serviceClasses)&attributes(attributes)
+        +checkbox({ checked: checked, className: 'item-service__checkbox' })
+        .item-service__content
+            .item-service__title= title
+            .item-service__meta= meta
+            .item-service__price= price
+
+mixin selectedService(options)
+    - options = options || {}
+    - const title = options.title || 'Service name'
+    - const duration = options.duration || 'Clock'
+    - const description = options.description || 'Description'
+    - const price = options.price || '0 ₽'
+    - const meta = description ? `${duration} • ${description}` : duration
+    - const extraClass = options.className || ''
+    - const serviceClasses = ['selected-service']
+    - if (extraClass) serviceClasses.push(extraClass)
+
+    .selected-service(class=serviceClasses)&attributes(attributes)
+        .selected-service__content
+            .selected-service__title= title
+            .selected-service__meta= meta
+        .selected-service__price= price
+        button.selected-service__remove(type="button")
+            +icon-close('selected-service__remove-icon')

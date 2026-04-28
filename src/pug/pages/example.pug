@@ -7,6 +7,7 @@ include ../components/checkbox
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
+include ../components/item-service
 include ../icons/icon-smiley
 
 block variables
@@ -153,6 +154,24 @@ block content
                 .item-banners
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
+
+        section.example-section
+            h2.example-section__title Item Service
+
+            .example-section__service
+                +itemService({
+                    title: 'Service name',
+                    duration: 'Clock',
+                    description: 'Description',
+                    price: '0 ₽'
+                })
+
+                +selectedService({
+                    title: 'Service name',
+                    duration: 'Clock',
+                    description: 'Description',
+                    price: '0 ₽'
+                })
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
                     +itemBanner({ label: 'Text banner' })

@@ -25,6 +25,12 @@ mixin button(options)
                 +icon-plus('button__icon button__icon_plus')
     else
         if href && !disabled
-            a(class=buttonClasses href=href)&attributes(attributes)= label
+            a(class=buttonClasses href=href)&attributes(attributes)
+                if block
+                    block
+                span.button__label= label
         else
-            button(class=buttonClasses type=type disabled=disabled)&attributes(attributes)= label
+            button(class=buttonClasses type=type disabled=disabled)&attributes(attributes)
+                if block
+                    block
+                span.button__label= label

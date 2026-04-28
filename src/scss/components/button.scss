@@ -4,6 +4,7 @@
     @include vars.text(default, 500);
 
     display: inline-flex;
+    gap: 8px;
     align-items: center;
     justify-content: center;
     width: 100%;

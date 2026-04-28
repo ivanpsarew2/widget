@@ -1,0 +1,46 @@
+include ./appointment-status
+include ./button
+include ../icons/icon-reload
+include ../icons/icon-user
+
+mixin itemAppointment(options)
+    - options = options || {}
+    - const date = options.date || 'Дн, 00 мес в 00:00'
+    - const name = options.name || 'Name'
+    - const qualification = options.qualification || 'Qualification'
+    - const avatar = options.avatar
+    - const services = options.services || ['Service name', 'Service name']
+    - const price = options.price || 'Price'
+    - const status = options.status || null
+    - const action = options.action || null
+    - const extraClass = options.className || ''
+    - const appointmentClasses = ['item-appointment']
+    - if (extraClass) appointmentClasses.push(extraClass)
+
+    article(class=appointmentClasses)&attributes(attributes)
+        .item-appointment__header
+            .item-appointment__date= date
+            if status
+                +appointmentStatus(status)
+
+        .item-appointment__person
+            .item-appointment__avatar
+                if avatar
+                    img.item-appointment__avatar-image(src=avatar alt="")
+                else
+                    +icon-user('item-appointment__avatar-icon')
+            .item-appointment__person-content
+                .item-appointment__name= name
+                .item-appointment__qualification= qualification
+
+        .item-appointment__services
+            each service in services
+                .item-appointment__service= service
+
+        .item-appointment__price= price
+
+        if action
+            .item-appointment__action
+                +button(action)
+                    if action.icon === 'reload'
+                        +icon-reload('button__icon')

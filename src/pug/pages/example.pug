@@ -8,6 +8,7 @@ include ../components/checkbox
 include ../components/calendar-day
 include ../components/calendar
 include ../components/dropdown-list-item
+include ../components/item-appointment
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
@@ -274,6 +275,51 @@ block content
                     name: 'User name',
                     phone: '+7 (000) 000-00-00',
                     email: 'mymail@mail.ru'
+                })
+
+        section.example-section
+            h2.example-section__title Item Appointment
+
+            .example-section__appointments
+                +itemAppointment({
+                    date: 'Дн, 00 мес в 00:00',
+                    name: 'Name',
+                    qualification: 'Qualification',
+                    services: ['Service name', 'Service name'],
+                    price: 'Price'
+                })
+                +itemAppointment({
+                    date: 'Вс, 15 мар в 18:30',
+                    avatar: 'img/avatar.jpg',
+                    name: 'Мария',
+                    qualification: 'Топ-стилист',
+                    services: ['Женская стрижка (короткие)'],
+                    price: '7 500 ₽',
+                    status: {
+                        label: 'Завершена'
+                    },
+                    action: {
+                        label: 'Записаться снова',
+                        variant: 'secondary',
+                        icon: 'reload'
+                    }
+                })
+                +itemAppointment({
+                    date: 'Вс, 15 мар в 18:30',
+                    avatar: 'img/avatar.jpg',
+                    name: 'Мария',
+                    qualification: 'Топ-стилист',
+                    services: ['Женская стрижка (короткие)'],
+                    price: '7 500 ₽',
+                    status: {
+                        variant: 'danger',
+                        label: 'Отменена'
+                    },
+                    action: {
+                        label: 'Записаться снова',
+                        variant: 'secondary',
+                        icon: 'reload'
+                    }
                 })
 
         section.example-section

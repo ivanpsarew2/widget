@@ -8,6 +8,7 @@ include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
 include ../components/item-service
+include ../components/input
 include ../icons/icon-smiley
 
 block variables
@@ -174,6 +175,29 @@ block content
                 })
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
+
+        section.example-section
+            h2.example-section__title Input Search
+
+            .example-section__inputs
+                +inputField({ label: 'Default empty', search: true })
+                +inputField({ label: 'Hover empty', search: true, hover: true })
+                +inputField({ label: 'Active edit', search: true, active: true, value: 'Text' })
+                +inputField({ label: 'Default filled', search: true, value: 'Text' })
+                +inputField({ label: 'Hover filled', search: true, value: 'Text', hover: true })
+
+        section.example-section
+            h2.example-section__title Input
+
+            .example-section__inputs
+                +inputField({ label: 'Default empty' })
+                +inputField({ label: 'Hover empty', hover: true })
+                +inputField({ label: 'Edit active', active: true, value: 'Text' })
+                +inputField({ label: 'Default filled', value: 'Text' })
+                +inputField({ label: 'Hover filled', value: 'Text', hover: true })
+                +inputField({ label: 'Error empty', error: true })
+                +inputField({ label: 'Error active', error: true, active: true, value: 'Text' })
+                +inputField({ label: 'Error filled', error: true, value: 'Text' })
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
 

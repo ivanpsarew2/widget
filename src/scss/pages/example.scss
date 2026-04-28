@@ -85,3 +85,9 @@
     width: min(100%, 720px);
     gap: 56px;
 }
+
+.example-section__inputs {
+    display: grid;
+    width: min(100%, 640px);
+    gap: 24px;
+}

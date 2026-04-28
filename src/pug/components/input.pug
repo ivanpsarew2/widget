@@ -1,0 +1,31 @@
+include ../icons/icon-search
+
+mixin inputField(options)
+    - options = options || {}
+    - const label = options.label
+    - const placeholder = options.placeholder || 'Placeholder'
+    - const value = options.value || ''
+    - const type = options.type || 'text'
+    - const name = options.name
+    - const search = Boolean(options.search)
+    - const hover = Boolean(options.hover)
+    - const active = Boolean(options.active)
+    - const error = Boolean(options.error)
+    - const disabled = Boolean(options.disabled)
+    - const extraClass = options.className || ''
+    - const fieldClasses = ['input-field']
+    - if (search) fieldClasses.push('input-field_search')
+    - if (hover) fieldClasses.push('input-field_hover')
+    - if (active) fieldClasses.push('input-field_active')
+    - if (error) fieldClasses.push('input-field_error')
+    - if (value) fieldClasses.push('input-field_filled')
+    - if (disabled) fieldClasses.push('input-field_disabled')
+    - if (extraClass) fieldClasses.push(extraClass)
+
+    label(class=fieldClasses)&attributes(attributes)
+        if label
+            span.input-field__label= label
+        span.input-field__control-wrap
+            if search
+                +icon-search('input-field__search-icon')
+            input.input-field__control(type=type name=name placeholder=placeholder value=value disabled=disabled)

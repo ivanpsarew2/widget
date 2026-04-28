@@ -99,12 +99,12 @@
     }
 
     &__label {
-        @include vars.text(input, 400);
+        @include vars.text(checkbox-label, 400);
 
         padding: 2px 0;
     }
 
     &__description {
-        @include vars.text(input, 400);
+        @include vars.text(checkbox-label, 400);
     }
 }

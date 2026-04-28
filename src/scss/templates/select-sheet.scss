@@ -41,32 +41,3 @@
     display: grid;
     gap: 4px;
 }
-
-.select-sheet__option {
-    @include vars.text(default, 400);
-
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
-    align-items: center;
-    min-height: 44px;
-    padding: 10px 8px;
-    border: 0;
-    color: vars.color(text-primary);
-    text-align: left;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.select-sheet__option.is-selected {
-    background-color: vars.color(success-bg);
-}
-
-.select-sheet__check {
-    display: block;
-    width: 16px;
-    height: 10px;
-    border-bottom: 2px solid vars.color(accent-default);
-    border-left: 2px solid vars.color(accent-default);
-    transform: rotate(-45deg);
-}

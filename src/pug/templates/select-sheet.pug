@@ -1,4 +1,5 @@
 include ./bottom-sheet
+include ../components/dropdown-list-item
 
 mixin selectSheet(options)
     - options = options || {}
@@ -21,7 +22,4 @@ mixin selectSheet(options)
             each item in items
                 - const itemLabel = typeof item === 'string' ? item : item.label
                 - const selected = typeof item === 'object' && item.selected
-                button.select-sheet__option(type="button" class=selected ? 'is-selected' : '')
-                    span= itemLabel
-                    if selected
-                        span.select-sheet__check
+                +dropdownListItem({ label: itemLabel, selected: selected })

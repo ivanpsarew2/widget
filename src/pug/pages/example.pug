@@ -6,6 +6,7 @@ include ../components/chips
 include ../components/checkbox
 include ../components/calendar-day
 include ../components/calendar
+include ../components/dropdown-list-item
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
@@ -209,6 +210,14 @@ block content
                         { label: '5', dayType: 'weekend', disabled: true }
                     ]
                 })
+
+        section.example-section
+            h2.example-section__title Item Dropdown List
+
+            .example-section__dropdown-list
+                +dropdownListItem({ label: '+000 (Country)' })
+                +dropdownListItem({ label: '+000 (Country)', hover: true })
+                +dropdownListItem({ label: '+000 (Country)', selected: true })
 
         section.example-section
             h2.example-section__title Item Review

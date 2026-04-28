@@ -1,0 +1,20 @@
+include ../icons/icon-dropdown-check
+
+mixin dropdownListItem(options)
+    - options = options || {}
+    - const label = options.label || '+000 (Country)'
+    - const selected = Boolean(options.selected)
+    - const hover = Boolean(options.hover)
+    - const disabled = Boolean(options.disabled)
+    - const type = options.type || 'button'
+    - const extraClass = options.className || ''
+    - const itemClasses = ['dropdown-list-item']
+    - if (hover) itemClasses.push('dropdown-list-item_hover')
+    - if (selected) itemClasses.push('dropdown-list-item_selected')
+    - if (disabled) itemClasses.push('dropdown-list-item_disabled')
+    - if (extraClass) itemClasses.push(extraClass)
+
+    button(class=itemClasses type=type disabled=disabled)&attributes(attributes)
+        span.dropdown-list-item__label= label
+        if selected
+            +icon-dropdown-check('dropdown-list-item__check')

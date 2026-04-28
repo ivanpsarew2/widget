@@ -82,6 +82,12 @@
     width: min(100%, 520px);
 }
 
+.example-section__dropdown-list {
+    display: grid;
+    gap: 16px;
+    width: min(100%, 444px);
+}
+
 .example-section__review {
     width: min(100%, 560px);
 }

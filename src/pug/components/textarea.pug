@@ -1,0 +1,24 @@
+mixin textareaField(options)
+    - options = options || {}
+    - const label = options.label
+    - const placeholder = options.placeholder || 'Placeholder'
+    - const value = options.value || ''
+    - const name = options.name
+    - const hover = Boolean(options.hover)
+    - const active = Boolean(options.active)
+    - const error = Boolean(options.error)
+    - const disabled = Boolean(options.disabled)
+    - const extraClass = options.className || ''
+    - const fieldClasses = ['textarea-field']
+    - if (hover) fieldClasses.push('textarea-field_hover')
+    - if (active) fieldClasses.push('textarea-field_active')
+    - if (error) fieldClasses.push('textarea-field_error')
+    - if (value) fieldClasses.push('textarea-field_filled')
+    - if (disabled) fieldClasses.push('textarea-field_disabled')
+    - if (extraClass) fieldClasses.push(extraClass)
+
+    label(class=fieldClasses)&attributes(attributes)
+        if label
+            span.textarea-field__label= label
+        span.textarea-field__control-wrap
+            textarea.textarea-field__control(name=name placeholder=placeholder disabled=disabled)= value

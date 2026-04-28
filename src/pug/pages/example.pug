@@ -9,6 +9,7 @@ include ../components/item-review
 include ../components/item-banner
 include ../components/item-service
 include ../components/input
+include ../components/textarea
 include ../icons/icon-smiley
 
 block variables
@@ -200,6 +201,19 @@ block content
                 +inputField({ label: 'Error filled', error: true, value: 'Text' })
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
+
+        section.example-section
+            h2.example-section__title Textarea
+
+            .example-section__inputs
+                +textareaField({ label: 'Default empty' })
+                +textareaField({ label: 'Hover empty', hover: true })
+                +textareaField({ label: 'Edit active', active: true, value: 'Text' })
+                +textareaField({ label: 'Default filled', value: 'Text' })
+                +textareaField({ label: 'Hover filled', value: 'Text', hover: true })
+                +textareaField({ label: 'Error empty', error: true })
+                +textareaField({ label: 'Error active', error: true, active: true, value: 'Text' })
+                +textareaField({ label: 'Error filled', error: true, value: 'Text' })
 
         section.example-section
             h2.example-section__title Templates

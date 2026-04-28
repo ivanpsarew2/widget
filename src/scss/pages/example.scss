@@ -67,6 +67,17 @@
     margin-top: 40px;
 }
 
+.example-section__calendar-days {
+    display: grid;
+    grid-template-columns: repeat(4, 48px);
+    gap: 40px;
+    width: max-content;
+
+    & + & {
+        margin-top: 40px;
+    }
+}
+
 .example-section__review {
     width: min(100%, 560px);
 }

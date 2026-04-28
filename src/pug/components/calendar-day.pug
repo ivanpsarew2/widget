@@ -1,0 +1,14 @@
+mixin calendarDay(options)
+    - options = options || {}
+    - const label = options.label || '00'
+    - const dayType = options.dayType || options.type || 'workday'
+    - const state = options.state || 'default'
+    - const disabled = Boolean(options.disabled)
+    - const today = Boolean(options.today)
+    - const extraClass = options.className || ''
+    - const dayClasses = ['calendar-day', `calendar-day_${dayType}`, `calendar-day_${state}`]
+    - if (disabled) dayClasses.push('calendar-day_disabled')
+    - if (today) dayClasses.push('calendar-day_today')
+    - if (extraClass) dayClasses.push(extraClass)
+
+    button(class=dayClasses type="button" disabled=disabled)&attributes(attributes)= label

@@ -4,6 +4,7 @@ include ../templates/select-sheet
 include ../components/button
 include ../components/chips
 include ../components/checkbox
+include ../components/calendar-day
 include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
@@ -132,6 +133,29 @@ block content
                     description: 'Description',
                     error: true
                 })
+
+        section.example-section
+            h2.example-section__title Calendar Day
+
+            .example-section__calendar-days
+                +calendarDay({ dayType: 'workday' })
+                +calendarDay({ dayType: 'weekend' })
+                +calendarDay({ dayType: 'workday', today: true })
+                +calendarDay({ dayType: 'weekend', today: true })
+                +calendarDay({ dayType: 'workday', disabled: true })
+                +calendarDay({ dayType: 'weekend', disabled: true })
+                +calendarDay({ dayType: 'workday', disabled: true, today: true })
+                +calendarDay({ dayType: 'weekend', disabled: true, today: true })
+
+            .example-section__calendar-days
+                +calendarDay({ dayType: 'workday', state: 'hover' })
+                +calendarDay({ dayType: 'weekend', state: 'hover' })
+                +calendarDay({ dayType: 'workday', state: 'hover', today: true })
+                +calendarDay({ dayType: 'weekend', state: 'hover', today: true })
+                +calendarDay({ dayType: 'workday', state: 'selected' })
+                +calendarDay({ dayType: 'weekend', state: 'selected' })
+                +calendarDay({ dayType: 'workday', state: 'selected', disabled: true })
+                +calendarDay({ dayType: 'weekend', state: 'selected', disabled: true })
 
         section.example-section
             h2.example-section__title Item Review

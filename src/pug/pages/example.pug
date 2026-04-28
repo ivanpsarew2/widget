@@ -3,6 +3,7 @@ include ../templates/widget-screen
 include ../templates/select-sheet
 include ../components/button
 include ../components/chips
+include ../components/checkbox
 include ../components/item-tab
 
 block variables
@@ -100,6 +101,30 @@ block content
                         { label: 'Брови' },
                         { label: 'Маникюр' }
                     ]
+                })
+
+        section.example-section
+            h2.example-section__title Checkbox
+
+            .example-section__checkboxes
+                +checkbox
+                +checkbox({ active: true })
+                +checkbox({ checked: true })
+
+            .example-section__checkbox-list
+                +checkbox({
+                    label: 'Text',
+                    description: 'Description'
+                })
+                +checkbox({
+                    label: 'Text',
+                    description: 'Description',
+                    active: true
+                })
+                +checkbox({
+                    label: 'Text',
+                    description: 'Description',
+                    error: true
                 })
 
         section.example-section

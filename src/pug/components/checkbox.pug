@@ -1,0 +1,31 @@
+include ../icons/icon-check
+
+mixin checkbox(options)
+    - options = options || {}
+    - const label = options.label
+    - const description = options.description
+    - const checked = Boolean(options.checked)
+    - const active = Boolean(options.active)
+    - const error = Boolean(options.error)
+    - const disabled = Boolean(options.disabled)
+    - const name = options.name
+    - const value = options.value
+    - const extraClass = options.className || ''
+    - const checkboxClasses = ['checkbox']
+    - if (label || description) checkboxClasses.push('checkbox_text')
+    - if (active) checkboxClasses.push('checkbox_active')
+    - if (error) checkboxClasses.push('checkbox_error')
+    - if (disabled) checkboxClasses.push('checkbox_disabled')
+    - if (extraClass) checkboxClasses.push(extraClass)
+
+    label(class=checkboxClasses)&attributes(attributes)
+        input.checkbox__input(type="checkbox" name=name value=value checked=checked disabled=disabled)
+        span.checkbox__box-wrapper
+            span.checkbox__box
+                +icon-check('checkbox__icon')
+        if label || description
+            span.checkbox__content
+                if label
+                    span.checkbox__label= label
+                if description
+                    span.checkbox__description= description

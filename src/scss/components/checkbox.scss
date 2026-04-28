@@ -1,0 +1,110 @@
+@use '../vars';
+
+.checkbox {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 24px;
+    align-items: start;
+    color: vars.color(text-primary);
+    cursor: pointer;
+
+    &_text {
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    &_active {
+        .checkbox__box {
+            border-color: vars.color(accent-default);
+        }
+    }
+
+    &_error {
+        color: vars.color(text-primary);
+
+        .checkbox__box {
+            border-color: vars.color(danger);
+        }
+
+        .checkbox__description {
+            color: vars.color(danger);
+        }
+    }
+
+    &_disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &:hover {
+        .checkbox__box {
+            border-color: vars.color(accent-default);
+        }
+    }
+
+    &__input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+
+        &:checked + .checkbox__box-wrapper .checkbox__box {
+            border-color: vars.color(accent-selected);
+            background-color: vars.color(accent-selected);
+
+            .checkbox__icon {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__box-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border: 1px solid vars.color(accent-selected);
+        border-radius: 8px;
+        color: vars.color(text-button);
+        background-color: transparent;
+        transition:
+            border-color 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    &__icon {
+        display: block;
+        width: 12px;
+        height: 9px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    &__content {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+    }
+
+    &__label {
+        @include vars.text(input, 400);
+
+        padding: 2px 0;
+    }
+
+    &__description {
+        @include vars.text(input, 400);
+    }
+}

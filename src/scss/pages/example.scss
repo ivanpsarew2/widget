@@ -53,3 +53,16 @@
     width: min(100%, 428px);
     margin-top: 40px;
 }
+
+.example-section__checkboxes {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.example-section__checkbox-list {
+    display: grid;
+    width: min(100%, 420px);
+    gap: 40px;
+    margin-top: 40px;
+}

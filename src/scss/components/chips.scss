@@ -1,0 +1,51 @@
+@use '../vars';
+
+.chips {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.chip {
+    @include vars.text(default, 400);
+
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 8px;
+    border: 1px solid vars.color(accent-selected);
+    border-radius: 16px;
+    color: vars.color(text-primary);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+
+    &:hover,
+    &_active {
+        background-color: vars.color(bg-light-1);
+    }
+
+    &_selected {
+        color: vars.color(text-button);
+        background-color: vars.color(accent-selected);
+
+        &:hover {
+            background-color: vars.color(accent-selected);
+        }
+    }
+}

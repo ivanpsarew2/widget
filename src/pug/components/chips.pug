@@ -1,0 +1,28 @@
+mixin chip(options)
+    - options = options || {}
+    - const label = options.label || 'Text'
+    - const selected = Boolean(options.selected)
+    - const active = Boolean(options.active)
+    - const href = options.href
+    - const type = options.type || 'button'
+    - const extraClass = options.className || ''
+    - const chipClasses = ['chip']
+    - if (selected) chipClasses.push('chip_selected')
+    - if (active) chipClasses.push('chip_active')
+    - if (extraClass) chipClasses.push(extraClass)
+
+    if href
+        a(class=chipClasses href=href)&attributes(attributes)= label
+    else
+        button(class=chipClasses type=type)&attributes(attributes)= label
+
+mixin chips(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const chipsClasses = ['chips']
+    - if (extraClass) chipsClasses.push(extraClass)
+
+    .chips(class=chipsClasses)&attributes(attributes)
+        each item in items
+            +chip(item)

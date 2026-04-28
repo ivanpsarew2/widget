@@ -1,0 +1,46 @@
+@use '../vars';
+
+.example-section {
+    padding: 40px;
+}
+
+.example-section__title {
+    @include vars.text(default, 600);
+
+    margin: 0 0 24px;
+}
+
+.example-section__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(298px, max-content));
+    gap: 24px;
+    align-items: start;
+}
+
+.example-section__grid--operation {
+    grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
+}
+
+.example-section__item {
+    display: grid;
+    gap: 12px;
+    justify-items: start;
+}
+
+.example-section__label {
+    @include vars.text(default, 500);
+
+    margin: 0;
+    color: vars.color(text-secondary);
+}
+
+.example-section__tabs {
+    display: grid;
+    width: min(100%, 720px);
+    gap: 48px;
+}
+
+.example-section__tabs-example {
+    width: min(100%, 720px);
+    margin-top: 40px;
+}

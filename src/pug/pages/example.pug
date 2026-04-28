@@ -1,0 +1,110 @@
+extends ../layout
+include ../templates/widget-screen
+include ../templates/select-sheet
+include ../components/button
+include ../components/item-tab
+
+block variables
+    - var page = 'example'
+
+block content
+    .main
+        section.example-section
+            h1.example-section__title Button
+
+            .example-section__grid
+                .example-section__item
+                    p.example-section__label Primary
+                    +button({ label: 'Button', variant: 'primary' })
+
+                .example-section__item
+                    p.example-section__label Primary active
+                    +button({ label: 'Button', variant: 'primary', active: true })
+
+                .example-section__item
+                    p.example-section__label Secondary
+                    +button({ label: 'Button', variant: 'secondary' })
+
+                .example-section__item
+                    p.example-section__label Secondary active
+                    +button({ label: 'Button', variant: 'secondary', active: true })
+
+                .example-section__item
+                    p.example-section__label Third
+                    +button({ label: 'Button', variant: 'third' })
+
+                .example-section__item
+                    p.example-section__label Third active
+                    +button({ label: 'Button', variant: 'third', active: true })
+
+        section.example-section
+            h2.example-section__title Button Operation
+
+            .example-section__grid.example-section__grid--operation
+                .example-section__item
+                    p.example-section__label Primary
+                    +button({ label: 'Button', variant: 'primary', operation: true })
+
+                .example-section__item
+                    p.example-section__label Primary active
+                    +button({ label: 'Button', variant: 'primary', operation: true, active: true })
+
+                .example-section__item
+                    p.example-section__label Secondary
+                    +button({ label: 'Button', variant: 'secondary', operation: true })
+
+                .example-section__item
+                    p.example-section__label Secondary active
+                    +button({ label: 'Button', variant: 'secondary', operation: true, active: true })
+
+                .example-section__item
+                    p.example-section__label Third
+                    +button({ label: 'Button', variant: 'third', operation: true })
+
+        section.example-section
+            h2.example-section__title Item Tab
+
+            .example-section__tabs
+                +itemTab({ label: 'Tab' })
+                +itemTab({ label: 'Tab', active: true })
+                +itemTab({ label: 'Tab', selected: true })
+
+            .example-section__tabs-example
+                +itemTabs({
+                    items: [
+                        { label: 'Вход по коду', selected: true },
+                        { label: 'Вход с паролем' }
+                    ]
+                })
+
+        section.example-section
+            h2.example-section__title Templates
+
+            .example-section__grid
+                .example-section__item
+                    p.example-section__label Widget screen
+                    +widgetScreen({
+                        title: 'Вильгельмина Константино...',
+                        subtitle: 'Топ-стилист',
+                        avatar: 'img/bg.jpg',
+                        back: true,
+                        dropdown: true,
+                        footer: {
+                            button: {
+                                label: 'Выбрать дату и время',
+                                variant: 'primary'
+                            }
+                        }
+                    })
+                        p.example-section__label Контент страницы собирается здесь из компонентов.
+
+                .example-section__item
+                    p.example-section__label Select sheet
+                    +selectSheet({
+                        overlay: false,
+                        title: 'Выберите значение из списка',
+                        items: [
+                            { label: 'Русский', selected: true },
+                            'Английский'
+                        ]
+                    })

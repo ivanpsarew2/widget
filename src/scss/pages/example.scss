@@ -107,6 +107,10 @@
     gap: 56px;
 }
 
+.example-section__user {
+    width: min(100%, 560px);
+}
+
 .example-section__inputs {
     display: grid;
     width: min(100%, 640px);

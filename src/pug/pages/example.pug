@@ -11,6 +11,7 @@ include ../components/item-tab
 include ../components/item-review
 include ../components/item-banner
 include ../components/item-service
+include ../components/item-user
 include ../components/input
 include ../components/textarea
 include ../icons/icon-smiley
@@ -262,6 +263,17 @@ block content
                 })
                     +itemBanner({ label: 'Text banner' })
                         +icon-smiley('item-banner__slot-icon')
+
+        section.example-section
+            h2.example-section__title Item User
+
+            .example-section__user
+                +itemUser({
+                    initials: 'Us',
+                    name: 'User name',
+                    phone: '+7 (000) 000-00-00',
+                    email: 'mymail@mail.ru'
+                })
 
         section.example-section
             h2.example-section__title Input Search

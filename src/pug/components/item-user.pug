@@ -1,0 +1,23 @@
+mixin itemUser(options)
+    - options = options || {}
+    - const name = options.name || 'User name'
+    - const phone = options.phone || '+7 (000) 000-00-00'
+    - const email = options.email || 'mymail@mail.ru'
+    - const initials = options.initials || 'Us'
+    - const avatar = options.avatar
+    - const extraClass = options.className || ''
+    - const userClasses = ['item-user']
+    - if (extraClass) userClasses.push(extraClass)
+
+    .item-user(class=userClasses)&attributes(attributes)
+        .item-user__avatar
+            if avatar
+                img.item-user__avatar-image(src=avatar alt="")
+            else
+                span.item-user__avatar-initials= initials
+        .item-user__content
+            .item-user__name= name
+            if phone
+                .item-user__contact= phone
+            if email
+                .item-user__contact= email

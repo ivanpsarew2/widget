@@ -1,0 +1,46 @@
+@use '../vars';
+
+.item-user {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    color: vars.color(text-primary);
+
+    &__avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 50%;
+        color: vars.color(accent-default);
+        background-color: vars.color(success-bg);
+    }
+
+    &__avatar-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__avatar-initials {
+        @include vars.text(avatar, 500);
+    }
+
+    &__content {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    &__contact {
+        @include vars.text(user-contact, 400);
+
+        overflow: hidden;
+        color: vars.color(text-secondary);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

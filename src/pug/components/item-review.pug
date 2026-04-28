@@ -1,0 +1,32 @@
+include ../icons/icon-star
+
+mixin itemReview(options)
+    - options = options || {}
+    - const name = options.name || 'Client name'
+    - const initials = options.initials || 'Nm'
+    - const avatar = options.avatar
+    - const rating = Number.isFinite(options.rating) ? options.rating : 4
+    - const date = options.date || '00 месяц 0000'
+    - const text = options.text || 'Review text'
+    - const extraClass = options.className || ''
+    - const reviewClasses = ['item-review']
+    - if (extraClass) reviewClasses.push(extraClass)
+
+    article(class=reviewClasses)&attributes(attributes)
+        .item-review__avatar
+            if avatar
+                img.item-review__avatar-image(src=avatar alt="")
+            else
+                span.item-review__avatar-initials= initials
+
+        .item-review__body
+            .item-review__header
+                .item-review__name= name
+                .item-review__meta
+                    .item-review__rating
+                        - for (let i = 1; i <= 5; i++)
+                            - const starClass = i <= rating ? 'item-review__star item-review__star_filled' : 'item-review__star'
+                            +icon-star(starClass)
+                    .item-review__date= date
+
+            .item-review__text= text

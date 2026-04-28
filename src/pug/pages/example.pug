@@ -5,6 +5,7 @@ include ../components/button
 include ../components/chips
 include ../components/checkbox
 include ../components/item-tab
+include ../components/item-review
 
 block variables
     - var page = 'example'
@@ -125,6 +126,18 @@ block content
                     label: 'Text',
                     description: 'Description',
                     error: true
+                })
+
+        section.example-section
+            h2.example-section__title Item Review
+
+            .example-section__review
+                +itemReview({
+                    initials: 'Nm',
+                    name: 'Client name',
+                    rating: 4,
+                    date: '00 месяц 0000',
+                    text: 'Review text'
                 })
 
         section.example-section

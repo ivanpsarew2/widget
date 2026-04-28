@@ -1,0 +1,30 @@
+mixin itemTab(options)
+    - options = options || {}
+    - const label = options.label || 'Tab'
+    - const selected = Boolean(options.selected)
+    - const active = Boolean(options.active)
+    - const href = options.href
+    - const type = options.type || 'button'
+    - const extraClass = options.className || ''
+    - const tabClasses = ['item-tab']
+    - if (selected) tabClasses.push('item-tab_selected')
+    - if (active) tabClasses.push('item-tab_active')
+    - if (extraClass) tabClasses.push(extraClass)
+
+    if href
+        a(class=tabClasses href=href)&attributes(attributes)
+            span.item-tab__label= label
+    else
+        button(class=tabClasses type=type)&attributes(attributes)
+            span.item-tab__label= label
+
+mixin itemTabs(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const tabsClasses = ['item-tabs']
+    - if (extraClass) tabsClasses.push(extraClass)
+
+    .item-tabs(class=tabsClasses)&attributes(attributes)
+        each item in items
+            +itemTab(item)

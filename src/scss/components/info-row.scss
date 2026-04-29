@@ -1,0 +1,54 @@
+@use '../vars';
+
+.info-row {
+    @include vars.text(default, 400);
+
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+    width: 100%;
+    color: vars.color(text-primary);
+
+    &_has-action {
+        grid-template-columns: 24px minmax(0, 1fr) 32px;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__icon-svg {
+        display: block;
+        width: 24px;
+        height: 24px;
+        color: currentColor;
+    }
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-top: -4px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-primary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__action-icon {
+        width: 24px;
+        height: 24px;
+    }
+}

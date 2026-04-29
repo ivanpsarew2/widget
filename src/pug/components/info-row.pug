@@ -1,0 +1,36 @@
+include ../icons/icon-clock
+include ../icons/icon-copy
+include ../icons/icon-globe
+include ../icons/icon-phone
+include ../icons/icon-pin
+
+mixin infoRow(options)
+    - options = options || {}
+    - const icon = options.icon || 'pin'
+    - const text = options.text || ''
+    - const copy = Boolean(options.copy)
+    - const extraClass = options.className || ''
+    - const rowClasses = ['info-row']
+    - if (copy) rowClasses.push('info-row_has-action')
+    - if (extraClass) rowClasses.push(extraClass)
+
+    div(class=rowClasses)&attributes(attributes)
+        .info-row__icon
+            if icon === 'clock'
+                +icon-clock('info-row__icon-svg')
+            else if icon === 'phone'
+                +icon-phone('info-row__icon-svg')
+            else if icon === 'globe'
+                +icon-globe('info-row__icon-svg')
+            else
+                +icon-pin('info-row__icon-svg')
+
+        .info-row__content
+            if block
+                block
+            else
+                span= text
+
+        if copy
+            button.info-row__action(type="button")
+                +icon-copy('info-row__action-icon')

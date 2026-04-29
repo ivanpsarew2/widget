@@ -1,0 +1,13 @@
+include ../icons/icon-star
+
+mixin ratingStars(options)
+    - options = options || {}
+    - const rating = Number.isFinite(options.rating) ? options.rating : 5
+    - const extraClass = options.className || ''
+    - const starClasses = ['rating-stars']
+    - if (extraClass) starClasses.push(extraClass)
+
+    div(class=starClasses)&attributes(attributes)
+        - for (let i = 1; i <= 5; i++)
+            - const itemClass = i <= rating ? 'rating-stars__icon rating-stars__icon_filled' : 'rating-stars__icon'
+            +icon-star(itemClass)

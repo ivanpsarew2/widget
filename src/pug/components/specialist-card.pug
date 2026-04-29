@@ -18,7 +18,7 @@ mixin specialistCard(options)
         .specialist-card__cover
             if cover
                 img.specialist-card__cover-image(src=cover alt="")
-            button.specialist-card__profile-button(type="button" aria-label=profileLabel)
+            button.specialist-card__profile-button(type="button")
                 +icon-user('specialist-card__profile-icon')
 
         .specialist-card__body
@@ -31,5 +31,5 @@ mixin specialistCard(options)
                 .specialist-card__title= title
                 .specialist-card__schedule= schedule
 
-            button.specialist-card__dropdown(type="button" aria-label=dropdownLabel)
+            button.specialist-card__dropdown(type="button")
                 +icon-caret-down('specialist-card__dropdown-icon')

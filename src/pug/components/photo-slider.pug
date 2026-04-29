@@ -1,0 +1,26 @@
+include ../icons/icon-caret-left
+include ../icons/icon-caret-right
+
+mixin photoSlider(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const sliderClasses = ['photo-slider', 'js-photo-slider']
+    - if (extraClass) sliderClasses.push(extraClass)
+
+    div(class=sliderClasses)&attributes(attributes)
+        .photo-slider__track.js-photo-slider-track
+            each item, index in items
+                .photo-slider__slide.js-photo-slider-slide
+                    img.photo-slider__image(src=item.src alt=item.alt || "")
+
+        if items.length > 1
+            .photo-slider__controls
+                button.photo-slider__button.photo-slider__button_prev.js-photo-slider-prev(type="button")
+                    +icon-caret-left('photo-slider__button-icon')
+                button.photo-slider__button.photo-slider__button_next.js-photo-slider-next(type="button")
+                    +icon-caret-right('photo-slider__button-icon')
+
+        .photo-slider__dots
+            each item, index in items
+                span(class=index === 0 ? 'photo-slider__dot photo-slider__dot_active js-photo-slider-dot' : 'photo-slider__dot js-photo-slider-dot')

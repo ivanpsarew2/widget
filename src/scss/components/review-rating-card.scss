@@ -1,0 +1,40 @@
+@use '../vars';
+
+.review-rating-card {
+    display: grid;
+    gap: 4px;
+    justify-items: center;
+    width: 100%;
+    padding: 16px 16px 20px;
+    border-radius: 16px;
+    background-color: vars.color(bg-secondary);
+
+    &__title {
+        @include vars.text(default, 400);
+    }
+
+    &__stars {
+        display: inline-flex;
+        gap: 0;
+        align-items: center;
+    }
+
+    &__star-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        color: vars.color(bg-light-3);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__star-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
+}

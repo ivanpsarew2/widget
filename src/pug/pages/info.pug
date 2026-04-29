@@ -1,0 +1,117 @@
+extends ../layout
+include ../components/button
+include ../components/info-row
+include ../components/item-review
+include ../components/photo-slider
+include ../components/rating-stars
+include ../components/review-rating-card
+include ../icons/icon-caret-left
+include ../icons/icon-globe
+include ../icons/icon-phone
+include ../icons/icon-star
+include ../icons/icon-telegram
+include ../icons/icon-vk
+include ../icons/icon-whatsapp
+
+block variables
+    - var page = 'info'
+
+block content
+    .main.info-page
+        .info-page__shell
+            section.info-page__hero
+                img.info-page__hero-image(src="img/bg.jpg" alt="")
+                a.info-page__back(href="index.html")
+                    +icon-caret-left('info-page__back-icon')
+
+            section.info-page__summary
+                .info-page__avatar-wrap
+                    img.info-page__avatar(src="img/avatar.jpg" alt="")
+
+                h1.info-page__name Вильгельмина Константинопольская
+
+                .info-page__rating
+                    +icon-star('info-page__rating-icon')
+                    span 999 отзывов
+
+                .info-page__info-list
+                    +infoRow({ icon: 'pin' })
+                        | г. Новоконстантиновск,
+                        br
+                        | м. Метрополитен,
+                        br
+                        | ул. Шарикоподшипниковская, д. 39,
+                        br
+                        | корп. 12
+
+                    +infoRow({ icon: 'clock', text: 'Ежедневно 9:00 – 22:00' })
+
+                h2.info-page__section-title Контакты
+
+                .info-page__info-list
+                    +infoRow({ icon: 'phone', text: '+7 (555) 555-55-55' })
+                    +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
+
+                .info-page__socials
+                    a.info-page__social-link(href="#")
+                        +icon-whatsapp('info-page__social-icon')
+                    a.info-page__social-link(href="#")
+                        +icon-vk('info-page__social-icon')
+                    a.info-page__social-link(href="#")
+                        +icon-telegram('info-page__social-icon')
+
+                section.info-page__about
+                    h2.info-page__section-title.info-page__section-title_main О специалисте
+                    p Салон красоты — это пространство стиля и профессионального ухода, где мы создаём красоту, подчеркивающую индивидуальность каждого гостя. Более 25 лет опыта позволяют нам работать на высоком уровне, использовать современные техники и предлагать решения, которые действительно работают.
+                    p Тридцать два салона в столице, объединённых единым стандартом качества и атмосферой, в которую хочется возвращаться. Мы заботимся о комфорте, деталях и результате, создавая каждое посещение особенным.
+
+                section.info-page__photos
+                    h2.info-page__section-title Фото
+                    +photoSlider({
+                        items: [
+                            { src: 'img/1.png', alt: 'Интерьер салона' },
+                            { src: 'img/2.png', alt: 'Интерьер салона' },
+                            { src: 'img/1.png', alt: 'Интерьер салона' },
+                            { src: 'img/2.png', alt: 'Интерьер салона' }
+                        ]
+                    })
+
+            section.info-page__section.info-page__location
+                h2.info-page__section-title.info-page__section-title_main Расположение
+                +infoRow({ icon: 'pin', copy: true })
+                    | г. Новоконстантиновск,
+                    br
+                    | м. Метрополитен,
+                    br
+                    | ул. Шарикоподшипниковская,
+                    br
+                    | д. 39, корп. 12
+
+                .info-page__map
+                    img.info-page__map-image(src="img/map.jpg" alt="")
+
+            section.info-page__section.info-page__reviews
+                .info-page__reviews-header
+                    h2.info-page__section-title.info-page__section-title_main Отзывы
+                    .info-page__reviews-count 999 отзывов
+
+                +reviewRatingCard({ className: 'info-page__review-card' })
+
+                .info-page__review-list
+                    +itemReview({ rating: 4 })
+                    +itemReview({
+                        rating: 5,
+                        text: 'Удобное расположение, приятная обстановка.Администраторы вежливые. чай, кофе, все культурно! Вообще приятно посещать такие места 👍'
+                    })
+                    +itemReview({ rating: 4 })
+                    +itemReview({ rating: 4 })
+                    +itemReview({ rating: 4 })
+
+                +button({ label: 'Ещё отзывы', variant: 'third', className: 'info-page__more' })
+
+            footer.info-page__footer
+                .info-page__powered
+                    span Работает на
+                    img.info-page__logo(src="img/logo.svg" alt="СОЙЛАЙН")
+
+                +button({ label: 'Записаться', variant: 'primary', className: 'info-page__submit' })

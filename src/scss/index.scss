@@ -16,6 +16,10 @@
 @use './components/item-banner';
 @use './components/item-service';
 @use './components/item-user';
+@use './components/info-row';
+@use './components/photo-slider';
+@use './components/rating-stars';
+@use './components/review-rating-card';
 @use './components/specialist-card';
 @use './components/input';
 @use './components/textarea';
@@ -23,6 +27,7 @@
 @use './templates/bottom-sheet';
 @use './templates/select-sheet';
 @use './pages/example';
+@use './pages/info';
 @use './pages/index';
 
 * {
@@ -45,6 +50,10 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.main {
+    min-height: 100dvh;
 }
 
 .hidden {

@@ -1,0 +1,15 @@
+include ../icons/icon-star
+
+mixin reviewRatingCard(options)
+    - options = options || {}
+    - const title = options.title || 'Оцените и оставьте отзыв'
+    - const extraClass = options.className || ''
+    - const cardClasses = ['review-rating-card']
+    - if (extraClass) cardClasses.push(extraClass)
+
+    div(class=cardClasses)&attributes(attributes)
+        .review-rating-card__title= title
+        .review-rating-card__stars
+            - for (let i = 1; i <= 5; i++)
+                button.review-rating-card__star-button(type="button")
+                    +icon-star('review-rating-card__star-icon')

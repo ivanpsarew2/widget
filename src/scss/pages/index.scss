@@ -1,8 +1,6 @@
 @use '../vars';
 
 .index-page {
-    min-height: 100dvh;
-
     &__widget {
         display: flex;
         flex-direction: column;

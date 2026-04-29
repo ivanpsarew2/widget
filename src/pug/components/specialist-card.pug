@@ -1,0 +1,35 @@
+include ../icons/icon-caret-down
+include ../icons/icon-user
+
+mixin specialistCard(options)
+    - options = options || {}
+    - const cover = options.cover
+    - const avatar = options.avatar
+    - const name = options.name || 'Specialist name'
+    - const title = options.title || 'Specialist title'
+    - const schedule = options.schedule || 'Schedule'
+    - const profileLabel = options.profileLabel || 'Профиль специалиста'
+    - const dropdownLabel = options.dropdownLabel || 'Выбрать другого специалиста'
+    - const extraClass = options.className || ''
+    - const cardClasses = ['specialist-card']
+    - if (extraClass) cardClasses.push(extraClass)
+
+    section(class=cardClasses)&attributes(attributes)
+        .specialist-card__cover
+            if cover
+                img.specialist-card__cover-image(src=cover alt="")
+            button.specialist-card__profile-button(type="button" aria-label=profileLabel)
+                +icon-user('specialist-card__profile-icon')
+
+        .specialist-card__body
+            if avatar
+                .specialist-card__avatar-wrapper
+                    img.specialist-card__avatar(src=avatar alt="")
+
+            .specialist-card__content
+                h1.specialist-card__name= name
+                .specialist-card__title= title
+                .specialist-card__schedule= schedule
+
+            button.specialist-card__dropdown(type="button" aria-label=dropdownLabel)
+                +icon-caret-down('specialist-card__dropdown-icon')

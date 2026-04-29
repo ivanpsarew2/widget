@@ -4,8 +4,8 @@ include ../icons/icon-close
 mixin itemService(options)
     - options = options || {}
     - const title = options.title || 'Service name'
-    - const duration = options.duration || 'Clock'
-    - const description = options.description || 'Description'
+    - const duration = options.duration === undefined ? 'Clock' : options.duration
+    - const description = options.description === undefined ? 'Description' : options.description
     - const price = options.price || '0 ₽'
     - const checked = Boolean(options.checked)
     - const meta = description ? `${duration} • ${description}` : duration
@@ -24,8 +24,8 @@ mixin itemService(options)
 mixin selectedService(options)
     - options = options || {}
     - const title = options.title || 'Service name'
-    - const duration = options.duration || 'Clock'
-    - const description = options.description || 'Description'
+    - const duration = options.duration === undefined ? 'Clock' : options.duration
+    - const description = options.description === undefined ? 'Description' : options.description
     - const price = options.price || '0 ₽'
     - const meta = description ? `${duration} • ${description}` : duration
     - const extraClass = options.className || ''

@@ -16,12 +16,14 @@
 @use './components/item-banner';
 @use './components/item-service';
 @use './components/item-user';
+@use './components/specialist-card';
 @use './components/input';
 @use './components/textarea';
 @use './templates/widget-screen';
 @use './templates/bottom-sheet';
 @use './templates/select-sheet';
 @use './pages/example';
+@use './pages/index';
 
 * {
     box-sizing: border-box;
@@ -38,7 +40,7 @@ body {
     overflow-x: hidden;
     font-family: vars.$main-font;
     color: vars.color(text-primary);
-    background-color: vars.color(bg-primary);
+    background-color: vars.color(bg-secondary);
 }
 
 a {

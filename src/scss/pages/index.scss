@@ -1,0 +1,58 @@
+@use '../vars';
+
+.index-page {
+    min-height: 100dvh;
+
+    &__widget {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__services {
+        display: flex;
+        flex-direction: column;
+        padding: 8px 16px 20px;
+        border-radius: 16px 16px 0 0;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: 12px 0;
+    }
+
+    &__search {
+        margin: 8px 0;
+    }
+
+    &__chips {
+        width: 100vw;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        margin-left: -16px;
+        padding: 0 16px;
+    }
+
+    &__service-group {
+        display: flex;
+        flex-direction: column;
+        margin: 8px 0;
+    }
+
+    &__group-title {
+        @include vars.text(title-2, 600);
+
+        margin: 8px 0;
+    }
+
+    &__service-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 8px 0;
+    }
+}

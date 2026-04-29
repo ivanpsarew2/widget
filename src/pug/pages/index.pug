@@ -1,9 +1,58 @@
 extends ../layout
-include ../components/button
+include ../components/chips
+include ../components/input
+include ../components/item-service
+include ../components/specialist-card
 
 block variables
     - var page = 'index'
 
 block content
-    .main
-        +button({ label: 'Button', variant: 'primary' })
+    .main.index-page
+        .index-page__widget
+            +specialistCard({
+                cover: 'img/bg.jpg',
+                avatar: 'img/avatar.jpg',
+                name: 'Вильгельмина Константинопольская',
+                title: 'Топ-стилист',
+                schedule: 'Ежедневно 9:00 – 22:00'
+            })
+
+            section.index-page__services
+                h2.index-page__title Выберите услуги
+
+                +inputField({
+                    className: 'index-page__search',
+                    search: true,
+                    placeholder: 'Найти'
+                })
+
+                +chips({
+                    className: 'index-page__chips',
+                    items: [
+                        { label: 'Стрижки', selected: true },
+                        { label: 'Укладки' },
+                        { label: 'Уход' },
+                        { label: 'Окрашивание' },
+                        { label: 'Брови' },
+                        { label: 'Маникюр' }
+                    ]
+                })
+
+                .index-page__service-group
+                    h3.index-page__group-title Стрижки
+
+                    .index-page__service-list
+                        +itemService({
+                            title: 'Женская стрижка (короткие)',
+                            duration: '60 мин',
+                            description: '',
+                            price: '2 300 – 4 000 ₽'
+                        })
+
+                        +itemService({
+                            title: 'Женская стрижка (средние)',
+                            duration: '60 мин',
+                            description: 'Стрижка может быть различной формы и сложности, в зависимости от желаемого результата и особенностей клиента',
+                            price: '2 500 – 4 000 ₽'
+                        })

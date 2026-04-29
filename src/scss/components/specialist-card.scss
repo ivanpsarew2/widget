@@ -1,0 +1,115 @@
+@use '../vars';
+
+.specialist-card {
+    position: relative;
+    width: 100%;
+    color: vars.color(text-primary);
+
+    &__cover {
+        position: relative;
+        height: 80px;
+        overflow: hidden;
+        background-color: vars.color(bg-secondary);
+    }
+
+    &__cover-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__profile-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        color: vars.color(text-primary);
+        background-color: vars.color(bg-primary);
+        cursor: pointer;
+    }
+
+    &__profile-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: -16px;
+        padding: 48px 16px 16px;
+        border-radius: 12px;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__avatar-wrapper {
+        position: absolute;
+        top: -40px;
+        left: 16px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__avatar {
+        width: 72px;
+        height: 72px;
+        border: 1px solid vars.color(border-light-1);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    &__name {
+        @include vars.text(title, 600);
+
+        margin: 0 32px 0 0;
+    }
+
+    &__schedule {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-secondary);
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 48px;
+        right: 16px;
+        align-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-primary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__dropdown-icon {
+        width: 24px;
+        height: 24px;
+    }
+}

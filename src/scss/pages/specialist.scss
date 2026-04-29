@@ -1,0 +1,31 @@
+@use '../vars';
+
+.specialist-page {
+    &__shell {
+        overflow: hidden;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__header {
+        padding: 8px 8px 8px 16px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 8px 16px 24px;
+    }
+
+    &__chips {
+        width: 100vw;
+        margin-left: -16px;
+        padding: 0 16px;
+    }
+
+    &__service-section {
+        &_bottom {
+            margin-top: 8px;
+        }
+    }
+}

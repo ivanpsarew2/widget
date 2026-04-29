@@ -1,0 +1,22 @@
+include ../icons/icon-caret-down
+
+mixin specialistHeader(options)
+    - options = options || {}
+    - const avatar = options.avatar
+    - const name = options.name || 'Specialist name'
+    - const title = options.title || 'Specialist title'
+    - const extraClass = options.className || ''
+    - const headerClasses = ['specialist-header']
+    - if (extraClass) headerClasses.push(extraClass)
+
+    header(class=headerClasses)&attributes(attributes)
+        .specialist-header__avatar
+            if avatar
+                img.specialist-header__avatar-image(src=avatar alt="")
+
+        .specialist-header__content
+            h1.specialist-header__name= name
+            .specialist-header__title= title
+
+        button.specialist-header__button(type="button")
+            +icon-caret-down('specialist-header__button-icon')

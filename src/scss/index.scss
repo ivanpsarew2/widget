@@ -20,7 +20,9 @@
 @use './components/photo-slider';
 @use './components/rating-stars';
 @use './components/review-rating-card';
+@use './components/service-section';
 @use './components/specialist-card';
+@use './components/specialist-header';
 @use './components/input';
 @use './components/textarea';
 @use './templates/widget-screen';
@@ -29,6 +31,7 @@
 @use './pages/example';
 @use './pages/info';
 @use './pages/index';
+@use './pages/specialist';
 
 * {
     box-sizing: border-box;

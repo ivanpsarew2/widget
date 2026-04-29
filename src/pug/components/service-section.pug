@@ -1,0 +1,16 @@
+include ./item-service
+
+mixin serviceSection(options)
+    - options = options || {}
+    - const title = options.title || 'Services'
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const sectionClasses = ['service-section']
+    - if (extraClass) sectionClasses.push(extraClass)
+
+    section(class=sectionClasses)&attributes(attributes)
+        h2.service-section__title= title
+
+        .service-section__list
+            each item in items
+                +itemService(item)

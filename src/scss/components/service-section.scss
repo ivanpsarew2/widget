@@ -1,0 +1,20 @@
+@use '../vars';
+
+.service-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

@@ -1,0 +1,21 @@
+@use '../vars';
+
+.social-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        color: vars.color(text-primary);
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+    }
+}

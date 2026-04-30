@@ -120,26 +120,6 @@
         }
     }
 
-    &__socials {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-    }
-
-    &__social-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        color: vars.color(text-primary);
-    }
-
-    &__social-icon {
-        width: 24px;
-        height: 24px;
-    }
-
     &__about {
         display: flex;
         flex-direction: column;
@@ -161,18 +141,6 @@
         .info-page__section-title {
             padding: 0 16px;
         }
-    }
-
-    &__map {
-        overflow: hidden;
-        border-radius: 16px;
-    }
-
-    &__map-image {
-        display: block;
-        width: 100%;
-        aspect-ratio: 320 / 160;
-        object-fit: cover;
     }
 
     &__reviews-header {

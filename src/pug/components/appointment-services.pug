@@ -1,0 +1,14 @@
+mixin appointmentServices(options)
+    - options = options || {}
+    - const services = options.services || []
+
+    .appointment-services
+        h2.appointment-services__title Услуги
+
+        .appointment-services__list
+            each service in services
+                .appointment-services__service
+                    .appointment-services__service-main
+                        .appointment-services__service-title= service.title
+                        .appointment-services__service-duration= service.duration
+                    .appointment-services__service-price= service.price

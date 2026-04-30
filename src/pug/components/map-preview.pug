@@ -1,0 +1,10 @@
+mixin mapPreview(options)
+    - options = options || {}
+    - const src = options.src || 'img/map.jpg'
+    - const alt = options.alt || ''
+    - const extraClass = options.className || ''
+    - const mapClasses = ['map-preview']
+    - if (extraClass) mapClasses.push(extraClass)
+
+    div(class=mapClasses)&attributes(attributes)
+        img.map-preview__image(src=src alt=alt)

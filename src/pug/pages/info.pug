@@ -2,16 +2,13 @@ extends ../layout
 include ../components/button
 include ../components/info-row
 include ../components/item-review
+include ../components/map-preview
 include ../components/photo-slider
 include ../components/rating-stars
 include ../components/review-rating-card
+include ../components/social-links
 include ../icons/icon-caret-left
-include ../icons/icon-globe
-include ../icons/icon-phone
 include ../icons/icon-star
-include ../icons/icon-telegram
-include ../icons/icon-vk
-include ../icons/icon-whatsapp
 
 block variables
     - var page = 'info'
@@ -52,13 +49,7 @@ block content
                     +infoRow({ icon: 'phone', text: '+7 (555) 555-55-55' })
                     +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
 
-                .info-page__socials
-                    a.info-page__social-link(href="#")
-                        +icon-whatsapp('info-page__social-icon')
-                    a.info-page__social-link(href="#")
-                        +icon-vk('info-page__social-icon')
-                    a.info-page__social-link(href="#")
-                        +icon-telegram('info-page__social-icon')
+                +socialLinks()
 
                 section.info-page__about
                     h2.info-page__section-title.info-page__section-title_main О специалисте
@@ -87,8 +78,7 @@ block content
                     br
                     | д. 39, корп. 12
 
-                .info-page__map
-                    img.info-page__map-image(src="img/map.jpg" alt="")
+                +mapPreview()
 
             section.info-page__section.info-page__reviews
                 .info-page__reviews-header

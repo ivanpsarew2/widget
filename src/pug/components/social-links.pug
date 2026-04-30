@@ -1,0 +1,17 @@
+include ../icons/icon-telegram
+include ../icons/icon-vk
+include ../icons/icon-whatsapp
+
+mixin socialLinks(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const linksClasses = ['social-links']
+    - if (extraClass) linksClasses.push(extraClass)
+
+    div(class=linksClasses)&attributes(attributes)
+        a.social-links__link(href="#")
+            +icon-whatsapp('social-links__icon')
+        a.social-links__link(href="#")
+            +icon-vk('social-links__icon')
+        a.social-links__link(href="#")
+            +icon-telegram('social-links__icon')

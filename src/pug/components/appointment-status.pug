@@ -8,6 +8,6 @@ mixin appointmentStatus(options)
     - const statusClasses = ['appointment-status', `appointment-status_${variant}`]
     - if (extraClass) statusClasses.push(extraClass)
 
-    .appointment-status(class=statusClasses)&attributes(attributes)
+    div(class=statusClasses)&attributes(attributes)
         +icon-dropdown-check('appointment-status__icon')
         span.appointment-status__label= label

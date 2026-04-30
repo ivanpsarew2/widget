@@ -5,6 +5,9 @@
 @use './components/button';
 @use './components/appointment-status';
 @use './components/appointment-details';
+@use './components/appointment-services';
+@use './components/appointment-action-button';
+@use './components/appointment-actions';
 @use './components/booking-edit-sheet';
 @use './components/booking-summary';
 @use './components/chips';
@@ -32,7 +35,9 @@
 @use './components/specialist-topbar';
 @use './components/time-slots';
 @use './components/input';
+@use './components/map-preview';
 @use './components/textarea';
+@use './components/social-links';
 @use './templates/widget-screen';
 @use './templates/bottom-sheet';
 @use './templates/select-sheet';
@@ -41,6 +46,7 @@
 @use './pages/info';
 @use './pages/index';
 @use './pages/specialist';
+@use './pages/success';
 
 * {
     box-sizing: border-box;

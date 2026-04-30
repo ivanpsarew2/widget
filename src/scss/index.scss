@@ -4,6 +4,7 @@
 
 @use './components/button';
 @use './components/appointment-status';
+@use './components/booking-edit-sheet';
 @use './components/booking-summary';
 @use './components/chips';
 @use './components/checkbox';
@@ -34,6 +35,7 @@
 @use './pages/index';
 @use './pages/specialist';
 @use './pages/specialist-selected';
+@use './pages/specialist-selected-edit';
 
 * {
     box-sizing: border-box;

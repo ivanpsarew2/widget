@@ -1,0 +1,36 @@
+include ./button
+include ../icons/icon-close
+
+mixin bookingEditSheet(options)
+    - options = options || {}
+    - const count = options.count || '2 услуги'
+    - const duration = options.duration || '120 мин'
+    - const price = options.price || '0 ₽'
+    - const actionLabel = options.actionLabel || 'Выбрать дату и время'
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const sheetClasses = ['booking-edit-sheet']
+    - if (extraClass) sheetClasses.push(extraClass)
+
+    div(class=sheetClasses)&attributes(attributes)
+        button.booking-edit-sheet__close(type="button")
+            .booking-edit-sheet__close-icon-wrapper
+                +icon-close('booking-edit-sheet__close-icon')
+
+        .booking-edit-sheet__summary
+            .booking-edit-sheet__meta
+                span.booking-edit-sheet__count= count
+                span.booking-edit-sheet__duration= duration
+            .booking-edit-sheet__price= price
+
+        .booking-edit-sheet__list
+            each item in items
+                .booking-edit-sheet__item
+                    .booking-edit-sheet__item-main
+                        .booking-edit-sheet__item-title= item.title
+                        .booking-edit-sheet__item-duration= item.duration
+                    .booking-edit-sheet__item-price= item.price
+                    button.booking-edit-sheet__remove(type="button")
+                        +icon-close('booking-edit-sheet__remove-icon')
+
+        +button({ label: actionLabel, className: 'booking-edit-sheet__button' })

@@ -1,0 +1,133 @@
+@use '../vars';
+
+.booking-edit-sheet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 48px 16px 24px;
+    border-radius: 16px 16px 0 0;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
+
+    &__close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        color: vars.color(text-primary);
+        cursor: pointer;
+    }
+
+    &__close-icon-wrapper {
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: vars.color(bg-light-1);
+    }
+
+    &__close-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    &__summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 4px;
+        align-items: baseline;
+    }
+
+    &__meta {
+        display: flex;
+        gap: 8px;
+        min-width: 0;
+        align-items: baseline;
+    }
+
+    &__count,
+    &__price {
+        @include vars.text(title-2, 600);
+    }
+
+    &__duration {
+        @include vars.text(default, 400);
+
+        color: vars.color(text-secondary);
+        white-space: nowrap;
+    }
+
+    &__price {
+        white-space: nowrap;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto 32px;
+        gap: 8px;
+        align-items: start;
+    }
+
+    &__item-main {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    &__item-title {
+        @include vars.text(default, 600);
+    }
+
+    &__item-duration {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-secondary);
+    }
+
+    &__item-price {
+        @include vars.text(default, 500);
+
+        white-space: nowrap;
+    }
+
+    &__remove {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-top: -4px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-third);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__remove-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__button {
+        margin-top: 24px;
+    }
+}

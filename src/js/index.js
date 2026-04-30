@@ -4,10 +4,14 @@
 
         sliders.forEach(function initPhotoSlider(slider) {
             const track = slider.querySelector('.js-photo-slider-track');
-            const slides = Array.from(slider.querySelectorAll('.js-photo-slider-slide'));
+            const slides = Array.from(
+                slider.querySelectorAll('.js-photo-slider-slide'),
+            );
             const prev = slider.querySelector('.js-photo-slider-prev');
             const next = slider.querySelector('.js-photo-slider-next');
-            const dots = Array.from(slider.querySelectorAll('.js-photo-slider-dot'));
+            const dots = Array.from(
+                slider.querySelectorAll('.js-photo-slider-dot'),
+            );
 
             if (!track || slides.length === 0) {
                 return;
@@ -26,7 +30,10 @@
                 activeIndex = Math.max(0, Math.min(index, slides.length - 1));
 
                 dots.forEach(function updateDot(dot, dotIndex) {
-                    dot.classList.toggle('photo-slider__dot_active', dotIndex === activeIndex);
+                    dot.classList.toggle(
+                        'photo-slider__dot_active',
+                        dotIndex === activeIndex,
+                    );
                 });
 
                 if (prev) {
@@ -39,7 +46,8 @@
             }
 
             function scrollToSlide(index) {
-                const target = slides[Math.max(0, Math.min(index, slides.length - 1))];
+                const target =
+                    slides[Math.max(0, Math.min(index, slides.length - 1))];
 
                 if (!target) {
                     return;
@@ -64,12 +72,22 @@
             }
 
             track.addEventListener('scroll', function onTrackScroll() {
-                const nextIndex = slides.reduce(function getClosestSlideIndex(closestIndex, slide, index) {
-                    const currentDistance = Math.abs(getSlideScrollLeft(slide) - track.scrollLeft);
+                const nextIndex = slides.reduce(function getClosestSlideIndex(
+                    closestIndex,
+                    slide,
+                    index,
+                ) {
+                    const currentDistance = Math.abs(
+                        getSlideScrollLeft(slide) - track.scrollLeft,
+                    );
                     const closestSlide = slides[closestIndex];
-                    const closestDistance = Math.abs(getSlideScrollLeft(closestSlide) - track.scrollLeft);
+                    const closestDistance = Math.abs(
+                        getSlideScrollLeft(closestSlide) - track.scrollLeft,
+                    );
 
-                    return currentDistance < closestDistance ? index : closestIndex;
+                    return currentDistance < closestDistance
+                        ? index
+                        : closestIndex;
                 }, 0);
 
                 setActive(nextIndex);
@@ -79,5 +97,49 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', initPhotoSliders);
+    function initIndexHeader() {
+        const page = document.querySelector('.js-index-page');
+
+        if (!page) {
+            return;
+        }
+
+        const collapseDistance = 180;
+        let isTicking = false;
+
+        function updateIndexHeader() {
+            const progress = Math.max(
+                0,
+                Math.min(window.scrollY / collapseDistance, 1),
+            );
+
+            page.style.setProperty(
+                '--index-header-progress',
+                progress.toFixed(3),
+            );
+            page.classList.toggle('index-page_collapsed', progress > 0.95);
+            isTicking = false;
+        }
+
+        function requestIndexHeaderUpdate() {
+            if (isTicking) {
+                return;
+            }
+
+            window.requestAnimationFrame(updateIndexHeader);
+            isTicking = true;
+        }
+
+        window.addEventListener('scroll', requestIndexHeaderUpdate, {
+            passive: true,
+        });
+        updateIndexHeader();
+    }
+
+    function init() {
+        initPhotoSliders();
+        initIndexHeader();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
 })();

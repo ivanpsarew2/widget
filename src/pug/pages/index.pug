@@ -1,134 +1,30 @@
 extends ../layout
-include ../components/chips
 include ../components/input
-include ../components/item-service
+include ../components/service-catalog
 include ../components/specialist-card
+include ../components/specialist-header
 
 block variables
     - var page = 'index'
 
 block content
-    -
-        const serviceGroups = [
-            {
-                id: 'service-haircuts',
-                label: 'Стрижки',
-                selected: true,
-                items: [
-                    {
-                        title: 'Женская стрижка (короткие)',
-                        duration: '60 мин',
-                        description: '',
-                        price: '2 300 – 4 000 ₽'
-                    },
-                    {
-                        title: 'Женская стрижка (средние)',
-                        duration: '60 мин',
-                        description: 'Стрижка может быть различной формы и сложности, в зависимости от желаемого результата и особенностей клиента',
-                        price: '2 500 – 4 000 ₽'
-                    }
-                ]
-            },
-            {
-                id: 'service-styling',
-                label: 'Укладки',
-                items: [
-                    {
-                        title: 'Укладка повседневная',
-                        duration: '60 мин',
-                        description: '',
-                        price: 'от 1 500 ₽'
-                    },
-                    {
-                        title: 'Коктейльная укладка',
-                        duration: '60 мин',
-                        description: '',
-                        price: 'от 2 000 ₽'
-                    }
-                ]
-            },
-            {
-                id: 'service-care',
-                label: 'Уход',
-                items: [
-                    {
-                        title: 'Восстановление волос',
-                        duration: '45 мин',
-                        description: '',
-                        price: 'от 2 200 ₽'
-                    },
-                    {
-                        title: 'Уход для кожи головы',
-                        duration: '40 мин',
-                        description: '',
-                        price: 'от 1 800 ₽'
-                    }
-                ]
-            },
-            {
-                id: 'service-coloring',
-                label: 'Окрашивание',
-                items: [
-                    {
-                        title: 'Окрашивание в один тон',
-                        duration: '120 мин',
-                        description: '',
-                        price: 'от 5 000 ₽'
-                    },
-                    {
-                        title: 'Тонирование волос',
-                        duration: '90 мин',
-                        description: '',
-                        price: 'от 3 500 ₽'
-                    }
-                ]
-            },
-            {
-                id: 'service-brows',
-                label: 'Брови',
-                items: [
-                    {
-                        title: 'Коррекция бровей',
-                        duration: '30 мин',
-                        description: '',
-                        price: 'от 900 ₽'
-                    },
-                    {
-                        title: 'Окрашивание бровей',
-                        duration: '30 мин',
-                        description: '',
-                        price: 'от 1 000 ₽'
-                    }
-                ]
-            },
-            {
-                id: 'service-nails',
-                label: 'Маникюр',
-                items: [
-                    {
-                        title: 'Маникюр классический',
-                        duration: '60 мин',
-                        description: '',
-                        price: 'от 1 700 ₽'
-                    },
-                    {
-                        title: 'Маникюр с покрытием',
-                        duration: '90 мин',
-                        description: '',
-                        price: 'от 2 500 ₽'
-                    }
-                ]
-            }
-        ]
-
-    .main.index-page
+    .main.index-page.js-index-page
         .index-page__widget
-            +specialistCard({
-                cover: 'img/bg.jpg',
+            .index-page__header
+                +specialistCard({
+                    className: 'index-page__hero-card',
+                    cover: 'img/bg.jpg',
+                    avatar: 'img/avatar.jpg',
+                    name: 'Вильгельмина Константинопольская',
+                    title: 'Топ-стилист',
+                    schedule: 'Ежедневно 9:00 – 22:00'
+                })
+
+            +specialistHeader({
+                className: 'index-page__compact-header',
                 avatar: 'img/avatar.jpg',
                 name: 'Вильгельмина Константинопольская',
-                title: 'Топ-стилист',
-                schedule: 'Ежедневно 9:00 – 22:00'
+                title: 'Топ-стилист'
             })
 
             section.index-page__services
@@ -140,21 +36,7 @@ block content
                     placeholder: 'Найти'
                 })
 
-                +chips({
-                    className: 'index-page__chips',
-                    items: serviceGroups.map(function(group) {
-                        return {
-                            label: group.label,
-                            selected: group.selected,
-                            href: `#${group.id}`
-                        }
-                    })
+                +serviceCatalog({
+                    chipsClassName: 'index-page__chips',
+                    sectionClassName: 'index-page__service-group'
                 })
-
-                each group in serviceGroups
-                    section.index-page__service-group(id=group.id)
-                        h3.index-page__group-title= group.label
-
-                        .index-page__service-list
-                            each service in group.items
-                                +itemService(service)

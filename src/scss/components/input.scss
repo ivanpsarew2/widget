@@ -12,6 +12,16 @@
         }
     }
 
+    &_prefix {
+        .input-field__control-wrap {
+            grid-template-columns: auto minmax(0, 1fr);
+        }
+
+        .input-field__control {
+            padding-left: 8px;
+        }
+    }
+
     &_hover {
         .input-field__control-wrap {
             border-color: vars.color(accent-hover);
@@ -96,6 +106,27 @@
             color: vars.color(text-third);
             opacity: 1;
         }
+    }
+
+    &__prefix {
+        @include vars.text(default, 400);
+
+        display: inline-flex;
+        gap: 2px;
+        align-items: center;
+        align-self: stretch;
+        padding-left: 16px;
+        border: 0;
+        color: vars.color(text-primary);
+        white-space: nowrap;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__prefix-icon {
+        width: 16px;
+        height: 16px;
+        color: vars.color(text-primary);
     }
 
     &__search-icon {

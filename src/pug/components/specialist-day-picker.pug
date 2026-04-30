@@ -1,7 +1,6 @@
 include ./calendar
-include ./specialist-header
+include ./specialist-topbar
 include ./time-slots
-include ../icons/icon-caret-left
 
 mixin specialistDayPicker(options)
     - options = options || {}
@@ -69,16 +68,10 @@ mixin specialistDayPicker(options)
         })
 
     div(class=pickerClasses)&attributes(attributes)
-        .specialist__picker-top
-            a.specialist__picker-back(href="specialist-selected.html")
-                +icon-caret-left('specialist__picker-back-icon')
-
-            +specialistHeader({
-                className: 'specialist__picker-specialist',
-                avatar: 'img/avatar.jpg',
-                name: 'Вильгельмина Константинопольская',
-                title: 'Топ-стилист'
-            })
+        +specialistTopbar({
+            className: 'specialist__picker-topbar',
+            href: 'specialist-selected.html'
+        })
 
         main.specialist__picker-content
             +calendar({

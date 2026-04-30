@@ -1,0 +1,111 @@
+@use '../vars';
+
+.contacts {
+    &__topbar {
+        padding: 8px 0;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__card {
+        border-radius: 16px;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__details {
+        border-radius: 0 0 16px 16px;
+    }
+
+    &__form-card {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 16px;
+    }
+
+    &__section-title {
+        @include vars.text(title-2, 600);
+
+        margin: 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__form-card {
+        .input-field__control-wrap,
+        .select-field__control {
+            min-height: 48px;
+            border-radius: 8px;
+        }
+
+        .input-field__control {
+            height: 48px;
+        }
+
+        .textarea-field__control {
+            min-height: 116px;
+        }
+    }
+
+    &__consents {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 8px;
+    }
+
+    &__consent {
+        gap: 8px;
+
+        .checkbox__label {
+            @include vars.text(default, 400);
+
+            padding: 0;
+        }
+    }
+
+    &__link {
+        color: vars.color(link);
+        text-decoration: none;
+    }
+
+    &__total {
+        @include vars.text(default, 600);
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+        padding: 16px;
+    }
+
+    &__total-price {
+        white-space: nowrap;
+    }
+
+    &__submit-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 16px 24px;
+    }
+
+    &__submit {
+        border-radius: 16px;
+    }
+
+    &__agreement {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-primary);
+    }
+}

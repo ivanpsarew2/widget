@@ -11,7 +11,7 @@ mixin calendar(options)
     - const calendarClasses = ['calendar']
     - if (extraClass) calendarClasses.push(extraClass)
 
-    .calendar(class=calendarClasses)&attributes(attributes)
+    div(class=calendarClasses)&attributes(attributes)
         .calendar__header
             .calendar__title= title
             .calendar__nav

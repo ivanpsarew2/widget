@@ -1,0 +1,41 @@
+include ../icons/icon-pencil
+
+mixin appointmentDetails(options)
+    - options = options || {}
+    - const date = options.date || 'Четверг, 5 марта'
+    - const time = options.time || '10:00 – 12:00'
+    - const services = options.services || []
+    - const totalLabel = options.totalLabel || 'Итого'
+    - const totalMeta = options.totalMeta || ''
+    - const totalPrice = options.totalPrice || '0 ₽'
+    - const extraClass = options.className || ''
+    - const detailsClasses = ['appointment-details']
+    - if (extraClass) detailsClasses.push(extraClass)
+
+    section(class=detailsClasses)&attributes(attributes)
+        h1.appointment-details__title Детали записи
+
+        .appointment-details__datetime
+            .appointment-details__datetime-content
+                .appointment-details__date= date
+                .appointment-details__time= time
+            button.appointment-details__edit(type="button")
+                +icon-pencil('appointment-details__edit-icon')
+
+        .appointment-details__services
+            h2.appointment-details__section-title Услуги
+
+            .appointment-details__service-list
+                each service in services
+                    .appointment-details__service
+                        .appointment-details__service-main
+                            .appointment-details__service-title= service.title
+                            .appointment-details__service-duration= service.duration
+                        .appointment-details__service-price= service.price
+
+        .appointment-details__total
+            .appointment-details__total-main
+                .appointment-details__total-label= totalLabel
+                if totalMeta
+                    .appointment-details__total-meta= totalMeta
+            .appointment-details__total-price= totalPrice

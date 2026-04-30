@@ -1,0 +1,113 @@
+extends ../layout
+include ../components/appointment-details
+include ../components/button
+include ../components/checkbox
+include ../components/input
+include ../components/select-field
+include ../components/specialist-topbar
+include ../components/textarea
+
+block variables
+    - var page = 'contacts'
+
+block content
+    .main.contacts
+        .contacts__shell
+            +specialistTopbar({
+                className: 'contacts__topbar',
+                href: 'specialist-day-selected.html'
+            })
+
+            main.contacts__content
+                +appointmentDetails({
+                    className: 'contacts__card contacts__details',
+                    date: 'Четверг, 5 марта',
+                    time: '10:00 – 12:00',
+                    services: [
+                        {
+                            title: 'Женская стрижка (короткие)',
+                            duration: '60 мин',
+                            price: '2 300 – 4 000 ₽'
+                        },
+                        {
+                            title: 'Женская стрижка (средние)',
+                            duration: '60 мин',
+                            price: '2 500 – 4 000 ₽'
+                        }
+                    ],
+                    totalMeta: '2 услуги, 120 мин',
+                    totalPrice: '5 800 – 8 000 ₽'
+                })
+
+                section.contacts__card.contacts__form-card
+                    h2.contacts__section-title Ваши данные
+
+                    form.contacts__form
+                        +inputField({
+                            label: 'Имя*',
+                            placeholder: 'Введите имя',
+                            name: 'name'
+                        })
+
+                        +inputField({
+                            label: 'Телефон*',
+                            placeholder: 'Номер телефона',
+                            name: 'phone',
+                            type: 'tel',
+                            prefix: '+7',
+                            prefixDropdown: true
+                        })
+
+                        +inputField({
+                            label: 'E-mail',
+                            placeholder: 'Введите e-mail',
+                            name: 'email',
+                            type: 'email'
+                        })
+
+                        +selectField({
+                            label: 'Общение со специалистом',
+                            value: 'Не выбрано'
+                        })
+
+                        +selectField({
+                            label: 'Напиток',
+                            value: 'Не выбрано'
+                        })
+
+                        +selectField({
+                            label: 'Напоминание',
+                            value: 'За 1 час',
+                            selected: true
+                        })
+
+                        +textareaField({
+                            label: 'Комментарий к записи',
+                            placeholder: 'Комментарий к записи',
+                            name: 'comment'
+                        })
+
+                        .contacts__consents
+                            +checkbox({ className: 'contacts__consent', name: 'agreement', content: true })
+                                span.checkbox__label
+                                    | Я соглашаюсь с условиями Пользовательского соглашения ООО «Салон онлайн», даю согласие на 
+                                    a.contacts__link(href="#") обработку персональных данных.
+
+                            +checkbox({ className: 'contacts__consent', name: 'marketing', content: true })
+                                span.checkbox__label
+                                    | Я соглашаюсь с условиями Пользовательского соглашения ООО «Ромашка», даю согласие на 
+                                    a.contacts__link(href="#") обработку персональных данных
+                                    |  и получение информационно-рекламных сообщений на телефон и почту.
+
+                section.contacts__card.contacts__total
+                    .contacts__total-label Итого
+                    .contacts__total-price 5 800 – 8 000 ₽
+
+                section.contacts__card.contacts__submit-card
+                    +button({ label: 'Записаться', className: 'contacts__submit' })
+
+                    .contacts__agreement
+                        | Нажимая на кнопку, я соглашаюсь с условиями 
+                        a.contacts__link(href="#") Пользовательского соглашения
+                        |  и 
+                        a.contacts__link(href="#") Политики конфиденциальности

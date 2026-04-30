@@ -1,0 +1,18 @@
+include ../icons/icon-caret-down
+
+mixin selectField(options)
+    - options = options || {}
+    - const label = options.label
+    - const value = options.value || 'Не выбрано'
+    - const selected = Boolean(options.selected)
+    - const extraClass = options.className || ''
+    - const fieldClasses = ['select-field']
+    - if (selected) fieldClasses.push('select-field_selected')
+    - if (extraClass) fieldClasses.push(extraClass)
+
+    div(class=fieldClasses)&attributes(attributes)
+        if label
+            span.select-field__label= label
+        button.select-field__control(type="button")
+            span.select-field__value= value
+            +icon-caret-down('select-field__icon')

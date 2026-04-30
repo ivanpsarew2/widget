@@ -53,26 +53,8 @@
         }
     }
 
-    &__picker-top {
-        display: grid;
-        grid-template-columns: 40px minmax(0, 1fr);
-        gap: 8px;
-        align-items: center;
+    &__picker-topbar {
         padding: 8px 8px 8px 0;
-    }
-
-    &__picker-back {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        color: vars.color(text-primary);
-    }
-
-    &__picker-back-icon {
-        width: 24px;
-        height: 24px;
     }
 
     &__picker-content {

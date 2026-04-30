@@ -1,0 +1,105 @@
+@use '../vars';
+
+.appointment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px 16px;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-primary);
+
+    &__title {
+        @include vars.text(title, 600);
+
+        margin: 0;
+    }
+
+    &__datetime {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 32px;
+        gap: 16px;
+        align-items: center;
+        padding: 8px 0;
+    }
+
+    &__date,
+    &__section-title {
+        @include vars.text(title-2, 600);
+
+        margin: 0;
+    }
+
+    &__time {
+        @include vars.text(default, 400);
+    }
+
+    &__edit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-primary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__edit-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__services {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__service-list {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__service {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: start;
+    }
+
+    &__service-main,
+    &__total-main {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    &__service-title,
+    &__service-price,
+    &__total-label,
+    &__total-price {
+        @include vars.text(default, 600);
+    }
+
+    &__service-duration,
+    &__total-meta {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-secondary);
+    }
+
+    &__service-price,
+    &__total-price {
+        white-space: nowrap;
+    }
+
+    &__total {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: start;
+        padding-top: 16px;
+        border-top: 1px solid vars.color(border-light-3);
+    }
+}

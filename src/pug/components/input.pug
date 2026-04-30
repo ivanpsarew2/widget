@@ -1,3 +1,4 @@
+include ../icons/icon-caret-down
 include ../icons/icon-search
 
 mixin inputField(options)
@@ -7,6 +8,8 @@ mixin inputField(options)
     - const value = options.value || ''
     - const type = options.type || 'text'
     - const name = options.name
+    - const prefix = options.prefix
+    - const prefixDropdown = Boolean(options.prefixDropdown)
     - const search = Boolean(options.search)
     - const hover = Boolean(options.hover)
     - const active = Boolean(options.active)
@@ -15,6 +18,7 @@ mixin inputField(options)
     - const extraClass = options.className || ''
     - const fieldClasses = ['input-field']
     - if (search) fieldClasses.push('input-field_search')
+    - if (prefix) fieldClasses.push('input-field_prefix')
     - if (hover) fieldClasses.push('input-field_hover')
     - if (active) fieldClasses.push('input-field_active')
     - if (error) fieldClasses.push('input-field_error')
@@ -28,4 +32,12 @@ mixin inputField(options)
         span.input-field__control-wrap
             if search
                 +icon-search('input-field__search-icon')
+            if prefix
+                if prefixDropdown
+                    button.input-field__prefix(type="button")
+                        span.input-field__prefix-value= prefix
+                        +icon-caret-down('input-field__prefix-icon')
+                else
+                    span.input-field__prefix
+                        span.input-field__prefix-value= prefix
             input.input-field__control(type=type name=name placeholder=placeholder value=value disabled=disabled)

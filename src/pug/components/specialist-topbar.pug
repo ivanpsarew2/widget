@@ -1,0 +1,23 @@
+include ./specialist-header
+include ../icons/icon-caret-left
+
+mixin specialistTopbar(options)
+    - options = options || {}
+    - const avatar = options.avatar || 'img/avatar.jpg'
+    - const name = options.name || 'Вильгельмина Константинопольская'
+    - const title = options.title || 'Топ-стилист'
+    - const href = options.href || '#'
+    - const extraClass = options.className || ''
+    - const topbarClasses = ['specialist-topbar']
+    - if (extraClass) topbarClasses.push(extraClass)
+
+    div(class=topbarClasses)&attributes(attributes)
+        a.specialist-topbar__back(href=href)
+            +icon-caret-left('specialist-topbar__back-icon')
+
+        +specialistHeader({
+            className: 'specialist-topbar__specialist',
+            avatar,
+            name,
+            title
+        })

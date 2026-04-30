@@ -1,0 +1,85 @@
+extends ../layout
+include ../components/booking-summary
+include ../components/chips
+include ../components/input
+include ../components/service-section
+include ../components/specialist-header
+
+block variables
+    - var page = 'specialist-selected'
+
+block content
+    .main.specialist-page.specialist-selected-page
+        .specialist-page__shell.specialist-selected-page__shell
+            +specialistHeader({
+                className: 'specialist-page__header',
+                avatar: 'img/avatar.jpg',
+                name: 'Вильгельмина Константинопольская',
+                title: 'Топ-стилист'
+            })
+
+            main.specialist-page__content.specialist-selected-page__content
+                +inputField({
+                    className: 'specialist-page__search',
+                    search: true,
+                    placeholder: 'Найти'
+                })
+
+                +chips({
+                    className: 'specialist-page__chips',
+                    items: [
+                        { label: 'Стрижки', selected: true },
+                        { label: 'Укладки' },
+                        { label: 'Уход' },
+                        { label: 'Окрашивание' },
+                        { label: 'Брови' },
+                        { label: 'Маникюр' }
+                    ]
+                })
+
+                +serviceSection({
+                    className: 'specialist-page__service-section',
+                    title: 'Стрижки',
+                    items: [
+                        {
+                            title: 'Женская стрижка (короткие)',
+                            duration: '60 мин',
+                            description: '',
+                            price: '2 300 – 4 000 ₽',
+                            checked: true
+                        },
+                        {
+                            title: 'Женская стрижка (средние)',
+                            duration: '60 мин',
+                            description: 'Стрижка может быть различной формы и сложности, в зависимости от желаемого результата и особенностей клиента',
+                            price: '2 500 – 4 000 ₽'
+                        }
+                    ]
+                })
+
+                +serviceSection({
+                    className: 'specialist-page__service-section_bottom',
+                    title: 'Укладки',
+                    items: [
+                        {
+                            title: 'Укладка повседневная',
+                            duration: '60 мин',
+                            description: '',
+                            price: 'от 1 500 ₽'
+                        },
+                        {
+                            title: 'Коктейльная укладка',
+                            duration: '60 мин',
+                            description: '',
+                            price: 'от 2 000 ₽'
+                        }
+                    ]
+                })
+
+            +bookingSummary({
+                className: 'specialist-selected-page__summary',
+                count: '1 услуга',
+                duration: '60 мин',
+                price: '2 300 – 4 000 ₽',
+                actionLabel: 'Выбрать дату и время'
+            })

@@ -1,0 +1,23 @@
+include ./button
+include ../icons/icon-pencil
+
+mixin bookingSummary(options)
+    - options = options || {}
+    - const count = options.count || '1 услуга'
+    - const duration = options.duration || '60 мин'
+    - const price = options.price || '0 ₽'
+    - const actionLabel = options.actionLabel || 'Выбрать дату и время'
+    - const extraClass = options.className || ''
+    - const summaryClasses = ['booking-summary']
+    - if (extraClass) summaryClasses.push(extraClass)
+
+    div(class=summaryClasses)&attributes(attributes)
+        .booking-summary__details
+            .booking-summary__meta
+                span.booking-summary__count= count
+                span.booking-summary__duration= duration
+            .booking-summary__price= price
+            button.booking-summary__edit(type="button")
+                +icon-pencil('booking-summary__edit-icon')
+
+        +button({ label: actionLabel, className: 'booking-summary__button' })

@@ -1,0 +1,66 @@
+@use '../vars';
+
+.booking-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 16px 24px;
+    color: vars.color(text-primary);
+    background-color: vars.color(bg-panel);
+    backdrop-filter: blur(4px);
+
+    &__details {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto 32px;
+        gap: 4px;
+        align-items: center;
+    }
+
+    &__meta {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    &__count {
+        @include vars.text(default, 600);
+
+        white-space: nowrap;
+    }
+
+    &__duration {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-secondary);
+        white-space: nowrap;
+    }
+
+    &__price {
+        @include vars.text(default, 500);
+
+        white-space: nowrap;
+    }
+
+    &__edit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-primary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__edit-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__button {
+        border-radius: 16px;
+    }
+}

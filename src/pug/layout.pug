@@ -9,7 +9,7 @@ html
         meta(content="index,follow", name="robots")
         title Widget
         link(rel="stylesheet" href="css/index.css")
-    body
+    body(class=(typeof bodyClass !== 'undefined' ? bodyClass : ''))
 
         block content
 

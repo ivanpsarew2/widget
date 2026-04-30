@@ -12,7 +12,6 @@ mixin contactsPage(options)
     - const sheet = options.sheet
     - const extraClass = options.className || ''
     - const pageClasses = ['contacts']
-    - if (sheet) pageClasses.push('contacts_sheet-open')
     - if (extraClass) pageClasses.push(extraClass)
 
     .main(class=pageClasses)&attributes(attributes)

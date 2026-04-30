@@ -1,16 +1,6 @@
 @use '../vars';
 
 .contacts {
-    &_sheet-open {
-        height: 100dvh;
-        overflow: hidden;
-
-        .contacts__shell {
-            height: 100dvh;
-            overflow: hidden;
-        }
-    }
-
     &__topbar {
         padding: 8px 0;
         background-color: vars.color(bg-primary);

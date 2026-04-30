@@ -1,13 +1,12 @@
-extends ../layout
-include ../components/chips
-include ../components/input
-include ../components/item-service
-include ../components/specialist-card
+include ./chips
+include ./service-section
 
-block variables
-    - var page = 'index'
-
-block content
+mixin serviceCatalog(options)
+    - options = options || {}
+    - const chipsClassName = options.chipsClassName || ''
+    - const sectionClassName = options.sectionClassName || ''
+    - const bottomSectionClassName = options.bottomSectionClassName || ''
+    - const checkedFirst = Boolean(options.checkedFirst)
     -
         const serviceGroups = [
             {
@@ -121,40 +120,29 @@ block content
             }
         ]
 
-    .main.index-page
-        .index-page__widget
-            +specialistCard({
-                cover: 'img/bg.jpg',
-                avatar: 'img/avatar.jpg',
-                name: 'Вильгельмина Константинопольская',
-                title: 'Топ-стилист',
-                schedule: 'Ежедневно 9:00 – 22:00'
+    +chips({
+        className: chipsClassName,
+        items: serviceGroups.map(function(group) {
+            return {
+                label: group.label,
+                selected: group.selected,
+                href: `#${group.id}`
+            }
+        })
+    })
+
+    each group, groupIndex in serviceGroups
+        -
+            const currentSectionClasses = [sectionClassName]
+            if (groupIndex > 0 && bottomSectionClassName) currentSectionClasses.push(bottomSectionClassName)
+            const currentItems = group.items.map(function(item, itemIndex) {
+                const currentItem = Object.assign({}, item)
+                if (checkedFirst && groupIndex === 0 && itemIndex === 0) currentItem.checked = true
+                return currentItem
             })
 
-            section.index-page__services
-                h2.index-page__title Выберите услуги
-
-                +inputField({
-                    className: 'index-page__search',
-                    search: true,
-                    placeholder: 'Найти'
-                })
-
-                +chips({
-                    className: 'index-page__chips',
-                    items: serviceGroups.map(function(group) {
-                        return {
-                            label: group.label,
-                            selected: group.selected,
-                            href: `#${group.id}`
-                        }
-                    })
-                })
-
-                each group in serviceGroups
-                    section.index-page__service-group(id=group.id)
-                        h3.index-page__group-title= group.label
-
-                        .index-page__service-list
-                            each service in group.items
-                                +itemService(service)
+        +serviceSection({
+            className: currentSectionClasses.filter(Boolean).join(' '),
+            title: group.label,
+            items: currentItems
+        })(id=group.id)

@@ -1,8 +1,7 @@
 extends ../layout
 include ../components/booking-summary
-include ../components/chips
 include ../components/input
-include ../components/service-section
+include ../components/service-catalog
 include ../components/specialist-header
 
 block variables
@@ -25,55 +24,11 @@ block content
                     placeholder: 'Найти'
                 })
 
-                +chips({
-                    className: 'specialist__chips',
-                    items: [
-                        { label: 'Стрижки', selected: true },
-                        { label: 'Укладки' },
-                        { label: 'Уход' },
-                        { label: 'Окрашивание' },
-                        { label: 'Брови' },
-                        { label: 'Маникюр' }
-                    ]
-                })
-
-                +serviceSection({
-                    className: 'specialist__service-section',
-                    title: 'Стрижки',
-                    items: [
-                        {
-                            title: 'Женская стрижка (короткие)',
-                            duration: '60 мин',
-                            description: '',
-                            price: '2 300 – 4 000 ₽',
-                            checked: true
-                        },
-                        {
-                            title: 'Женская стрижка (средние)',
-                            duration: '60 мин',
-                            description: 'Стрижка может быть различной формы и сложности, в зависимости от желаемого результата и особенностей клиента',
-                            price: '2 500 – 4 000 ₽'
-                        }
-                    ]
-                })
-
-                +serviceSection({
-                    className: 'specialist__service-section_bottom',
-                    title: 'Укладки',
-                    items: [
-                        {
-                            title: 'Укладка повседневная',
-                            duration: '60 мин',
-                            description: '',
-                            price: 'от 1 500 ₽'
-                        },
-                        {
-                            title: 'Коктейльная укладка',
-                            duration: '60 мин',
-                            description: '',
-                            price: 'от 2 000 ₽'
-                        }
-                    ]
+                +serviceCatalog({
+                    chipsClassName: 'specialist__chips',
+                    sectionClassName: 'specialist__service-section',
+                    bottomSectionClassName: 'specialist__service-section_bottom',
+                    checkedFirst: true
                 })
 
             +bookingSummary({

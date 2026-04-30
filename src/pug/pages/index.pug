@@ -1,42 +1,8 @@
 extends ../layout
-include ../components/input
-include ../components/service-catalog
-include ../components/specialist-card
-include ../components/specialist-header
+include ../components/service-selection-page
 
 block variables
     - var page = 'index'
 
 block content
-    .main.index-page.js-index-page
-        .index-page__widget
-            .index-page__header
-                +specialistCard({
-                    className: 'index-page__hero-card',
-                    cover: 'img/bg.jpg',
-                    avatar: 'img/avatar.jpg',
-                    name: 'Вильгельмина Константинопольская',
-                    title: 'Топ-стилист',
-                    schedule: 'Ежедневно 9:00 – 22:00'
-                })
-
-            +specialistHeader({
-                className: 'index-page__compact-header',
-                avatar: 'img/avatar.jpg',
-                name: 'Вильгельмина Константинопольская',
-                title: 'Топ-стилист'
-            })
-
-            section.index-page__services
-                h2.index-page__title Выберите услуги
-
-                +inputField({
-                    className: 'index-page__search',
-                    search: true,
-                    placeholder: 'Найти'
-                })
-
-                +serviceCatalog({
-                    chipsClassName: 'index-page__chips',
-                    sectionClassName: 'index-page__service-group'
-                })
+    +serviceSelectionPage()

@@ -1,12 +1,18 @@
 @use '../vars';
 
 .index-page {
+    --index-header-progress: 0;
+
     &_collapsed &__hero-card {
         pointer-events: none;
     }
 
     &_collapsed &__compact-header {
         pointer-events: auto;
+    }
+
+    &_selected &__services {
+        padding-bottom: 160px;
     }
 
     &__widget {
@@ -18,7 +24,6 @@
     }
 
     &__header {
-        --index-header-progress: 0;
         --index-header-height: 252px;
 
         position: relative;
@@ -78,5 +83,28 @@
     &__service-group {
         margin: 8px 0;
         scroll-margin-top: 8px;
+    }
+
+    &__summary {
+        position: fixed;
+        right: 50%;
+        bottom: 0;
+        z-index: 250;
+        width: min(100%, 360px);
+        transform: translateX(50%);
+    }
+
+    &__overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-color: vars.color(bg-sheet);
+    }
+
+    &__sheet {
+        width: min(100%, 360px);
     }
 }

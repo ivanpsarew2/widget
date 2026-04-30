@@ -1,53 +1,29 @@
 extends ../layout
 include ../components/booking-edit-sheet
-include ../components/input
-include ../components/service-catalog
-include ../components/specialist-header
+include ../components/service-selection-page
 
 block variables
     - var page = 'specialist-selected-edit'
 
 block content
-    .main.specialist.specialist_selected-edit
-        .specialist__shell
-            .specialist__screen
-                +specialistHeader({
-                    className: 'specialist__header',
-                    avatar: 'img/avatar.jpg',
-                    name: 'Вильгельмина Константинопольская',
-                    title: 'Топ-стилист'
-                })
-
-                main.specialist__content
-                    +inputField({
-                        className: 'specialist__search',
-                        search: true,
-                        placeholder: 'Найти'
-                    })
-
-                    +serviceCatalog({
-                        chipsClassName: 'specialist__chips',
-                        sectionClassName: 'specialist__service-section',
-                        bottomSectionClassName: 'specialist__service-section_bottom'
-                    })
-
-            .specialist__overlay
-                +bookingEditSheet({
-                    className: 'specialist__sheet',
-                    count: '2 услуги',
-                    duration: '120 мин',
-                    price: '5 800 – 8 000 ₽',
-                    actionLabel: 'Выбрать дату и время',
-                    items: [
-                        {
-                            title: 'Женская стрижка (короткие)',
-                            duration: '60 мин',
-                            price: '2 300 – 4 000 ₽'
-                        },
-                        {
-                            title: 'Женская стрижка (средние)',
-                            duration: '60 мин',
-                            price: '2 500 – 4 000 ₽'
-                        }
-                    ]
-                })
+    +serviceSelectionPage({ className: 'index-page_selected-edit' })
+        .index-page__overlay
+            +bookingEditSheet({
+                className: 'index-page__sheet',
+                count: '2 услуги',
+                duration: '120 мин',
+                price: '5 800 – 8 000 ₽',
+                actionLabel: 'Выбрать дату и время',
+                items: [
+                    {
+                        title: 'Женская стрижка (короткие)',
+                        duration: '60 мин',
+                        price: '2 300 – 4 000 ₽'
+                    },
+                    {
+                        title: 'Женская стрижка (средние)',
+                        duration: '60 мин',
+                        price: '2 500 – 4 000 ₽'
+                    }
+                ]
+            })

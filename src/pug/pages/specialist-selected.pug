@@ -1,40 +1,19 @@
 extends ../layout
 include ../components/booking-summary
-include ../components/input
-include ../components/service-catalog
-include ../components/specialist-header
+include ../components/service-selection-page
 
 block variables
     - var page = 'specialist-selected'
 
 block content
-    .main.specialist.specialist_selected
-        .specialist__shell
-            +specialistHeader({
-                className: 'specialist__header',
-                avatar: 'img/avatar.jpg',
-                name: 'Вильгельмина Константинопольская',
-                title: 'Топ-стилист'
-            })
-
-            main.specialist__content
-                +inputField({
-                    className: 'specialist__search',
-                    search: true,
-                    placeholder: 'Найти'
-                })
-
-                +serviceCatalog({
-                    chipsClassName: 'specialist__chips',
-                    sectionClassName: 'specialist__service-section',
-                    bottomSectionClassName: 'specialist__service-section_bottom',
-                    checkedFirst: true
-                })
-
-            +bookingSummary({
-                className: 'specialist__summary',
-                count: '1 услуга',
-                duration: '60 мин',
-                price: '2 300 – 4 000 ₽',
-                actionLabel: 'Выбрать дату и время'
-            })
+    +serviceSelectionPage({
+        className: 'index-page_selected',
+        checkedFirst: true
+    })
+        +bookingSummary({
+            className: 'index-page__summary',
+            count: '1 услуга',
+            duration: '60 мин',
+            price: '2 300 – 4 000 ₽',
+            actionLabel: 'Выбрать дату и время'
+        })

@@ -6,31 +6,6 @@
         background-color: vars.color(bg-primary);
     }
 
-    &__header {
-        padding: 8px 8px 8px 16px;
-    }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        padding: 8px 16px 24px;
-    }
-
-    &__chips {
-        width: 100vw;
-        margin-left: -16px;
-        padding: 0 16px;
-    }
-
-    &__service-section {
-        scroll-margin-top: 8px;
-
-        &_bottom {
-            margin-top: 8px;
-        }
-    }
-
     &__picker {
         display: flex;
         flex: 1;
@@ -81,30 +56,6 @@
         bottom: 0;
         z-index: 1;
         transform: translateX(50%);
-    }
-
-    &__overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 10;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        background-color: vars.color(bg-sheet);
-    }
-
-    &__sheet {
-        width: 100%;
-    }
-
-    &_selected {
-        .specialist__content {
-            padding-bottom: 160px;
-        }
-
-        .specialist__summary {
-            width: 100%;
-        }
     }
 
     &_day {

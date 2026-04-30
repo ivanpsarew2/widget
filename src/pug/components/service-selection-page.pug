@@ -1,0 +1,48 @@
+include ./input
+include ./service-catalog
+include ./specialist-card
+include ./specialist-header
+
+mixin serviceSelectionPage(options)
+    - options = options || {}
+    - const checkedFirst = Boolean(options.checkedFirst)
+    - const extraClass = options.className || ''
+    - const pageClasses = ['main', 'index-page', 'js-index-page']
+    - if (extraClass) pageClasses.push(extraClass)
+
+    div(class=pageClasses)&attributes(attributes)
+        .index-page__widget
+            .index-page__header
+                +specialistCard({
+                    className: 'index-page__hero-card',
+                    cover: 'img/bg.jpg',
+                    avatar: 'img/avatar.jpg',
+                    name: 'Вильгельмина Константинопольская',
+                    title: 'Топ-стилист',
+                    schedule: 'Ежедневно 9:00 – 22:00'
+                })
+
+            +specialistHeader({
+                className: 'index-page__compact-header',
+                avatar: 'img/avatar.jpg',
+                name: 'Вильгельмина Константинопольская',
+                title: 'Топ-стилист'
+            })
+
+            section.index-page__services
+                h2.index-page__title Выберите услуги
+
+                +inputField({
+                    className: 'index-page__search',
+                    search: true,
+                    placeholder: 'Найти'
+                })
+
+                +serviceCatalog({
+                    chipsClassName: 'index-page__chips',
+                    sectionClassName: 'index-page__service-group',
+                    checkedFirst: checkedFirst
+                })
+
+        if block
+            block

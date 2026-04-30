@@ -1,22 +1,27 @@
 include ./bottom-sheet
 include ../components/dropdown-list-item
+include ../components/input
 
 mixin selectSheet(options)
     - options = options || {}
     - const items = options.items || []
     - const withSearch = Boolean(options.search)
     - const searchPlaceholder = options.searchPlaceholder || 'Найти'
+    - const title = options.title === false ? false : (options.title || 'Выберите значение из списка')
 
     +bottomSheet({
-        title: options.title || 'Выберите значение из списка',
+        title: title,
         close: options.close,
         overlay: options.overlay,
         className: options.className
     })&attributes(attributes)
         if withSearch
-            label.select-sheet__search
-                span.select-sheet__search-icon
-                input.select-sheet__search-input(type="search" placeholder=searchPlaceholder)
+            +inputField({
+                className: 'select-sheet__search',
+                search: true,
+                type: 'search',
+                placeholder: searchPlaceholder
+            })
 
         .select-sheet__list
             each item in items

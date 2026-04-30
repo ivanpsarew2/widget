@@ -1,0 +1,22 @@
+extends ../layout
+include ../components/contacts-page
+
+block variables
+    - var page = 'contacts-reminder'
+
+block content
+    +contactsPage({
+        sheet: {
+            title: 'Выберите значение из списка',
+            className: 'contacts-select-sheet',
+            items: [
+                'Не напоминать',
+                'За 30 минут',
+                'За 1 час',
+                'За 3 часа',
+                'За 1 день',
+                'За 3 дня',
+                'За неделю'
+            ]
+        }
+    })

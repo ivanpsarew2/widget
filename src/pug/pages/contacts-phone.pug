@@ -1,0 +1,31 @@
+extends ../layout
+include ../components/contacts-page
+
+block variables
+    - var page = 'contacts-phone'
+
+block content
+    +contactsPage({
+        sheet: {
+            title: false,
+            search: true,
+            searchPlaceholder: 'Найти',
+            className: 'contacts-select-sheet contacts-select-sheet_phone',
+            items: [
+                { label: '+7 (Россия)', selected: true },
+                '+7 840 (Абхазия)',
+                '+61 (Австралия)',
+                '+43 (Австрия)',
+                '+994 (Азербайджан)',
+                '+355 (Албания)',
+                '+213 (Алжир)',
+                '+244 (Ангола)',
+                '+376 (Андорра)',
+                '+1 268 (Антигуа и Барбуда)',
+                '+54 (Аргентина)',
+                '+374 (Армения)',
+                '+93 (Афганистан)',
+                '+1 242 (Багамские Острова)'
+            ]
+        }
+    })

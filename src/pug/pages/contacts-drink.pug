@@ -1,0 +1,24 @@
+extends ../layout
+include ../components/contacts-page
+
+block variables
+    - var page = 'contacts-drink'
+
+block content
+    +contactsPage({
+        sheet: {
+            title: 'Выберите значение из списка',
+            className: 'contacts-select-sheet',
+            items: [
+                'Без напитка',
+                'Чай зеленый',
+                'Чай черный',
+                'Эспрессо',
+                'Американо',
+                'Капучино',
+                'Латте',
+                'Вода с лимоном',
+                'Содовая'
+            ]
+        }
+    })

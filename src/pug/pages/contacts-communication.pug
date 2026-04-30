@@ -1,0 +1,18 @@
+extends ../layout
+include ../components/contacts-page
+
+block variables
+    - var page = 'contacts-communication'
+
+block content
+    +contactsPage({
+        sheet: {
+            title: 'Выберите значение из списка',
+            className: 'contacts-select-sheet',
+            items: [
+                'Без разницы',
+                'Поддержу разговор',
+                'Хочу тишины'
+            ]
+        }
+    })

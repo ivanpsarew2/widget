@@ -1,4 +1,5 @@
 include ../components/button
+include ../icons/icon-close
 
 mixin bottomSheet(options)
     - options = options || {}
@@ -13,10 +14,11 @@ mixin bottomSheet(options)
     if overlay
         .widget-overlay
             .widget-overlay__backdrop
-            .bottom-sheet(class=sheetClasses)&attributes(attributes)
+            div(class=sheetClasses)&attributes(attributes)
                 if close
                     button.bottom-sheet__close(type="button")
-                        span.bottom-sheet__close-icon
+                        .bottom-sheet__close-icon-wrapper
+                            +icon-close('bottom-sheet__close-icon')
                 if title
                     .bottom-sheet__title= title
                 .bottom-sheet__content
@@ -28,10 +30,10 @@ mixin bottomSheet(options)
                         if footer.secondary
                             +button(footer.secondary)
     else
-        .bottom-sheet(class=sheetClasses)&attributes(attributes)
+        div(class=sheetClasses)&attributes(attributes)
             if close
                 button.bottom-sheet__close(type="button")
-                    span.bottom-sheet__close-icon
+                    +icon-close('bottom-sheet__close-icon')
             if title
                 .bottom-sheet__title= title
             .bottom-sheet__content

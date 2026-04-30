@@ -1,0 +1,48 @@
+@use '../vars';
+
+.contacts-select-sheet {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 360px);
+    padding: 48px 16px 24px;
+    overflow: hidden;
+
+    .bottom-sheet__title {
+        @include vars.text(title-2, 600);
+
+        margin-bottom: 8px;
+    }
+
+    .bottom-sheet__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .select-sheet__search .input-field__control-wrap {
+        border-color: vars.color(accent-selected);
+    }
+
+    .select-sheet__search {
+        flex: 0 0 auto;
+    }
+
+    .select-sheet__list {
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &_phone {
+        min-height: calc(100dvh - 48px);
+
+        .select-sheet__search {
+            margin-top: 8px;
+        }
+    }
+}

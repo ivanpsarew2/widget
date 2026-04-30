@@ -18,10 +18,9 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 428px;
     max-height: calc(100dvh - 48px);
     margin: 0 auto;
-    padding: 32px 20px 24px;
+    padding: 48px 16px 32px;
     overflow-y: auto;
     color: vars.color(text-primary);
     background-color: vars.color(bg-primary);
@@ -30,8 +29,8 @@
 
 .bottom-sheet__close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    right: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -41,37 +40,29 @@
     border: 0;
     border-radius: 50%;
     color: vars.color(text-primary);
-    background-color: vars.color(bg-light-1);
+    background-color: transparent;
     cursor: pointer;
 }
 
+.bottom-sheet__close-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: vars.color(bg-light-1);
+}
+
 .bottom-sheet__close-icon {
-    position: relative;
     width: 16px;
     height: 16px;
-
-    &::before,
-    &::after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 18px;
-        height: 2px;
-        border-radius: 1px;
-        background-color: currentColor;
-        content: '';
-        transform: translate(-50%, -50%) rotate(45deg);
-    }
-
-    &::after {
-        transform: translate(-50%, -50%) rotate(-45deg);
-    }
 }
 
 .bottom-sheet__title {
     @include vars.text(default, 700);
 
-    margin: 0 40px 24px 0;
+    margin: 8px 0;
 }
 
 .bottom-sheet__content {

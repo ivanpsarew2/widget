@@ -1,0 +1,45 @@
+@use '../vars';
+
+.time-slots {
+    display: grid;
+    gap: 10px;
+
+    &__header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 32px;
+        gap: 4px;
+        align-items: center;
+    }
+
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: 0;
+    }
+
+    &__toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        color: vars.color(text-primary);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__toggle-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__list {
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        min-width: 76px;
+    }
+}

@@ -8,24 +8,24 @@ block variables
     - var page = 'specialist'
 
 block content
-    .main.specialist-page
-        .specialist-page__shell
+    .main.specialist
+        .specialist__shell
             +specialistHeader({
-                className: 'specialist-page__header',
+                className: 'specialist__header',
                 avatar: 'img/avatar.jpg',
                 name: 'Вильгельмина Константинопольская',
                 title: 'Топ-стилист'
             })
 
-            main.specialist-page__content
+            main.specialist__content
                 +inputField({
-                    className: 'specialist-page__search',
+                    className: 'specialist__search',
                     search: true,
                     placeholder: 'Найти'
                 })
 
                 +chips({
-                    className: 'specialist-page__chips',
+                    className: 'specialist__chips',
                     items: [
                         { label: 'Стрижки', selected: true },
                         { label: 'Укладки' },
@@ -37,7 +37,7 @@ block content
                 })
 
                 +serviceSection({
-                    className: 'specialist-page__service-section',
+                    className: 'specialist__service-section',
                     title: 'Стрижки',
                     items: [
                         {
@@ -56,7 +56,7 @@ block content
                 })
 
                 +serviceSection({
-                    className: 'specialist-page__service-section_bottom',
+                    className: 'specialist__service-section_bottom',
                     title: 'Укладки',
                     items: [
                         {

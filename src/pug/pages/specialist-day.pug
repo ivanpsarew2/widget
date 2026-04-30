@@ -1,0 +1,14 @@
+extends ../layout
+include ../components/powered-by
+include ../components/specialist-day-picker
+
+block variables
+    - var page = 'specialist-day'
+
+block content
+    .main.specialist.specialist_day
+        .specialist__shell
+            +specialistDayPicker()
+
+            footer.specialist__footer
+                +poweredBy({ className: 'specialist__powered' })

@@ -1,0 +1,17 @@
+@use '../vars';
+
+.powered-by {
+    @include vars.text(default, 400);
+
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    color: vars.color(text-secondary);
+
+    &__logo {
+        display: block;
+        width: 79px;
+        height: 18px;
+    }
+}

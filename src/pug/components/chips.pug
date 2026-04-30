@@ -23,6 +23,6 @@ mixin chips(options)
     - const chipsClasses = ['chips']
     - if (extraClass) chipsClasses.push(extraClass)
 
-    .chips(class=chipsClasses)&attributes(attributes)
+    div(class=chipsClasses)&attributes(attributes)
         each item in items
             +chip(item)

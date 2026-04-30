@@ -1,0 +1,9 @@
+mixin poweredBy(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const poweredClasses = ['powered-by']
+    - if (extraClass) poweredClasses.push(extraClass)
+
+    div(class=poweredClasses)&attributes(attributes)
+        span Работает на
+        img.powered-by__logo(src="img/logo.svg" alt="СОЙЛАЙН")

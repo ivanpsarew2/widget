@@ -1,0 +1,25 @@
+extends ../layout
+include ../components/booking-summary
+include ../components/specialist-day-picker
+include ../components/powered-by
+
+block variables
+    - var page = 'specialist-day-selected'
+
+block content
+    .main.specialist.specialist_day.specialist_day-selected
+        .specialist__shell
+            +specialistDayPicker({
+                selectedDay: '13',
+                selectedTimes: ['10:00', '10:15', '10:30', '10:45']
+            })
+
+            footer.specialist__footer
+                +poweredBy({ className: 'specialist__powered' })
+
+            +bookingSummary({
+                className: 'specialist__summary',
+                label: 'Дата и время',
+                value: '13 марта, 10:00 – 11:00',
+                actionLabel: 'Далее'
+            })

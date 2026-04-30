@@ -9,25 +9,25 @@ block variables
     - var page = 'specialist-selected-edit'
 
 block content
-    .main.specialist-page.specialist-selected-edit-page
-        .specialist-page__shell.specialist-selected-edit-page__shell
-            .specialist-selected-edit-page__screen
+    .main.specialist.specialist_selected-edit
+        .specialist__shell
+            .specialist__screen
                 +specialistHeader({
-                    className: 'specialist-page__header',
+                    className: 'specialist__header',
                     avatar: 'img/avatar.jpg',
                     name: 'Вильгельмина Константинопольская',
                     title: 'Топ-стилист'
                 })
 
-                main.specialist-page__content.specialist-selected-edit-page__content
+                main.specialist__content
                     +inputField({
-                        className: 'specialist-page__search',
+                        className: 'specialist__search',
                         search: true,
                         placeholder: 'Найти'
                     })
 
                     +chips({
-                        className: 'specialist-page__chips',
+                        className: 'specialist__chips',
                         items: [
                             { label: 'Стрижки', selected: true },
                             { label: 'Укладки' },
@@ -39,7 +39,7 @@ block content
                     })
 
                     +serviceSection({
-                        className: 'specialist-page__service-section',
+                        className: 'specialist__service-section',
                         title: 'Стрижки',
                         items: [
                             {
@@ -57,9 +57,9 @@ block content
                         ]
                     })
 
-            .specialist-selected-edit-page__overlay
+            .specialist__overlay
                 +bookingEditSheet({
-                    className: 'specialist-selected-edit-page__sheet',
+                    className: 'specialist__sheet',
                     count: '2 услуги',
                     duration: '120 мин',
                     price: '5 800 – 8 000 ₽',

@@ -1,0 +1,35 @@
+include ./chips
+include ../icons/icon-caret-up
+
+mixin timeSlots(options)
+    - options = options || {}
+    - const title = options.title || 'Время'
+    - const items = options.items || []
+    -
+        const slotItems = items.map(function(item) {
+            const itemClasses = ['time-slots__item']
+            if (item.className) itemClasses.push(item.className)
+
+            return {
+                label: item.label,
+                selected: item.selected,
+                active: item.active,
+                href: item.href,
+                type: item.type,
+                className: itemClasses.join(' ')
+            }
+        })
+    - const extraClass = options.className || ''
+    - const slotsClasses = ['time-slots']
+    - if (extraClass) slotsClasses.push(extraClass)
+
+    section(class=slotsClasses)&attributes(attributes)
+        .time-slots__header
+            h2.time-slots__title= title
+            button.time-slots__toggle(type="button")
+                +icon-caret-up('time-slots__toggle-icon')
+
+        +chips({
+            className: 'time-slots__list',
+            items: slotItems
+        })

@@ -20,11 +20,13 @@
 @use './components/item-user';
 @use './components/info-row';
 @use './components/photo-slider';
+@use './components/powered-by';
 @use './components/rating-stars';
 @use './components/review-rating-card';
 @use './components/service-section';
 @use './components/specialist-card';
 @use './components/specialist-header';
+@use './components/time-slots';
 @use './components/input';
 @use './components/textarea';
 @use './templates/widget-screen';
@@ -34,8 +36,6 @@
 @use './pages/info';
 @use './pages/index';
 @use './pages/specialist';
-@use './pages/specialist-selected';
-@use './pages/specialist-selected-edit';
 
 * {
     box-sizing: border-box;

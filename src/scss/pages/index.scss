@@ -24,12 +24,9 @@
     }
 
     &__header {
-        --index-header-height: 252px;
-
         position: relative;
         top: 0;
         z-index: 2;
-        height: var(--index-header-height);
         overflow: hidden;
         pointer-events: none;
     }

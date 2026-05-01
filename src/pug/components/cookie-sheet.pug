@@ -1,0 +1,23 @@
+include ./button
+include ../templates/bottom-sheet
+
+mixin cookieSheet(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const sheetClasses = ['cookie-sheet']
+    - if (extraClass) sheetClasses.push(extraClass)
+
+    +bottomSheet({
+        title: false,
+        className: sheetClasses.join(' ')
+    })&attributes(attributes)
+        h1.cookie-sheet__title Этот сайт использует файлы cookie
+
+        p.cookie-sheet__text
+            | Мы используем файлы cookie для персонализации контента и рекламы, предоставления функций социальных сетей и анализа нашего трафика.
+            br
+            | Мы также делимся информацией о вашем использовании нашего сайта с нашими партнерами по социальным сетям, рекламе и аналитике, которые могут объединять ее с другой информацией, которую вы им предоставили или которую они собрали в процессе использования вами их услуг. Ознакомьтесь с Политикой конфиденциальности.
+
+        .cookie-sheet__actions
+            +button({ label: 'Разрешить' })
+            +button({ label: 'Отказаться', variant: 'secondary' })

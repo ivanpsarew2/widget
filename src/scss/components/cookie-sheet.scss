@@ -1,0 +1,25 @@
+@use '../vars';
+
+.cookie-sheet {
+    .bottom-sheet__content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: 0;
+    }
+
+    &__text {
+        margin: 0;
+    }
+
+    &__actions {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+    }
+}

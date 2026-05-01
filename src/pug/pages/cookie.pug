@@ -1,0 +1,10 @@
+extends ../layout
+include ../components/cookie-sheet
+
+block variables
+    - var page = 'cookie'
+    - var bodyClass = 'body-lock'
+
+block content
+    .main.cookie
+        +cookieSheet()

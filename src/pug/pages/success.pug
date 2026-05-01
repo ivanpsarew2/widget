@@ -1,5 +1,4 @@
 extends ../layout
-include ../components/appointment-actions
 include ../components/appointment-status
 include ../components/info-row
 include ../components/item-banner
@@ -9,7 +8,10 @@ include ../components/social-links
 include ../components/specialist-topbar
 include ../components/appointment-services
 include ../components/button
+include ../icons/icon-calendar-days
+include ../icons/icon-close
 include ../icons/icon-info
+include ../icons/icon-reschedule
 include ../icons/icon-smiley
 
 block variables
@@ -45,12 +47,15 @@ block content
                         .success__action-label Записаться еще
                     .success__action
                         +button({ variant: 'secondary', operation: true })
+                            +icon-calendar-days('button__icon')
                         .success__action-label Добавить в календарь
                     .success__action
                         +button({ variant: 'secondary', operation: true })
+                            +icon-reschedule('button__icon')
                         .success__action-label Перенести запись
                     .success__action
                         +button({ variant: 'secondary', operation: true })
+                            +icon-close('button__icon')
                         .success__action-label Отменить запись
 
                 section.success__section

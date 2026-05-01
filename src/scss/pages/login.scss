@@ -1,6 +1,11 @@
 @use '../vars';
 
 .login-page {
+    &__shell {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__header-card,
     &__card {
         display: flex;
@@ -66,5 +71,49 @@
 
     &__footer {
         padding: 32px 16px 0;
+    }
+
+    &_step-2 {
+        .login-page__shell {
+            background-color: vars.color(bg-primary);
+        }
+    }
+
+    &__plain-topbar {
+        padding: 8px 16px;
+    }
+
+    &__form-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 24px 16px 16px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__consents {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__link {
+        color: vars.color(link);
+        text-decoration: none;
+    }
+
+    &__powered {
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
+
+    &__fixed-footer {
+        padding: 16px 16px 24px;
+        background-color: vars.color(bg-primary);
     }
 }

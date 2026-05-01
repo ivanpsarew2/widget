@@ -1,0 +1,35 @@
+include ./button
+include ./item-balance-card
+include ./powered-by
+include ./specialist-topbar
+
+mixin balanceListPage(options)
+    - options = options || {}
+    - const title = options.title || 'Мои абонементы'
+    - const buttonLabel = options.buttonLabel || 'Купить'
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const pageClasses = ['main', 'balance-list-page']
+    - if (extraClass) pageClasses.push(extraClass)
+
+    div(class=pageClasses)&attributes(attributes)
+        .balance-list-page__shell
+            +specialistTopbar({
+                className: 'balance-list-page__topbar',
+                href: 'login-step-1.html'
+            })
+
+            main.balance-list-page__content
+                h1.balance-list-page__title= title
+
+                .balance-list-page__list
+                    each item in items
+                        +itemBalanceCard(item)
+
+                +poweredBy({ className: 'balance-list-page__powered' })
+
+            footer.balance-list-page__footer
+                +button({
+                    label: buttonLabel,
+                    href: 'index.html'
+                })

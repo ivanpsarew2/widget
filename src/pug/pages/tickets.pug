@@ -1,0 +1,23 @@
+extends ../layout
+include ../components/balance-list-page
+
+block variables
+    - var page = 'tickets'
+
+block content
+    +balanceListPage({
+        title: 'Мои абонементы',
+        buttonLabel: 'Купить абонемент',
+        items: [
+            {
+                title: 'Абонемент на 10 дневных макияжей',
+                subtitle: 'Абонемент №725',
+                balance: 'Остаток 8 услуг'
+            },
+            {
+                title: 'Абонемент в солярий на 100 минут',
+                subtitle: 'Абонемент №702',
+                balance: 'Остаток 39 минут'
+            }
+        ]
+    })

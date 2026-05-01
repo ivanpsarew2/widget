@@ -1,0 +1,22 @@
+extends ../layout
+include ../components/balance-list-page
+
+block variables
+    - var page = 'certificates'
+
+block content
+    +balanceListPage({
+        title: 'Мои депозиты и сертификаты',
+        buttonLabel: 'Купить сертификат',
+        items: [
+            {
+                title: 'Сертификат 10 000 ₽ на все услуги',
+                subtitle: 'Сертификат №734',
+                balance: 'Остаток 6 300 ₽'
+            },
+            {
+                title: 'Депозит',
+                balance: 'Остаток 7 200 ₽'
+            }
+        ]
+    })

@@ -1,0 +1,51 @@
+extends ../layout
+
+block variables
+    - var page = 'page-list'
+
+block content
+    -
+        const pages = [
+            { href: 'example.html', label: 'UI-kit', name: 'example.html' },
+            { href: 'home.html', label: 'Главная', name: 'home.html' },
+            { href: 'info.html', label: 'Информация о специалисте', name: 'info.html' },
+            { href: 'reschedule.html', label: 'Перенос записи', name: 'reschedule.html' },
+            { href: 'specialist-selected.html', label: 'Выбрана услуга', name: 'specialist-selected.html' },
+            { href: 'specialist-selected-edit.html', label: 'Редактирование выбранных услуг', name: 'specialist-selected-edit.html' },
+            { href: 'specialist-day.html', label: 'Выбор даты и времени', name: 'specialist-day.html' },
+            { href: 'specialist-day-selected.html', label: 'Выбраны дата и время', name: 'specialist-day-selected.html' },
+            { href: 'contacts.html', label: 'Контактные данные', name: 'contacts.html' },
+            { href: 'contacts-phone.html', label: 'Выбор телефона', name: 'contacts-phone.html' },
+            { href: 'contacts-communication.html', label: 'Выбор общения', name: 'contacts-communication.html' },
+            { href: 'contacts-drink.html', label: 'Выбор напитка', name: 'contacts-drink.html' },
+            { href: 'contacts-reminder.html', label: 'Выбор напоминания', name: 'contacts-reminder.html' },
+            { href: 'success.html', label: 'Успешная запись', name: 'success.html' },
+            { href: 'cancel.html', label: 'Попап отмены записи', name: 'cancel.html' },
+            { href: 'canceled.html', label: 'Запись отменена', name: 'canceled.html' },
+            { href: 'login-step-1.html', label: 'Личный кабинет', name: 'login-step-1.html' },
+            { href: 'login-step-2.html', label: 'Вход по коду', name: 'login-step-2.html' },
+            { href: 'login-step-2-pass.html', label: 'Вход с паролем', name: 'login-step-2-pass.html' },
+            { href: 'login-step-3.html', label: 'SMS-код', name: 'login-step-3.html' },
+            { href: 'language.html', label: 'Выбор языка', name: 'language.html' },
+            { href: 'logout.html', label: 'Выход из кабинета', name: 'logout.html' },
+            { href: 'appointments.html', label: 'Список записей', name: 'appointments.html' },
+            { href: 'appointment-upcoming.html', label: 'Предстоящая запись', name: 'appointment-upcoming.html' },
+            { href: 'appointment-past.html', label: 'Прошедшая запись', name: 'appointment-past.html' },
+            { href: 'bonuses.html', label: 'Бонусы', name: 'bonuses.html' },
+            { href: 'tickets.html', label: 'Абонементы', name: 'tickets.html' },
+            { href: 'certificates.html', label: 'Депозиты и сертификаты', name: 'certificates.html' },
+            { href: 'cookie.html', label: 'Cookie', name: 'cookie.html' }
+        ]
+
+    .main.page-list
+        .page-list__shell
+            header.page-list__header
+                h1.page-list__title Все страницы
+                p.page-list__subtitle Быстрая навигация по доступным экранам виджета
+
+            main.page-list__content
+                .page-list__links
+                    each item in pages
+                        a.page-list__link(href=item.href)
+                            span.page-list__link-label= item.label
+                            span.page-list__link-name= item.name

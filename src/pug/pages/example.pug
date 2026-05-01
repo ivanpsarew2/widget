@@ -386,35 +386,3 @@ block content
                 +textareaField({ label: 'Error empty', error: true })
                 +textareaField({ label: 'Error active', error: true, active: true, value: 'Text' })
                 +textareaField({ label: 'Error filled', error: true, value: 'Text' })
-
-        section.example-section
-            h2.example-section__title Templates
-
-            .example-section__grid
-                .example-section__item
-                    p.example-section__label Widget screen
-                    +widgetScreen({
-                        title: 'Вильгельмина Константино...',
-                        subtitle: 'Топ-стилист',
-                        avatar: 'img/bg.jpg',
-                        back: true,
-                        dropdown: true,
-                        footer: {
-                            button: {
-                                label: 'Выбрать дату и время',
-                                variant: 'primary'
-                            }
-                        }
-                    })
-                        p.example-section__label Контент страницы собирается здесь из компонентов.
-
-                .example-section__item
-                    p.example-section__label Select sheet
-                    +selectSheet({
-                        overlay: false,
-                        title: 'Выберите значение из списка',
-                        items: [
-                            { label: 'Русский', selected: true },
-                            'Английский'
-                        ]
-                    })

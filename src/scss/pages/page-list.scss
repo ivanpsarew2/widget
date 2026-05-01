@@ -1,0 +1,65 @@
+@use '../vars';
+
+.page-list {
+    &__shell {
+        width: min(100%, 480px);
+        min-height: 100dvh;
+        margin: 0 auto;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px 16px 16px;
+    }
+
+    &__title {
+        @include vars.text(title, 600);
+
+        margin: 0;
+    }
+
+    &__subtitle {
+        @include vars.text(appointment, 400);
+
+        margin: 0;
+        color: vars.color(text-secondary);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 16px 24px;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px;
+        border: 1px solid vars.color(border-light-2);
+        border-radius: 12px;
+        color: vars.color(text-primary);
+        text-decoration: none;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__link-label {
+        @include vars.text(default, 500);
+    }
+
+    &__link-name {
+        @include vars.text(status, 400);
+
+        color: vars.color(text-secondary);
+    }
+}

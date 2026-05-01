@@ -1,0 +1,86 @@
+extends ../layout
+include ../components/button
+include ../components/item-appointment
+include ../components/powered-by
+include ../components/specialist-topbar
+
+block variables
+    - var page = 'appointments'
+
+block content
+    .main.appointments
+        .appointments__shell
+            +specialistTopbar({
+                className: 'appointments__topbar',
+                href: 'login-step-1.html'
+            })
+
+            main.appointments__content
+                h1.appointments__title Мои записи
+
+                section.appointments__section
+                    h2.appointments__section-title Предстоящие
+
+                    +itemAppointment({
+                        date: 'Вс, 15 мар в 18:30',
+                        name: 'Мария',
+                        qualification: 'Топ-стилист',
+                        avatar: 'img/avatar.jpg',
+                        services: [
+                            'Женская стрижка (короткие)',
+                            'Вечерняя укладка'
+                        ],
+                        price: '7 500 ₽'
+                    })
+
+                section.appointments__section
+                    h2.appointments__section-title Прошедшие
+
+                    .appointments__list
+                        +itemAppointment({
+                            date: 'Вс, 15 мар в 18:30',
+                            name: 'Мария',
+                            qualification: 'Топ-стилист',
+                            avatar: 'img/avatar.jpg',
+                            services: [
+                                'Женская стрижка (короткие)'
+                            ],
+                            price: '7 500 ₽',
+                            status: {
+                                label: 'Завершена'
+                            },
+                            action: {
+                                label: 'Записаться снова',
+                                variant: 'secondary',
+                                icon: 'reload'
+                            }
+                        })
+
+                        +itemAppointment({
+                            date: 'Вс, 15 мар в 18:30',
+                            name: 'Мария',
+                            qualification: 'Топ-стилист',
+                            avatar: 'img/avatar.jpg',
+                            services: [
+                                'Женская стрижка (короткие)'
+                            ],
+                            price: '7 500 ₽',
+                            status: {
+                                variant: 'danger',
+                                label: 'Отменена',
+                                icon: 'close'
+                            },
+                            action: {
+                                label: 'Записаться снова',
+                                variant: 'secondary',
+                                icon: 'reload'
+                            }
+                        })
+
+            footer.appointments__footer
+                +poweredBy()
+                +button({
+                    label: 'Новая запись',
+                    className: 'appointments__button',
+                    href: 'index.html'
+                })

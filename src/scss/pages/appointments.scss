@@ -1,0 +1,53 @@
+@use '../vars';
+
+.appointments {
+    &__shell {
+        display: flex;
+        flex-direction: column;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__topbar {
+        padding: 8px 8px 8px 0;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 16px;
+        padding: 12px 16px;
+    }
+
+    &__title {
+        @include vars.text(title, 600);
+
+        margin: 0 0 12px;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__section-title {
+        @include vars.text(default, 500);
+
+        margin: 0;
+        color: vars.color(text-secondary);
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 16px 16px 24px;
+    }
+}

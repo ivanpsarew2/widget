@@ -1,0 +1,14 @@
+include ../icons/icon-caret-left
+
+mixin pageTopbar(options)
+    - options = options || {}
+    - const title = options.title || ''
+    - const href = options.href || '#'
+    - const extraClass = options.className || ''
+    - const topbarClasses = ['page-topbar']
+    - if (extraClass) topbarClasses.push(extraClass)
+
+    header(class=topbarClasses)&attributes(attributes)
+        a.page-topbar__back(href=href)
+            +icon-caret-left('page-topbar__back-icon')
+        h1.page-topbar__title= title

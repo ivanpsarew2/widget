@@ -39,12 +39,12 @@
     }
 
     &_disabled {
-        color: vars.color(text-third);
+        color: vars.color(text-disabled);
         cursor: default;
         pointer-events: none;
 
         &.calendar-day_weekend {
-            color: vars.color(danger-bg);
+            color: vars.color(danger-disabled);
         }
 
         &.calendar-day_today {
@@ -53,7 +53,7 @@
 
         &.calendar-day_selected {
             color: vars.color(text-button);
-            border-color: vars.color(bg-light-3);
+            border-color: transparent;
             background-color: vars.color(bg-light-3);
         }
     }

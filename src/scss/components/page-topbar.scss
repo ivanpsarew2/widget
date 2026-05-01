@@ -1,0 +1,29 @@
+@use '../vars';
+
+.page-topbar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    min-height: 64px;
+
+    &__back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: vars.color(text-primary);
+    }
+
+    &__back-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__title {
+        @include vars.text(default, 600);
+
+        margin: 0;
+    }
+}

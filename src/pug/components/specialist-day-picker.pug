@@ -1,4 +1,4 @@
-include ./calendar
+include ./march-calendar
 include ./specialist-topbar
 include ./time-slots
 
@@ -10,50 +10,6 @@ mixin specialistDayPicker(options)
     - const pickerClasses = ['specialist__picker']
     - if (extraClass) pickerClasses.push(extraClass)
     -
-        const calendarDays = [
-            { label: '23', disabled: true },
-            { label: '24', disabled: true },
-            { label: '25' },
-            { label: '26' },
-            { label: '27', disabled: true },
-            { label: '28', type: 'weekend', disabled: true },
-            { label: '1', type: 'weekend' },
-            { label: '2' },
-            { label: '3', today: true },
-            { label: '4', disabled: true },
-            { label: '5' },
-            { label: '6' },
-            { label: '7', type: 'weekend', disabled: true },
-            { label: '8', type: 'weekend', disabled: true },
-            { label: '9' },
-            { label: '10' },
-            { label: '11', disabled: true },
-            { label: '12', disabled: true },
-            { label: '13', state: selectedDay === '13' ? 'selected' : 'default' },
-            { label: '14', type: 'weekend' },
-            { label: '15', type: 'weekend', disabled: true },
-            { label: '16', disabled: true },
-            { label: '17' },
-            { label: '18' },
-            { label: '19', disabled: true },
-            { label: '20', disabled: true },
-            { label: '21', type: 'weekend' },
-            { label: '22', type: 'weekend' },
-            { label: '23', disabled: true },
-            { label: '24', disabled: true },
-            { label: '25' },
-            { label: '26' },
-            { label: '27', disabled: true },
-            { label: '28', type: 'weekend', disabled: true },
-            { label: '29', type: 'weekend' },
-            { label: '30' },
-            { label: '31', disabled: true },
-            { label: '1', disabled: true },
-            { label: '2' },
-            { label: '3' },
-            { label: '4', type: 'weekend', disabled: true },
-            { label: '5', type: 'weekend', disabled: true }
-        ]
         const morningSlots = ['10:00', '10:15', '10:30', '10:45', '11:30', '11:45'].map(function(label) {
             return {
                 label,
@@ -74,10 +30,9 @@ mixin specialistDayPicker(options)
         })
 
         main.specialist__picker-content
-            +calendar({
+            +marchCalendar({
                 className: 'specialist__picker-calendar',
-                title: 'Март 2026',
-                days: calendarDays
+                selectedDay
             })
 
             +timeSlots({

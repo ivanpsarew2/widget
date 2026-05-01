@@ -1,0 +1,80 @@
+@use '../vars';
+
+.reschedule {
+    &__shell {
+        display: flex;
+        flex-direction: column;
+        background-color: vars.color(bg-primary);
+    }
+
+    &__topbar {
+        padding: 8px 16px;
+    }
+
+    &__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 16px;
+        padding: 8px 16px 0;
+    }
+
+    &__calendar {
+        gap: 16px;
+    }
+
+    &__empty {
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+
+    &__empty-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        color: vars.color(text-primary);
+        background-color: vars.color(bg-light-1);
+    }
+
+    &__empty-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__empty-title-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    &__empty-title {
+        @include vars.text(default, 600);
+
+        margin: 0;
+    }
+
+    &__empty-text {
+        @include vars.text(appointment, 400);
+
+        margin: 0;
+        color: vars.color(text-secondary);
+
+        &_bold {
+            font-weight: 600;
+            color: vars.color(text-primary);
+        }
+    }
+
+    &__button {
+        margin-top: 8px;
+    }
+
+    &__footer {
+        padding: 32px 16px 106px;
+    }
+}

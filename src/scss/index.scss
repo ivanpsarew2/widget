@@ -35,6 +35,7 @@
 @use './components/time-slots';
 @use './components/input';
 @use './components/map-preview';
+@use './components/page-topbar';
 @use './components/textarea';
 @use './components/social-links';
 @use './templates/widget-screen';
@@ -45,6 +46,7 @@
 @use './pages/info';
 @use './pages/index';
 @use './pages/specialist';
+@use './pages/reschedule';
 @use './pages/success';
 
 * {

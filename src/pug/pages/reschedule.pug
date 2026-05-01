@@ -1,0 +1,41 @@
+extends ../layout
+include ../components/button
+include ../components/march-calendar
+include ../components/page-topbar
+include ../components/powered-by
+include ../icons/icon-calendar-days
+
+block variables
+    - var page = 'reschedule'
+
+block content
+    .main.reschedule
+        .reschedule__shell
+            +pageTopbar({
+                className: 'reschedule__topbar',
+                title: 'Перенос записи',
+                href: 'success.html'
+            })
+
+            main.reschedule__content
+                +marchCalendar({
+                    className: 'reschedule__calendar',
+                    selectedDayKey: 'mar-3',
+                    selectedDisabled: true
+                })
+
+                section.reschedule__empty
+                    .reschedule__empty-icon-wrap
+                        +icon-calendar-days('reschedule__empty-icon')
+                    .reschedule__empty-title-wrap
+                        h2.reschedule__empty-title В этот день нет свободного времени
+                        p.reschedule__empty-text Ближайшая доступная дата: 
+                            span.reschedule__empty-text_bold чт, 5 марта
+
+                +button({
+                    label: 'Перейти к ближайшей дате',
+                    className: 'reschedule__button'
+                })
+
+            footer.reschedule__footer
+                +poweredBy()

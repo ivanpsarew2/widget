@@ -29,6 +29,7 @@ $palette-link: #1a6be6;
 $color-text-primary: $palette-text;
 $color-text-secondary: rgba($palette-text, 0.8);
 $color-text-third: rgba($palette-text, 0.48);
+$color-text-disabled: rgba($palette-text, 0.32);
 $color-text-invert-primary: $palette-white;
 $color-text-invert-secondary: rgba($palette-white, 0.8);
 $color-text-button: $palette-white;
@@ -44,6 +45,7 @@ $color-border-light-2: rgba($palette-black, 0.16);
 $color-border-light-3: rgba($palette-black, 0.24);
 $color-danger: $palette-danger;
 $color-danger-bg: rgba($palette-danger, 0.16);
+$color-danger-disabled: rgba($palette-danger, 0.32);
 $color-success: $palette-success;
 $color-success-bg: rgba($palette-success, 0.16);
 $color-warning: $palette-warning;
@@ -62,6 +64,7 @@ $colors: (
     text-primary: color-token($color-text-primary),
     text-secondary: color-token($color-text-secondary),
     text-third: color-token($color-text-third),
+    text-disabled: color-token($color-text-disabled),
     text-invert-primary: color-token($color-text-invert-primary),
     text-invert-secondary: color-token($color-text-invert-secondary),
     text-button: color-token($color-text-button),
@@ -77,6 +80,7 @@ $colors: (
     border-light-3: color-token($color-border-light-3),
     danger: color-token($color-danger),
     danger-bg: color-token($color-danger-bg),
+    danger-disabled: color-token($color-danger-disabled),
     success: color-token($color-success),
     success-bg: color-token($color-success-bg),
     warning: color-token($color-warning),

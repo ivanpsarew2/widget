@@ -1,0 +1,66 @@
+include ./calendar
+
+mixin marchCalendar(options)
+    - options = options || {}
+    - const selectedDay = options.selectedDay || ''
+    - const selectedDayKey = options.selectedDayKey || (selectedDay ? `mar-${selectedDay}` : '')
+    - const selectedDisabled = Boolean(options.selectedDisabled)
+    - const extraClass = options.className || ''
+    -
+        const calendarDays = [
+            { key: 'prev-23', label: '23', disabled: true },
+            { key: 'prev-24', label: '24', disabled: true },
+            { key: 'prev-25', label: '25' },
+            { key: 'prev-26', label: '26' },
+            { key: 'prev-27', label: '27', disabled: true },
+            { key: 'prev-28', label: '28', type: 'weekend', disabled: true },
+            { key: 'mar-1', label: '1', type: 'weekend' },
+            { key: 'mar-2', label: '2' },
+            { key: 'mar-3', label: '3', today: true },
+            { key: 'mar-4', label: '4', disabled: true },
+            { key: 'mar-5', label: '5' },
+            { key: 'mar-6', label: '6' },
+            { key: 'mar-7', label: '7', type: 'weekend', disabled: true },
+            { key: 'mar-8', label: '8', type: 'weekend', disabled: true },
+            { key: 'mar-9', label: '9' },
+            { key: 'mar-10', label: '10' },
+            { key: 'mar-11', label: '11', disabled: true },
+            { key: 'mar-12', label: '12', disabled: true },
+            { key: 'mar-13', label: '13' },
+            { key: 'mar-14', label: '14', type: 'weekend' },
+            { key: 'mar-15', label: '15', type: 'weekend', disabled: true },
+            { key: 'mar-16', label: '16', disabled: true },
+            { key: 'mar-17', label: '17' },
+            { key: 'mar-18', label: '18' },
+            { key: 'mar-19', label: '19', disabled: true },
+            { key: 'mar-20', label: '20', disabled: true },
+            { key: 'mar-21', label: '21', type: 'weekend' },
+            { key: 'mar-22', label: '22', type: 'weekend' },
+            { key: 'mar-23', label: '23', disabled: true },
+            { key: 'mar-24', label: '24', disabled: true },
+            { key: 'mar-25', label: '25' },
+            { key: 'mar-26', label: '26' },
+            { key: 'mar-27', label: '27', disabled: true },
+            { key: 'mar-28', label: '28', type: 'weekend', disabled: true },
+            { key: 'mar-29', label: '29', type: 'weekend' },
+            { key: 'mar-30', label: '30' },
+            { key: 'mar-31', label: '31', disabled: true },
+            { key: 'next-1', label: '1', disabled: true },
+            { key: 'next-2', label: '2' },
+            { key: 'next-3', label: '3' },
+            { key: 'next-4', label: '4', type: 'weekend', disabled: true },
+            { key: 'next-5', label: '5', type: 'weekend', disabled: true }
+        ].map(function(day) {
+            const selected = day.key === selectedDayKey
+
+            return Object.assign({}, day, {
+                state: selected ? 'selected' : 'default',
+                disabled: day.disabled || (selected && selectedDisabled)
+            })
+        })
+
+    +calendar({
+        className: extraClass,
+        title: 'Март 2026',
+        days: calendarDays
+    })&attributes(attributes)

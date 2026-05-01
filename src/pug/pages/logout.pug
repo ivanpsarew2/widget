@@ -1,0 +1,10 @@
+extends ../layout
+include ../components/logout-sheet
+
+block variables
+    - var page = 'logout'
+    - var bodyClass = 'body-lock'
+
+block content
+    .main.logout-page
+        +logoutSheet()

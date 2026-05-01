@@ -1,0 +1,15 @@
+@use '../vars';
+
+.logout-sheet {
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: 8px 0 24px;
+        text-align: center;
+    }
+
+    &__actions {
+        display: grid;
+        gap: 8px;
+    }
+}

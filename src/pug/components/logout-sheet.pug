@@ -1,0 +1,18 @@
+include ./button
+include ../templates/bottom-sheet
+
+mixin logoutSheet(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const sheetClasses = ['logout-sheet']
+    - if (extraClass) sheetClasses.push(extraClass)
+
+    +bottomSheet({
+        title: false,
+        className: sheetClasses.join(' ')
+    })&attributes(attributes)
+        h1.logout-sheet__title Выйти из личного кабинета?
+
+        .logout-sheet__actions
+            +button({ label: 'Выйти' })
+            +button({ label: 'Отмена', variant: 'secondary' })

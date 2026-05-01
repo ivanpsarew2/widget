@@ -1,0 +1,10 @@
+extends ../layout
+include ../components/login-auth-page
+
+block variables
+    - var page = 'login-step-2-pass'
+
+block content
+    +loginAuthPage({
+        mode: 'password'
+    })

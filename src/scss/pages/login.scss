@@ -96,6 +96,19 @@
         gap: 16px;
     }
 
+    &__intro {
+        @include vars.text(status, 400);
+
+        margin: 0;
+        color: vars.color(text-secondary);
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
     &__consents {
         display: flex;
         flex-direction: column;

@@ -1,61 +1,8 @@
 extends ../layout
-include ../components/button
-include ../components/checkbox
-include ../components/input
-include ../components/item-tab
-include ../components/page-topbar
-include ../components/powered-by
+include ../components/login-auth-page
 
 block variables
     - var page = 'login-step-2'
 
 block content
-    .main.login-page.login-page_step-2
-        .login-page__shell
-            +pageTopbar({
-                className: 'login-page__plain-topbar',
-                title: 'Вход в личный кабинет',
-                href: 'login-step-1.html'
-            })
-
-            +itemTabs({
-                className: 'login-page__tabs',
-                items: [
-                    {
-                        label: 'Вход по коду',
-                        selected: true
-                    },
-                    {
-                        label: 'Вход с паролем'
-                    }
-                ]
-            })
-
-            main.login-page__form-content
-                form.login-page__form
-                    +inputField({
-                        className: 'login-page__phone',
-                        label: 'Телефон*',
-                        placeholder: 'Номер телефона',
-                        name: 'phone',
-                        type: 'tel',
-                        prefix: '+7',
-                        prefixDropdown: true
-                    })
-
-                    .login-page__consents
-                        +checkbox({ className: 'login-page__consent', name: 'agreement', content: true })
-                            span.checkbox__label
-                                | Я соглашаюсь с условиями Пользовательского соглашения ООО «Салон онлайн», даю согласие на 
-                                a.login-page__link(href="#") обработку персональных данных.
-
-                        +checkbox({ className: 'login-page__consent', name: 'marketing', content: true })
-                            span.checkbox__label
-                                | Я соглашаюсь с условиями Пользовательского соглашения ООО «Ромашка», даю согласие на 
-                                a.login-page__link(href="#") обработку персональных данных
-                                |  и получение информационно-рекламных сообщений на телефон и почту.
-
-                +poweredBy({ className: 'login-page__powered' })
-
-            footer.login-page__fixed-footer
-                +button({ label: 'Получить код' })
+    +loginAuthPage()

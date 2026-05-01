@@ -1,0 +1,81 @@
+include ./button
+include ./checkbox
+include ./input
+include ./item-tab
+include ./page-topbar
+include ./powered-by
+
+mixin loginAuthPage(options)
+    - options = options || {}
+    - const mode = options.mode || 'code'
+    - const isPassword = mode === 'password'
+
+    .main.login-page.login-page_step-2
+        .login-page__shell
+            +pageTopbar({
+                className: 'login-page__plain-topbar',
+                title: 'Вход в личный кабинет',
+                href: 'login-step-1.html'
+            })
+
+            +itemTabs({
+                className: 'login-page__tabs',
+                items: [
+                    {
+                        label: 'Вход по коду',
+                        selected: !isPassword,
+                        href: isPassword ? 'login-step-2.html' : null
+                    },
+                    {
+                        label: 'Вход с паролем',
+                        selected: isPassword,
+                        href: isPassword ? null : 'login-step-2-pass.html'
+                    }
+                ]
+            })
+
+            main.login-page__form-content
+                form.login-page__form
+                    if isPassword
+                        p.login-page__intro Если у вас уже есть логин и пароль, введите их ниже
+
+                        .login-page__fields
+                            +inputField({
+                                label: 'Телефон или email*',
+                                placeholder: 'Номер телефона или email',
+                                name: 'login'
+                            })
+
+                            +inputField({
+                                label: 'Пароль*',
+                                placeholder: 'Пароль',
+                                name: 'password',
+                                type: 'password'
+                            })
+                    else
+                        +inputField({
+                            className: 'login-page__phone',
+                            label: 'Телефон*',
+                            placeholder: 'Номер телефона',
+                            name: 'phone',
+                            type: 'tel',
+                            prefix: '+7',
+                            prefixDropdown: true
+                        })
+
+                    .login-page__consents
+                        +checkbox({ className: 'login-page__consent', name: 'agreement', content: true })
+                            span.checkbox__label
+                                | Я соглашаюсь с условиями Пользовательского соглашения ООО «Салон онлайн», даю согласие на 
+                                a.login-page__link(href="#") обработку персональных данных.
+
+                        +checkbox({ className: 'login-page__consent', name: 'marketing', content: true })
+                            span.checkbox__label
+                                | Я соглашаюсь с условиями Пользовательского соглашения ООО «Ромашка», даю согласие на 
+                                a.login-page__link(href="#") обработку персональных данных
+                                |  и получение информационно-рекламных сообщений на телефон и почту.
+
+                +poweredBy({ className: 'login-page__powered' })
+
+            footer.login-page__fixed-footer
+                +button({ label: isPassword ? 'Войти' : 'Получить код' })

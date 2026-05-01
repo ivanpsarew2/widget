@@ -1,0 +1,34 @@
+extends ../layout
+include ../components/otp-input
+include ../components/page-topbar
+include ../components/powered-by
+
+block variables
+    - var page = 'login-step-3'
+
+block content
+    .main.login-page.login-page_step-3
+        .login-page__shell
+            +pageTopbar({
+                className: 'login-page__plain-topbar',
+                title: 'Вход в личный кабинет',
+                href: 'login-step-2.html'
+            })
+
+            main.login-page__sms-content
+                .login-page__sms-header
+                    h1.login-page__sms-title Введите код из SMS
+                    p.login-page__sms-subtitle Отправили на номер +7 (910) 459-27-14
+
+                form.login-page__sms-form
+                    +otpInput({ className: 'login-page__otp' })
+
+                .login-page__sms-actions
+                    p.login-page__sms-help
+                        | Если SMS не пришло вы можете
+                        br
+                        a.login-page__link(href="#") запросить код повторно
+
+                    a.login-page__sms-change.login-page__link(href="login-step-2.html") Изменить номер телефона
+
+                +poweredBy({ className: 'login-page__sms-powered' })

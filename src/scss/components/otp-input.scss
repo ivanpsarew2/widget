@@ -1,0 +1,10 @@
+@use '../vars';
+
+.otp-input {
+    display: flex;
+    gap: 12px;
+
+    &__field {
+        width: 44px;
+    }
+}

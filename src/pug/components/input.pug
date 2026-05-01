@@ -4,10 +4,12 @@ include ../icons/icon-search
 mixin inputField(options)
     - options = options || {}
     - const label = options.label
-    - const placeholder = options.placeholder || 'Placeholder'
+    - const placeholder = options.placeholder !== undefined ? options.placeholder : 'Placeholder'
     - const value = options.value || ''
     - const type = options.type || 'text'
     - const name = options.name
+    - const inputmode = options.inputmode
+    - const maxlength = options.maxlength
     - const prefix = options.prefix
     - const prefixDropdown = Boolean(options.prefixDropdown)
     - const search = Boolean(options.search)
@@ -40,4 +42,4 @@ mixin inputField(options)
                 else
                     span.input-field__prefix
                         span.input-field__prefix-value= prefix
-            input.input-field__control(type=type name=name placeholder=placeholder value=value disabled=disabled)
+            input.input-field__control(type=type name=name placeholder=placeholder value=value disabled=disabled inputmode=inputmode maxlength=maxlength)

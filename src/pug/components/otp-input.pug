@@ -1,0 +1,20 @@
+include ./input
+
+mixin otpInput(options)
+    - options = options || {}
+    - const name = options.name || 'code'
+    - const length = options.length || 4
+    - const extraClass = options.className || ''
+    - const otpClasses = ['otp-input']
+    - if (extraClass) otpClasses.push(extraClass)
+
+    div(class=otpClasses)&attributes(attributes)
+        - for (let index = 1; index <= length; index += 1)
+            +inputField({
+                className: 'otp-input__field',
+                placeholder: '',
+                type: 'text',
+                name: `${name}-${index}`,
+                inputmode: 'numeric',
+                maxlength: 1
+            })

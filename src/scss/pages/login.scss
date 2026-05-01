@@ -73,7 +73,8 @@
         padding: 32px 16px 0;
     }
 
-    &_step-2 {
+    &_step-2,
+    &_step-3 {
         .login-page__shell {
             background-color: vars.color(bg-primary);
         }
@@ -128,5 +129,49 @@
     &__fixed-footer {
         padding: 16px 16px 24px;
         background-color: vars.color(bg-primary);
+    }
+
+    &__sms-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 12px 16px 16px;
+    }
+
+    &__sms-header {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__sms-title {
+        @include vars.text(title, 600);
+
+        margin: 0;
+    }
+
+    &__sms-subtitle {
+        font-weight: 500;
+    }
+
+    &__sms-subtitle,
+    &__sms-help {
+        margin: 0;
+    }
+
+    &__sms-form {
+        margin-top: 36px;
+    }
+
+    &__sms-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 40px;
+    }
+
+    &__sms-powered {
+        margin-top: 40px;
+        margin-bottom: 24px;
     }
 }

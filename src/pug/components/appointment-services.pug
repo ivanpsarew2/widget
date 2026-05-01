@@ -1,3 +1,5 @@
+include ../icons/icon-info
+
 mixin appointmentServices(options)
     - options = options || {}
     - const services = options.services || []
@@ -7,8 +9,15 @@ mixin appointmentServices(options)
 
         .appointment-services__list
             each service in services
-                .appointment-services__service
+                -
+                    const serviceClasses = ['appointment-services__service']
+                    if (service.info) serviceClasses.push('appointment-services__service_has-info')
+
+                div(class=serviceClasses)
                     .appointment-services__service-main
                         .appointment-services__service-title= service.title
                         .appointment-services__service-duration= service.duration
                     .appointment-services__service-price= service.price
+                    if service.info
+                        button.appointment-services__service-info(type="button")
+                            +icon-info('appointment-services__service-info-icon')

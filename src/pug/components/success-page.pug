@@ -1,0 +1,101 @@
+include ./appointment-services
+include ./appointment-status
+include ./button
+include ./info-row
+include ./item-banner
+include ./map-preview
+include ./powered-by
+include ./social-links
+include ./specialist-topbar
+include ../icons/icon-calendar-days
+include ../icons/icon-close
+include ../icons/icon-reschedule
+include ../icons/icon-smiley
+
+mixin successPage(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const pageClasses = ['main', 'success']
+    - if (extraClass) pageClasses.push(extraClass)
+
+    div(class=pageClasses)&attributes(attributes)
+        .success__shell
+            +specialistTopbar({
+                className: 'success__topbar',
+                href: 'contacts.html'
+            })
+
+            main.success__content
+                .success__banners.item-banners
+                    +itemBanner({ className: 'success__banner', label: 'Text banner' })
+                        +icon-smiley('item-banner__slot-icon')
+                    +itemBanner({ className: 'success__banner', label: 'Text banner' })
+                        +icon-smiley('item-banner__slot-icon')
+
+                section.success__status
+                    +appointmentStatus({
+                        label: 'Вы записаны'
+                    })
+
+                    .success__datetime
+                        h1.success__date Четверг, 5 марта
+                        .success__time 10:00 – 12:00
+
+                section.success__actions
+                    .success__action
+                        +button({ variant: 'primary', operation: true })
+                        .success__action-label Записаться еще
+                    .success__action
+                        +button({ variant: 'secondary', operation: true })
+                            +icon-calendar-days('button__icon')
+                        .success__action-label Добавить в календарь
+                    .success__action
+                        +button({ variant: 'secondary', operation: true })
+                            +icon-reschedule('button__icon')
+                        .success__action-label Перенести запись
+                    .success__action
+                        +button({ variant: 'secondary', operation: true })
+                            +icon-close('button__icon')
+                        .success__action-label Отменить запись
+
+                section.success__section
+                    +appointmentServices({ services: [
+                        {
+                            title: 'Женская стрижка (короткие)',
+                            duration: '60 мин',
+                            price: '2 300 – 4 000 ₽',
+                            info: true
+                        },
+                        {
+                            title: 'Женская стрижка (средние)',
+                            duration: '60 мин',
+                            price: '2 500 – 4 000 ₽',
+                            info: true
+                        }
+                    ] })
+
+                section.success__section
+                    h2.success__section-title Контакты
+
+                    .success__contacts
+                        +infoRow({ icon: 'pin', copy: true })
+                            | г. Новоконстантиновск,
+                            br
+                            | м. Метрополитен,
+                            br
+                            | ул. Шарикоподшипниковская,
+                            br
+                            | д. 39, корп. 12
+
+                        +mapPreview()
+
+                        +infoRow({ icon: 'phone', text: '+7 (555) 555-55-55' })
+                        +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
+
+                        +socialLinks()
+
+                footer.success__footer
+                    +poweredBy()
+
+        if block
+            block

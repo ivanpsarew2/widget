@@ -1,0 +1,45 @@
+@use '../vars';
+
+.cancel-appointment-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+        border-radius: 50%;
+        color: vars.color(danger);
+        background-color: vars.color(danger-bg);
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        color: currentColor;
+    }
+
+    &__title {
+        @include vars.text(title-2, 600);
+
+        margin: -4px 0 0;
+        text-align: center;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 8px 0;
+    }
+
+    &__actions {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+    }
+}

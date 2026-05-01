@@ -1,0 +1,29 @@
+include ./button
+include ./info-row
+include ./social-links
+include ../icons/icon-close
+include ../templates/bottom-sheet
+
+mixin cancelAppointmentSheet(options)
+    - options = options || {}
+    - const extraClass = options.className || ''
+    - const sheetClasses = ['cancel-appointment-sheet']
+    - if (extraClass) sheetClasses.push(extraClass)
+
+    +bottomSheet({
+        title: false,
+        className: sheetClasses.join(' ')
+    })&attributes(attributes)
+        .cancel-appointment-sheet__icon-wrap
+            +icon-close('cancel-appointment-sheet__icon')
+
+        h2.cancel-appointment-sheet__title Отменить запись?
+
+        .cancel-appointment-sheet__contacts
+            +infoRow({ icon: 'phone', text: '+7 (555) 555-55-55' })
+            +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
+            +socialLinks()
+
+        .cancel-appointment-sheet__actions
+            +button({ label: 'Отменить запись' })
+            +button({ label: 'Закрыть', variant: 'secondary' })

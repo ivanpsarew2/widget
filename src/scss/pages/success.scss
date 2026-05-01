@@ -75,40 +75,6 @@
         text-align: center;
     }
 
-    &__services {
-        gap: 16px;
-    }
-
-    &__service {
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 8px;
-    }
-
-    &__service-side {
-        display: flex;
-        gap: 4px;
-        align-items: start;
-        white-space: nowrap;
-    }
-
-    &__info {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        padding: 0;
-        border: 0;
-        color: vars.color(text-primary);
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    &__info-icon {
-        width: 24px;
-        height: 24px;
-    }
-
     &__footer {
         padding: 32px 16px 28px;
     }

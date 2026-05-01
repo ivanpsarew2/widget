@@ -14,9 +14,16 @@ include ../icons/icon-smiley
 
 mixin successPage(options)
     - options = options || {}
+    - const mode = options.mode || 'success'
+    - const isCanceled = mode === 'canceled'
     - const extraClass = options.className || ''
     - const pageClasses = ['main', 'success']
+    - if (isCanceled) pageClasses.push('success_canceled')
     - if (extraClass) pageClasses.push(extraClass)
+    - const showActions = options.showActions !== undefined ? options.showActions : !isCanceled
+    - const showServices = options.showServices !== undefined ? options.showServices : !isCanceled
+    - const showBookButton = options.showBookButton !== undefined ? options.showBookButton : isCanceled
+    - const status = options.status || (isCanceled ? { variant: 'danger', label: 'Запись отменена', icon: 'close' } : { label: 'Вы записаны' })
 
     div(class=pageClasses)&attributes(attributes)
         .success__shell
@@ -33,46 +40,49 @@ mixin successPage(options)
                         +icon-smiley('item-banner__slot-icon')
 
                 section.success__status
-                    +appointmentStatus({
-                        label: 'Вы записаны'
-                    })
+                    +appointmentStatus(status)
 
                     .success__datetime
                         h1.success__date Четверг, 5 марта
                         .success__time 10:00 – 12:00
 
-                section.success__actions
-                    .success__action
-                        +button({ variant: 'primary', operation: true })
-                        .success__action-label Записаться еще
-                    .success__action
-                        +button({ variant: 'secondary', operation: true })
-                            +icon-calendar-days('button__icon')
-                        .success__action-label Добавить в календарь
-                    .success__action
-                        +button({ variant: 'secondary', operation: true })
-                            +icon-reschedule('button__icon')
-                        .success__action-label Перенести запись
-                    .success__action
-                        +button({ variant: 'secondary', operation: true })
-                            +icon-close('button__icon')
-                        .success__action-label Отменить запись
+                if showActions
+                    section.success__actions
+                        .success__action
+                            +button({ variant: 'primary', operation: true })
+                            .success__action-label Записаться еще
+                        .success__action
+                            +button({ variant: 'secondary', operation: true })
+                                +icon-calendar-days('button__icon')
+                            .success__action-label Добавить в календарь
+                        .success__action
+                            +button({ variant: 'secondary', operation: true })
+                                +icon-reschedule('button__icon')
+                            .success__action-label Перенести запись
+                        .success__action
+                            +button({ variant: 'secondary', operation: true })
+                                +icon-close('button__icon')
+                            .success__action-label Отменить запись
 
-                section.success__section
-                    +appointmentServices({ services: [
-                        {
-                            title: 'Женская стрижка (короткие)',
-                            duration: '60 мин',
-                            price: '2 300 – 4 000 ₽',
-                            info: true
-                        },
-                        {
-                            title: 'Женская стрижка (средние)',
-                            duration: '60 мин',
-                            price: '2 500 – 4 000 ₽',
-                            info: true
-                        }
-                    ] })
+                if showBookButton
+                    +button({ label: 'Записаться ещё' })
+
+                if showServices
+                    section.success__section
+                        +appointmentServices({ services: [
+                            {
+                                title: 'Женская стрижка (короткие)',
+                                duration: '60 мин',
+                                price: '2 300 – 4 000 ₽',
+                                info: true
+                            },
+                            {
+                                title: 'Женская стрижка (средние)',
+                                duration: '60 мин',
+                                price: '2 500 – 4 000 ₽',
+                                info: true
+                            }
+                        ] })
 
                 section.success__section
                     h2.success__section-title Контакты

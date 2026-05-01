@@ -1,6 +1,13 @@
 @use '../vars';
 
 .success {
+    &_canceled {
+        .success__date,
+        .success__time {
+            color: vars.color(text-third);
+        }
+    }
+
     &__shell {
         background-color: vars.color(bg-primary);
     }

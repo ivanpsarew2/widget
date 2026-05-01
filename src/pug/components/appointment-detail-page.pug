@@ -1,0 +1,103 @@
+include ./action-buttons
+include ./appointment-services
+include ./button
+include ./info-row
+include ./map-preview
+include ./page-topbar
+include ./powered-by
+include ./rating-stars
+include ./social-links
+include ../icons/icon-star
+
+mixin appointmentDetailPage(options)
+    - options = options || {}
+    - const mode = options.mode || 'upcoming'
+    - const isPast = mode === 'past'
+    - const pageTitle = isPast ? 'Прошедшая запись' : 'Предстоящая запись'
+    - const date = isPast ? 'Суббота, 20 сентября 2025, 18:30–19:30' : 'Суббота, 26 сентября 2026, 18:30–19:30'
+
+    .main.appointment-detail-page
+        .appointment-detail-page__shell
+            +pageTopbar({
+                className: 'appointment-detail-page__topbar',
+                title: pageTitle,
+                href: 'appointments.html'
+            })
+
+            main.appointment-detail-page__content
+                section.appointment-detail-page__hero
+                    .appointment-detail-page__avatar-wrap
+                        img.appointment-detail-page__avatar(src="img/avatar.jpg" alt="")
+
+                    .appointment-detail-page__specialist
+                        h1.appointment-detail-page__name Вильгельмина Константинопольская
+                        .appointment-detail-page__qualification Топ-стилист
+                        .appointment-detail-page__rating
+                            +ratingStars({ className: 'appointment-detail-page__stars', rating: 4 })
+                            span.appointment-detail-page__reviews 999 отзывов
+
+                    .appointment-detail-page__date= date
+
+                    +actionButtons({
+                        className: 'appointment-detail-page__actions',
+                        items: isPast ? [
+                            {
+                                label: 'Оставить отзыв',
+                                icon: 'star'
+                            },
+                            {
+                                label: 'Повторить запись',
+                                icon: 'reload'
+                            }
+                        ] : [
+                            {
+                                label: 'Перенести запись',
+                                icon: 'reschedule'
+                            },
+                            {
+                                label: 'Добавить в календарь',
+                                icon: 'calendar'
+                            }
+                        ]
+                    })
+
+                    .appointment-detail-page__tabs
+                        a.appointment-detail-page__tab(href="#contacts") Контакты
+                        a.appointment-detail-page__tab(href="#services") Услуги
+
+                section#services.appointment-detail-page__card
+                    +appointmentServices({
+                        className: 'appointment-detail-page__services',
+                        services: [
+                            {
+                                title: 'Женская стрижка (короткие)',
+                                price: '2 300 – 4 000 ₽',
+                                info: true
+                            },
+                            {
+                                title: 'Вечерняя укладка',
+                                price: '2 000 ₽',
+                                info: true
+                            }
+                        ]
+                    })
+
+                section#contacts.appointment-detail-page__card.appointment-detail-page__contacts
+                    +infoRow({ icon: 'pin', copy: true })
+                        | г. Новоконстантиновск,
+                        br
+                        | м. Метрополитен,
+                        br
+                        | ул. Шарикоподшипниковская,
+                        br
+                        | д. 39, корп. 12
+
+                    +mapPreview()
+
+                    +infoRow({ icon: 'phone', text: '+7 (555) 555-55-55' })
+                    +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
+
+                    +socialLinks()
+
+            footer.appointment-detail-page__footer
+                +poweredBy()

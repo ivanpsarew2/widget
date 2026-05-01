@@ -3,8 +3,11 @@ include ../icons/icon-info
 mixin appointmentServices(options)
     - options = options || {}
     - const services = options.services || []
+    - const extraClass = options.className || ''
+    - const servicesClasses = ['appointment-services']
+    - if (extraClass) servicesClasses.push(extraClass)
 
-    .appointment-services
+    div(class=servicesClasses)&attributes(attributes)
         h2.appointment-services__title Услуги
 
         .appointment-services__list
@@ -16,7 +19,8 @@ mixin appointmentServices(options)
                 div(class=serviceClasses)
                     .appointment-services__service-main
                         .appointment-services__service-title= service.title
-                        .appointment-services__service-duration= service.duration
+                        if service.duration
+                            .appointment-services__service-duration= service.duration
                     .appointment-services__service-price= service.price
                     if service.info
                         button.appointment-services__service-info(type="button")

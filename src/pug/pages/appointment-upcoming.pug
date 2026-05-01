@@ -1,0 +1,8 @@
+extends ../layout
+include ../components/appointment-detail-page
+
+block variables
+    - var page = 'appointment-upcoming'
+
+block content
+    +appointmentDetailPage()

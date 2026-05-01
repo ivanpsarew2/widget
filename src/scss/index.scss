@@ -2,7 +2,9 @@
 @use 'fonts';
 @use 'vars';
 
+@use './components/action-buttons';
 @use './components/button';
+@use './components/appointment-detail-page';
 @use './components/appointment-status';
 @use './components/appointment-details';
 @use './components/appointment-services';

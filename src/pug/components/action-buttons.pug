@@ -1,0 +1,36 @@
+include ./button
+include ../icons/icon-calendar-days
+include ../icons/icon-close
+include ../icons/icon-plus
+include ../icons/icon-reload
+include ../icons/icon-reschedule
+include ../icons/icon-star-outline
+
+mixin actionButtons(options)
+    - options = options || {}
+    - const items = options.items || []
+    - const extraClass = options.className || ''
+    - const actionsClasses = ['action-buttons']
+    - if (extraClass) actionsClasses.push(extraClass)
+
+    div(class=actionsClasses)&attributes(attributes)
+        each item in items
+            .action-buttons__item
+                +button({
+                    variant: item.variant || 'secondary',
+                    operation: true,
+                    href: item.href
+                })
+                    if item.icon === 'calendar'
+                        +icon-calendar-days('button__icon')
+                    else if item.icon === 'close'
+                        +icon-close('button__icon')
+                    else if item.icon === 'reload'
+                        +icon-reload('button__icon')
+                    else if item.icon === 'reschedule'
+                        +icon-reschedule('button__icon')
+                    else if item.icon === 'star'
+                        +icon-star-outline('button__icon')
+                    else
+                        +icon-plus('button__icon button__icon_plus')
+                .action-buttons__label= item.label

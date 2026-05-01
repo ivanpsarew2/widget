@@ -1,0 +1,132 @@
+@use '../vars';
+
+.appointment-detail-page {
+    &__shell {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__topbar {
+        padding: 8px 16px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 48px;
+    }
+
+    &__hero,
+    &__card {
+        background-color: vars.color(bg-primary);
+    }
+
+    &__hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 84px 16px 0;
+        border-radius: 16px;
+    }
+
+    &__avatar-wrap {
+        position: absolute;
+        top: -44px;
+        border-radius: 50%;
+        background-color: vars.color(bg-secondary);
+    }
+
+    &__avatar {
+        display: block;
+        width: 120px;
+        height: 120px;
+        border: 1px solid vars.color(border-light-1);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__specialist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__name {
+        @include vars.text(title, 600);
+
+        margin: 0;
+    }
+
+    &__qualification {
+        @include vars.text(appointment, 400);
+
+        color: vars.color(text-secondary);
+    }
+
+    &__rating {
+        @include vars.text(status, 400);
+
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 4px;
+        color: vars.color(text-secondary);
+    }
+
+    &__stars {
+        .rating-stars__icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__date {
+        @include vars.text(default, 400);
+
+        text-align: center;
+    }
+
+    &__actions {
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    &__tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: calc(100% + 32px);
+        margin-top: 16px;
+        border-top: 1px solid vars.color(border-light-2);
+    }
+
+    &__tab {
+        @include vars.text(status, 400);
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        color: vars.color(text-primary);
+        text-decoration: none;
+
+        & + & {
+            border-left: 1px solid vars.color(border-light-2);
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+        border-radius: 16px 16px 24px;
+    }
+
+    &__footer {
+        padding: 24px 16px;
+    }
+}

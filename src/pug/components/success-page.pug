@@ -1,3 +1,4 @@
+include ./action-buttons
 include ./appointment-services
 include ./appointment-status
 include ./button
@@ -7,9 +8,7 @@ include ./map-preview
 include ./powered-by
 include ./social-links
 include ./specialist-topbar
-include ../icons/icon-calendar-days
 include ../icons/icon-close
-include ../icons/icon-reschedule
 include ../icons/icon-smiley
 
 mixin successPage(options)
@@ -47,22 +46,28 @@ mixin successPage(options)
                         .success__time 10:00 – 12:00
 
                 if showActions
-                    section.success__actions
-                        .success__action
-                            +button({ variant: 'primary', operation: true })
-                            .success__action-label Записаться еще
-                        .success__action
-                            +button({ variant: 'secondary', operation: true })
-                                +icon-calendar-days('button__icon')
-                            .success__action-label Добавить в календарь
-                        .success__action
-                            +button({ variant: 'secondary', operation: true })
-                                +icon-reschedule('button__icon')
-                            .success__action-label Перенести запись
-                        .success__action
-                            +button({ variant: 'secondary', operation: true })
-                                +icon-close('button__icon')
-                            .success__action-label Отменить запись
+                    +actionButtons({
+                        className: 'success__actions',
+                        items: [
+                            {
+                                label: 'Записаться еще',
+                                variant: 'primary',
+                                icon: 'plus'
+                            },
+                            {
+                                label: 'Добавить в календарь',
+                                icon: 'calendar'
+                            },
+                            {
+                                label: 'Перенести запись',
+                                icon: 'reschedule'
+                            },
+                            {
+                                label: 'Отменить запись',
+                                icon: 'close'
+                            }
+                        ]
+                    })
 
                 if showBookButton
                     +button({ label: 'Записаться ещё' })

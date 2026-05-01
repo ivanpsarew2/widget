@@ -1,0 +1,54 @@
+extends ../layout
+include ../components/button
+include ../components/specialist-topbar
+
+block variables
+    - var page = 'bonuses'
+
+block content
+    .main.bonuses
+        .bonuses__shell
+            +specialistTopbar({
+                className: 'bonuses__topbar',
+                href: 'login-step-1.html',
+                avatar: 'img/avatar-logo.png',
+                name: 'Название салона в котором оказывают услуги',
+                title: 'г. Новоконстантиновск, м. Метрополитен'
+            })
+
+            main.bonuses__content
+                h1.bonuses__title Мои бонусы
+
+                section.bonuses__balance
+                    .bonuses__amount 2193
+                    .bonuses__meta
+                        p 1692 бонуса. Срок действия: до 25.09.2026 г.
+                        p 500 бонусов. Срок действия: без ограничений
+
+                section.bonuses__rules
+                    h2.bonuses__section-title Правила программы
+
+                    .bonuses__rule-group
+                        h3.bonuses__rule-title Как начисляются бонусы:
+                        ul.bonuses__list
+                            li За каждый рубль, потраченный в салоне, вы получаете 1 бонус.
+                            li
+                                | Дополнительные бонусы за:
+                                ul
+                                    li Первый визит.
+                                    li День рождения.
+                                    li Приглашение друзей.
+                                    li Отзывы в социальных сетях.
+
+                    .bonuses__rule-group
+                        h3.bonuses__rule-title Как использовать бонусы:
+                        ul.bonuses__list
+                            li 10 бонусов = 1 рубль.
+                            li Оплачивайте бонусами до 20% от суммы чека.
+                            li Используйте бонусы для оплаты любых услуг и товаров салона.
+
+                +button({
+                    label: 'Записаться',
+                    className: 'bonuses__button',
+                    href: 'index.html'
+                })

@@ -1,0 +1,35 @@
+extends ../layout
+include ../components/button
+include ../components/powered-by
+include ../components/specialist-topbar
+include ../icons/icon-caret-right
+include ../icons/icon-translate
+
+block variables
+    - var page = 'login-step-1'
+
+block content
+    .main.login-page
+        .login-page__shell
+            section.login-page__header-card
+                +specialistTopbar({
+                    className: 'login-page__topbar',
+                    href: 'index.html'
+                })
+
+                h1.login-page__title Личный кабинет
+
+            main.login-page__content
+                section.login-page__card
+                    a.login-page__language(href="#")
+                        +icon-translate('login-page__language-icon')
+                        span.login-page__language-label Изменить язык
+                        +icon-caret-right('login-page__language-arrow')
+
+                    +button({
+                        label: 'Войти',
+                        className: 'login-page__button'
+                    })
+
+                footer.login-page__footer
+                    +poweredBy()

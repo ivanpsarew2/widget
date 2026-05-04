@@ -15,11 +15,11 @@ mixin itemService(options)
     - if (extraClass) serviceClasses.push(extraClass)
 
     .item-service(class=serviceClasses)&attributes(attributes)
-        +checkbox({ checked: checked, className: 'item-service__checkbox' })
-        .item-service__content
-            .item-service__title= title
-            .item-service__meta= meta
-            .item-service__price= price
+        +checkbox({ checked: checked, className: 'item-service__checkbox', content: true })
+            span.item-service__content
+                span.item-service__title= title
+                span.item-service__meta= meta
+                span.item-service__price= price
 
 mixin selectedService(options)
     - options = options || {}

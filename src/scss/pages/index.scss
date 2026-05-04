@@ -2,6 +2,8 @@
 
 .index-page {
     --index-header-progress: 0;
+    --index-sticky-header-height: 64px;
+    --index-sticky-chips-height: 56px;
 
     &_collapsed &__hero-card {
         pointer-events: none;
@@ -70,16 +72,22 @@
     }
 
     &__chips {
+        position: sticky;
+        top: var(--index-sticky-header-height);
+        z-index: 150;
         width: 100vw;
-        margin-top: 8px;
-        margin-bottom: 8px;
+        margin-top: 0;
+        margin-bottom: 0;
         margin-left: -16px;
-        padding: 0 16px;
+        padding: 8px 16px;
+        background-color: vars.color(bg-primary);
     }
 
     &__service-group {
         margin: 8px 0;
-        scroll-margin-top: 8px;
+        scroll-margin-top: calc(
+            var(--index-sticky-header-height) + var(--index-sticky-chips-height) + 8px
+        );
     }
 
     &__summary {

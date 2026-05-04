@@ -180,10 +180,104 @@
         updateScrollBg();
     }
 
+    function initAnchorChips() {
+        const chipGroups = Array.from(document.querySelectorAll('.chips'))
+            .map(function getChipGroup(chips) {
+                const items = Array.from(
+                    chips.querySelectorAll('.chip[href^="#"]'),
+                )
+                    .map(function getChipTarget(chip) {
+                        const href = chip.getAttribute('href');
+                        const id = href
+                            ? decodeURIComponent(href.slice(1))
+                            : '';
+                        const target = id ? document.getElementById(id) : null;
+
+                        return target ? { chip, target } : null;
+                    })
+                    .filter(Boolean);
+
+                return items.length > 0
+                    ? { chips, items, activeChip: null }
+                    : null;
+            })
+            .filter(Boolean);
+
+        if (chipGroups.length === 0) {
+            return;
+        }
+
+        let isTicking = false;
+
+        function getElementTop(element) {
+            return element.getBoundingClientRect().top + window.scrollY;
+        }
+
+        function getGroupOffset(group) {
+            const styles = window.getComputedStyle(group.chips);
+            const stickyTop = parseFloat(styles.top) || 0;
+
+            return stickyTop + group.chips.offsetHeight + 8;
+        }
+
+        function setActiveChip(group, activeChip) {
+            if (!activeChip || group.activeChip === activeChip) {
+                return;
+            }
+
+            group.items.forEach(function updateChip(item) {
+                item.chip.classList.toggle(
+                    'chip_selected',
+                    item.chip === activeChip,
+                );
+            });
+
+            activeChip.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center',
+            });
+            group.activeChip = activeChip;
+        }
+
+        function updateAnchorChips() {
+            chipGroups.forEach(function updateChipGroup(group) {
+                const markerTop = window.scrollY + getGroupOffset(group);
+                const activeItem = group.items.reduce(function getActiveItem(
+                    currentItem,
+                    item,
+                ) {
+                    return getElementTop(item.target) <= markerTop
+                        ? item
+                        : currentItem;
+                }, group.items[0]);
+
+                setActiveChip(group, activeItem.chip);
+            });
+            isTicking = false;
+        }
+
+        function requestAnchorChipsUpdate() {
+            if (isTicking) {
+                return;
+            }
+
+            window.requestAnimationFrame(updateAnchorChips);
+            isTicking = true;
+        }
+
+        window.addEventListener('scroll', requestAnchorChipsUpdate, {
+            passive: true,
+        });
+        window.addEventListener('resize', requestAnchorChipsUpdate);
+        updateAnchorChips();
+    }
+
     function init() {
         initPhotoSliders();
         initIndexHeader();
         initScrollBgPages();
+        initAnchorChips();
     }
 
     document.addEventListener('DOMContentLoaded', init);

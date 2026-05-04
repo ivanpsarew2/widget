@@ -1,6 +1,8 @@
 @use '../vars';
 
 .appointment-detail-page {
+    --appointment-topbar-bg-progress: 0;
+
     &__shell {
         display: flex;
         flex-direction: column;
@@ -8,6 +10,11 @@
 
     &__topbar {
         padding: 8px 16px;
+    }
+
+    &_upcoming &__topbar,
+    &_past &__topbar {
+        background-color: rgba(vars.$palette-white, var(--appointment-topbar-bg-progress));
     }
 
     &__content {

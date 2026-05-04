@@ -15,8 +15,11 @@ mixin appointmentDetailPage(options)
     - const isPast = mode === 'past'
     - const pageTitle = isPast ? 'Прошедшая запись' : 'Предстоящая запись'
     - const date = isPast ? 'Суббота, 20 сентября 2025, 18:30–19:30' : 'Суббота, 26 сентября 2026, 18:30–19:30'
+    - const pageClasses = ['main', 'appointment-detail-page']
+    - pageClasses.push(isPast ? 'appointment-detail-page_past' : 'appointment-detail-page_upcoming')
+    - pageClasses.push('js-scroll-bg-page')
 
-    .main.appointment-detail-page
+    div(class=pageClasses)
         .appointment-detail-page__shell
             +pageTopbar({
                 className: 'appointment-detail-page__topbar',

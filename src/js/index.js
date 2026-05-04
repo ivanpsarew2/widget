@@ -136,9 +136,54 @@
         updateIndexHeader();
     }
 
+    function initScrollBgPages() {
+        const pages = document.querySelectorAll('.js-scroll-bg-page');
+
+        if (pages.length === 0) {
+            return;
+        }
+
+        let isTicking = false;
+        const fadeDistance = 120;
+
+        function updateScrollBg() {
+            const progress = Math.max(
+                0,
+                Math.min(window.scrollY / fadeDistance, 1),
+            );
+
+            pages.forEach(function updatePage(page) {
+                page.style.setProperty(
+                    '--appointment-topbar-bg-progress',
+                    progress.toFixed(3),
+                );
+                page.classList.toggle(
+                    'appointment-detail-page_scrolled',
+                    progress > 0.95,
+                );
+            });
+            isTicking = false;
+        }
+
+        function requestScrollBgUpdate() {
+            if (isTicking) {
+                return;
+            }
+
+            window.requestAnimationFrame(updateScrollBg);
+            isTicking = true;
+        }
+
+        window.addEventListener('scroll', requestScrollBgUpdate, {
+            passive: true,
+        });
+        updateScrollBg();
+    }
+
     function init() {
         initPhotoSliders();
         initIndexHeader();
+        initScrollBgPages();
     }
 
     document.addEventListener('DOMContentLoaded', init);

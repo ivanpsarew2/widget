@@ -72,11 +72,11 @@ mixin successPage(options)
                     })
 
                 if showBookButton
-                    +button({ label: 'Записаться ещё' })
+                    +button({ className: 'success__top-button', label: 'Записаться ещё' })
 
                 if showServices
                     section.success__section
-                        +appointmentServices({ services: [
+                        +appointmentServices({ className: 'success__section-appointment', services: [
                             {
                                 title: 'Женская стрижка (короткие)',
                                 duration: '60 мин',

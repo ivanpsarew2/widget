@@ -6,8 +6,10 @@ mixin itemBanner(options)
     - const href = options.href
     - const type = options.type || 'button'
     - const extraClass = options.className || ''
+    - const color = options.color || ''
     - const bannerClasses = ['item-banner']
     - if (extraClass) bannerClasses.push(extraClass)
+    - if (color) bannerClasses.push('item-banner_color-' + color)
 
     if href
         a(class=bannerClasses href=href)&attributes(attributes)

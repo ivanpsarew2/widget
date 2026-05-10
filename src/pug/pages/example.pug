@@ -244,8 +244,9 @@ block content
 
             .example-section__banners
                 .item-banners
-                    +itemBanner({ label: 'Text banner' })
-                        +icon-smiley('item-banner__slot-icon')
+                    each color in ['1', '2', '3', '4', '5', '6']
+                        +itemBanner({ label: 'Text banner', color: color })
+                            +icon-smiley('item-banner__slot-icon')
 
         section.example-section
             h2.example-section__title Item Service

@@ -25,6 +25,7 @@ mixin successPage(options)
     - const showBookButton = options.showBookButton !== undefined ? options.showBookButton : isCanceled
     - const showBonus = Boolean(options.showBonus)
     - const status = options.status || (isCanceled ? { variant: 'danger', label: 'Запись отменена', icon: 'close' } : { label: 'Вы записаны' })
+    - const bannerItems = ['1', '2', '3', '4', '5', '6'].map((color) => ({ className: 'success__banner', label: 'Text banner', color: color }))
 
     div(class=pageClasses)&attributes(attributes)
         .success__shell
@@ -35,10 +36,9 @@ mixin successPage(options)
 
             main.success__content
                 .success__banners.item-banners
-                    +itemBanner({ className: 'success__banner', label: 'Text banner' })
-                        +icon-smiley('item-banner__slot-icon')
-                    +itemBanner({ className: 'success__banner', label: 'Text banner' })
-                        +icon-smiley('item-banner__slot-icon')
+                    each banner in bannerItems
+                        +itemBanner(banner)
+                            +icon-smiley('item-banner__slot-icon')
 
                 section.success__status
                     +appointmentStatus(status)

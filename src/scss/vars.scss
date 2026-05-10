@@ -26,6 +26,12 @@ $palette-accent-hover: #0c561a;
 $palette-accent-selected: #041d09;
 $palette-link: #1a6be6;
 $palette-link-hover: #0f4fb3;
+$palette-banner-bg-1: #fdfae8;
+$palette-banner-bg-2: #f9edf0;
+$palette-banner-bg-3: #edf4fb;
+$palette-banner-bg-4: #f6edf8;
+$palette-banner-bg-5: #e7fff4;
+$palette-banner-bg-6: #fff0e9;
 
 $color-text-primary: $palette-text;
 $color-text-secondary: rgba($palette-text, 0.8);
@@ -57,6 +63,12 @@ $color-accent-selected: $palette-accent-selected;
 $color-accent-bg: rgba($palette-success, 0.16);
 $color-link: $palette-link;
 $color-link-hover: $palette-link-hover;
+$color-banner-bg-1: $palette-banner-bg-1;
+$color-banner-bg-2: $palette-banner-bg-2;
+$color-banner-bg-3: $palette-banner-bg-3;
+$color-banner-bg-4: $palette-banner-bg-4;
+$color-banner-bg-5: $palette-banner-bg-5;
+$color-banner-bg-6: $palette-banner-bg-6;
 
 @function color-token($light, $dark: null) {
     @return (light: $light, dark: $dark);
@@ -93,6 +105,12 @@ $colors: (
     accent-bg: color-token($color-accent-bg),
     link: color-token($color-link),
     link-hover: color-token($color-link-hover),
+    banner-bg-1: color-token($color-banner-bg-1),
+    banner-bg-2: color-token($color-banner-bg-2),
+    banner-bg-3: color-token($color-banner-bg-3),
+    banner-bg-4: color-token($color-banner-bg-4),
+    banner-bg-5: color-token($color-banner-bg-5),
+    banner-bg-6: color-token($color-banner-bg-6),
 );
 
 @function color($style, $theme: light) {

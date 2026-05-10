@@ -30,8 +30,32 @@
     color: vars.color(text-primary);
     text-align: left;
     text-decoration: none;
-    background-color: vars.color(success-bg);
+    background-color: vars.color(banner-bg-1);
     cursor: pointer;
+
+    &_color-1 {
+        background-color: vars.color(banner-bg-1);
+    }
+
+    &_color-2 {
+        background-color: vars.color(banner-bg-2);
+    }
+
+    &_color-3 {
+        background-color: vars.color(banner-bg-3);
+    }
+
+    &_color-4 {
+        background-color: vars.color(banner-bg-4);
+    }
+
+    &_color-5 {
+        background-color: vars.color(banner-bg-5);
+    }
+
+    &_color-6 {
+        background-color: vars.color(banner-bg-6);
+    }
 
     &__icon {
         width: 32px;

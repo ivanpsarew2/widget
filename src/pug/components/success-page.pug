@@ -2,13 +2,13 @@ include ./action-buttons
 include ./appointment-services
 include ./appointment-status
 include ./button
-include ./checkbox
 include ./info-row
 include ./item-banner
 include ./map-preview
 include ./powered-by
 include ./social-links
 include ./specialist-topbar
+include ../icons/icon-check
 include ../icons/icon-close
 include ../icons/icon-smiley
 
@@ -112,10 +112,16 @@ mixin successPage(options)
                         +socialLinks()
 
                 if showBonus
-                    section.success__bonus
-                        +checkbox({ name: 'bonuses', checked: true, content: true })
-                            span Вам зачислили бонусы за запись
-                        +button({ label: 'Забрать', variant: 'link' })
+                    button.success__bonus(type="button")
+                        span.checkbox.checkbox_text.success__bonus-checkbox
+                            span.checkbox__box-wrapper
+                                span.checkbox__box
+                                    +icon-check('checkbox__icon')
+                            span.checkbox__content
+                                span Вам зачислили бонусы за запись
+
+                        span.button.button_link
+                            span.button__label Забрать
 
                 footer.success__footer
                     +poweredBy()

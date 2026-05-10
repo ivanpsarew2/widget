@@ -2,6 +2,7 @@ include ./action-buttons
 include ./appointment-services
 include ./appointment-status
 include ./button
+include ./checkbox
 include ./info-row
 include ./item-banner
 include ./map-preview
@@ -22,6 +23,7 @@ mixin successPage(options)
     - const showActions = options.showActions !== undefined ? options.showActions : !isCanceled
     - const showServices = options.showServices !== undefined ? options.showServices : !isCanceled
     - const showBookButton = options.showBookButton !== undefined ? options.showBookButton : isCanceled
+    - const showBonus = Boolean(options.showBonus)
     - const status = options.status || (isCanceled ? { variant: 'danger', label: 'Запись отменена', icon: 'close' } : { label: 'Вы записаны' })
 
     div(class=pageClasses)&attributes(attributes)
@@ -108,6 +110,12 @@ mixin successPage(options)
                         +infoRow({ icon: 'globe', text: 'beautysalon.ru' })
 
                         +socialLinks()
+
+                if showBonus
+                    section.success__bonus
+                        +checkbox({ name: 'bonuses', checked: true, content: true })
+                            span Вам зачислили бонусы за запись
+                        +button({ label: 'Забрать', variant: 'link' })
 
                 footer.success__footer
                     +poweredBy()

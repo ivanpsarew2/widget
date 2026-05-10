@@ -25,6 +25,7 @@ $palette-accent-invert: #72bc80;
 $palette-accent-hover: #0c561a;
 $palette-accent-selected: #041d09;
 $palette-link: #1a6be6;
+$palette-link-hover: #0f4fb3;
 
 $color-text-primary: $palette-text;
 $color-text-secondary: rgba($palette-text, 0.8);
@@ -55,6 +56,7 @@ $color-accent-hover: $palette-accent-hover;
 $color-accent-selected: $palette-accent-selected;
 $color-accent-bg: rgba($palette-success, 0.16);
 $color-link: $palette-link;
+$color-link-hover: $palette-link-hover;
 
 @function color-token($light, $dark: null) {
     @return (light: $light, dark: $dark);
@@ -90,6 +92,7 @@ $colors: (
     accent-selected: color-token($color-accent-selected),
     accent-bg: color-token($color-accent-bg),
     link: color-token($color-link),
+    link-hover: color-token($color-link-hover),
 );
 
 @function color($style, $theme: light) {

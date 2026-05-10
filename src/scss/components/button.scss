@@ -59,6 +59,15 @@
         }
     }
 
+    &_link {
+        background-color: vars.color(link);
+
+        &:hover,
+        &.button_active {
+            background-color: vars.color(link-hover);
+        }
+    }
+
     &_operation {
         width: 48px;
         height: 48px;

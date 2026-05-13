@@ -36,10 +36,14 @@
     }
 
     &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
         flex-wrap: wrap;
     }
 
     &__item {
         min-width: 76px;
+        width: 100%;
+        min-width: 0;
     }
 }

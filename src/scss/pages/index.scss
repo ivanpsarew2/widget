@@ -86,7 +86,8 @@
     &__service-group {
         margin: 8px 0;
         scroll-margin-top: calc(
-            var(--index-sticky-header-height) + var(--index-sticky-chips-height) + 8px
+            var(--index-sticky-header-height) +
+                var(--index-sticky-chips-height) + 8px
         );
     }
 
@@ -95,7 +96,7 @@
         right: 50%;
         bottom: 0;
         z-index: 250;
-        width: min(100%, 360px);
+        width: 100%;
         transform: translateX(50%);
     }
 
@@ -110,6 +111,6 @@
     }
 
     &__sheet {
-        width: min(100%, 360px);
+        width: 100%;
     }
 }

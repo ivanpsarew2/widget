@@ -6,8 +6,8 @@
     gap: 16px;
     padding: 16px 16px 24px;
     color: vars.color(text-primary);
-    background-color: vars.color(bg-panel);
-    backdrop-filter: blur(4px);
+    background-color: vars.color(bg-primary);
+    box-shadow: 0 0 64px 0 rgba(0, 0, 0, 0.32);
 
     &__details {
         display: grid;

@@ -2,6 +2,7 @@
 
 .specialist {
     &__shell {
+        min-height: 100dvh;
         background-color: vars.color(bg-primary);
     }
 

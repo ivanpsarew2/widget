@@ -4,6 +4,7 @@
     &__shell {
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
         background-color: vars.color(bg-primary);
     }
 
@@ -16,7 +17,7 @@
         flex: 1;
         flex-direction: column;
         gap: 16px;
-        padding: 12px 16px;
+        padding: 12px 16px 104px;
     }
 
     &__title {
@@ -107,5 +108,14 @@
                 content: '';
             }
         }
+    }
+
+    &__button {
+        position: fixed;
+        right: 50%;
+        bottom: 24px;
+        z-index: 10;
+        width: calc(100% - 32px);
+        transform: translateX(50%);
     }
 }

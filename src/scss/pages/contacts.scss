@@ -1,6 +1,10 @@
 @use '../vars';
 
 .contacts {
+    &__shell {
+        min-height: 100vh;
+    }
+
     &__topbar {
         padding: 8px 0;
         background-color: vars.color(bg-primary);
@@ -10,6 +14,7 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
+        padding-bottom: 88px;
     }
 
     &__card {
@@ -100,7 +105,13 @@
     }
 
     &__submit {
+        position: fixed;
+        right: 50%;
+        bottom: 24px;
+        z-index: 10;
+        width: calc(100% - 32px);
         border-radius: 16px;
+        transform: translateX(50%);
     }
 
     &__agreement {

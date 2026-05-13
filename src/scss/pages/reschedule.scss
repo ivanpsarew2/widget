@@ -2,6 +2,7 @@
 
 .reschedule {
     &__shell {
+        min-height: 100dvh;
         display: flex;
         flex-direction: column;
         background-color: vars.color(bg-primary);

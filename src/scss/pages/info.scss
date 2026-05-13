@@ -2,6 +2,8 @@
 
 .info-page {
     &__shell {
+        min-height: 100vh;
+        padding-bottom: 88px;
         background-color: vars.color(bg-primary);
     }
 
@@ -183,5 +185,14 @@
         display: block;
         width: 79px;
         height: 18px;
+    }
+
+    &__submit {
+        position: fixed;
+        right: 50%;
+        bottom: 24px;
+        z-index: 10;
+        width: calc(100% - 32px);
+        transform: translateX(50%);
     }
 }
